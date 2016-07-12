@@ -8,10 +8,9 @@ gulp.task('styleguide:generate', function() {
   return gulp.src('worten-styleguide/scss/**/*.scss')
     .pipe(styleguide.generate({
         title: 'Worten Styleguide',
-        server: true,
         rootPath: outputPath,
         commonClass: 'w-common-styles',
-        appRoot: 'worten-styleguide/styleguide',
+        appRoot: '/worten-styleguide/styleguide',
         overviewPath: 'worten-styleguide/overview.md'
       }))
     .pipe(gulp.dest(outputPath));
