@@ -11,6 +11,7 @@ gulp.task('styleguide:generate', function() {
         server: true,
         rootPath: outputPath,
         commonClass: 'w-common-styles',
+        appRoot: 'worten-styleguide/styleguide',
         overviewPath: 'worten-styleguide/overview.md'
       }))
     .pipe(gulp.dest(outputPath));
