@@ -1,0 +1,27 @@
+// partial/_button.scss
+// Button
+//
+// スタンダードなボタンです.
+//
+// :hover - ホバーすると色が変わるよ.
+//
+// Markup:
+// <button class="button">My Button</button>
+//
+// Styleguide 1.0.0
+.button {
+	color: red;
+}
+
+// partial/_dropdowns.scss
+// Dropdown
+//
+// Markup:
+// <div class="w-dropdown">Hello World</div>
+//
+// Styleguide 1.1.0
+.w-dropdown {
+  @include dropdown-container();
+  @include w-box($secondary-color, 0, 0, 5px, rgba($medium-gray, .5));
+  color: green;
+}

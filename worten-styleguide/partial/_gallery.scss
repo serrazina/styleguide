@@ -1,0 +1,120 @@
+// --------------------------
+// Product Gallery Component
+// --------------------------
+.w-product-gallery {
+    margin-top: $global-margin;
+    position: relative;
+
+    @include breakpoint(medium) {
+        margin-top: 0;
+    }
+
+    .w-product-gallery__wrapper {
+        @include grid-row(12);
+    }
+
+    .zoomContainer {
+        @include show-for(large);
+    }
+
+    .w-product-gallery__main_image {
+        margin-bottom: $global-margin;
+
+        @include breakpoint(medium) {
+            margin-bottom: 0;
+        }
+
+        .w-product-gallery__main_image__pic {
+            max-height: 362px;
+            width: auto;
+        }
+    }
+
+    .w-product-gallery__thumbnails {
+        margin-bottom: $global-margin;
+        text-align: center;
+
+        @include breakpoint(large) {
+            height: 283px;
+            margin-bottom: 30px;
+            margin-top: 30px;
+        }
+
+        a {
+            display: block;
+        }
+
+        img {
+            border: 1px solid $light-gray;
+        }
+
+        .zoomGalleryActive {
+            img {
+                border: 1px solid $primary-color;
+            }
+        }
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        @include show-for(large);
+
+        @include breakpoint(large) {
+            left: 21px;
+            transform: rotate(90deg);
+        }
+    }
+
+    .swiper-button-next {
+        bottom: -10px;
+        top: auto;
+    }
+
+    .swiper-button-prev {
+        top: 10px;
+    }
+}
+
+// -------------------------
+// Product Gallery No Swiper
+// -------------------------
+.swiper__off {
+    @include breakpoint(large) {
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+
+    .swiper-wrapper {
+        @include breakpoint(large) {
+            flex-direction: column;
+        }
+    }
+
+    .swiper-slide {
+        margin-right: 15px;
+        width: 53.8px;
+
+        @include breakpoint(large) {
+            max-height: 56px;
+        }
+    }
+}
+
+// ----------------------------------------
+// Special Column Organization For Gallery
+// ----------------------------------------
+@include breakpoint(large) {
+    .w-product-gallery {
+        @include grid-row(17) {
+            .w-product-gallery__main_image {
+                @include grid-column(15, 0);
+                @include grid-col-pos(2);
+            }
+
+            .w-product-gallery__thumbnails {
+                @include grid-column(2);
+                @include grid-col-pos(-15);
+            }
+        }
+    }
+}

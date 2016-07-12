@@ -1,0 +1,120 @@
+// ----------------
+// Typography
+// ----------------
+
+// Import Rubik Files
+@font-face {
+  font-family: 'Rubik';
+  src: url('../fonts/rubik-regular-webfont.woff2') format('woff2'), /*browsers that support it*/
+  url('../fonts/rubik-regular-webfont.woff') format('woff'), /*for modern browsers*/
+  url('../fonts/rubik-regular-webfont.ttf') format('ttf'); /* TTF variant to old Android (below 4.4) browsers*/
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('../fonts/rubik-light-webfont.woff2') format('woff2'), /*browsers that support it*/
+  url('../fonts/rubik-light-webfont.woff') format('woff'), /*for modern browsers*/
+  url('../fonts/rubik-light-webfont.ttf') format('ttf'); /* TTF variant to old Android (below 4.4) browsers*/
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('../fonts/rubik-medium-webfont.woff2') format('woff2'), /*browsers that support it*/
+  url('../fonts/rubik-medium-webfont.woff') format('woff'), /*for modern browsers*/
+  url('../fonts/rubik-medium-webfont.ttf') format('ttf'); /* TTF variant to old Android (below 4.4) browsers*/
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('../fonts/rubik-bold-webfont.woff2') format('woff2'), /*browsers that support it*/
+  url('../fonts/rubik-bold-webfont.woff') format('woff'), /*for modern browsers*/
+  url('../fonts/rubik-bold-webfont.ttf') format('ttf'); /* TTF variant to old Android (below 4.4) browsers*/
+  font-weight: 700;
+}
+
+// --------------------------
+// Text Block Styles
+// --------------------------
+.w-text-block {
+
+  h1 {
+    @include font-size(3);
+  }
+
+  h2 {
+    @include font-size(2.8);
+  }
+
+  h3 {
+    @include font-size(2.4);
+  }
+
+  h4 {
+    @include font-size(2);
+  }
+
+  h5 {
+    @include font-size(1.6);
+  }
+
+  h6 {
+    @include font-size(1.4);
+  }
+
+  p {
+    @include font-size(1.4);
+    color: $dark-gray;
+  }
+
+  hr {
+    border-color: $light-gray;
+  }
+
+  .w-text-block__excerpt {
+    @include font-size(2.2);
+    color: $black;
+  }
+
+  .w-text-block__published {
+    display: block;
+  }
+}
+
+.w-text-big {
+  @include font-size(3.4);
+}
+
+// Address Tag
+address {
+  font-weight: $global-weight-thin;
+}
+
+// --------------------------
+// Styles for Text
+// --------------------------
+.w-text-primary {
+  color: $primary-color;
+}
+
+.w-align-left {
+  text-align: left;
+}
+
+.w-align-right {
+  text-align: right;
+}
+
+// -----
+// Links
+// -----
+%link-gray {
+    color: $medium-gray;
+
+    &:hover {
+        color: $primary-color;
+    }
+}

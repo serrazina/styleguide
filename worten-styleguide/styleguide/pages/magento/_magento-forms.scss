@@ -1,0 +1,123 @@
+// --------------------------
+// Magento Checkout :: Forms
+// --------------------------
+.mg-pg {
+    input[type="checkbox"],
+    input[type="radio"] {
+        display: none;
+    }
+
+    input[type="checkbox"] + label,
+    input[type="radio"] + label {
+        &:before {
+            @include font-size(2);
+            color: $light-gray;
+            font-family: "worten-icons";
+            line-height: 1;
+            margin-right: ($global-margin / 3);
+            vertical-align: middle;
+        }
+    }
+
+    input[type="checkbox"]:checked + label,
+    input[type="radio"]:checked + label {
+        &:before {
+            color: $primary-color;
+        }
+    }
+
+    input[type="checkbox"] + label {
+        &:before {
+            content: "\e835";
+        }
+    }
+
+    input[type="checkbox"]:checked + label {
+        &:before {
+            content: "\e834";
+        }
+    }
+
+    input[type="radio"] + label {
+        &:before {
+            content: "\e836";
+        }
+    }
+
+    input[type="radio"]:checked + label {
+        &:before {
+            content: "\e837";
+        }
+    }
+
+    .check-label,
+    .cc-check-label {
+        text-transform: inherit;
+    }
+
+    [type='file'],
+    [type='checkbox'],
+    [type='radio'] {
+        margin-bottom: ($global-margin / 2);
+    }
+
+    .billing-country {
+        background-color: $light-gray;
+        color: $medium-gray;
+        height: 41px;
+        line-height: 41px;
+        margin-bottom: $global-margin;
+        text-indent: 7px;
+    }
+
+    // Submit Buttons
+    .buttons-set {
+        margin-top: $global-margin;
+
+        //Tablet
+        @include breakpoint(medium) {
+            @include grid-column(12);
+        }
+
+        .back-link {
+            display: none;
+        }
+
+        .button {
+            float: right;
+            padding-left: ($global-padding * 3);
+            padding-right: ($global-padding * 3);
+            width: 100%;
+
+            //Tablet
+            @include breakpoint(medium) {
+                width: auto;
+            }
+        }
+
+        .required {
+            margin-top: $global-margin;
+        }
+    }
+
+    // LABEL
+    .required em {
+        font-style: normal;
+        margin-right: ($global-margin / 4);
+    }
+
+    .validation-advice {
+        @include font-size(1.2);
+        margin-bottom: ($global-margin / 2);
+    }
+
+    .validation-failed {
+        border-color: $primary-color;
+        margin-bottom: ($global-margin / 2);
+    }
+
+    .validation-advice,
+    .validation-advice-duplicate {
+        color: $primary-color;
+    }
+}

@@ -1,0 +1,12 @@
+// -------------
+// Sidebar Block
+// -------------
+.w-sidebar {
+    .w-sidebar__banner {
+        @include show-for(medium);
+    }
+}
+
+.no-js .w-sidebar__banner {
+	display: none;
+}

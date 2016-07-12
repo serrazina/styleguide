@@ -1,0 +1,359 @@
+// ---------------------
+// Footer Layout
+// ---------------------
+.w-footer {
+    clear: both;
+    margin-top: ($global-margin * 2);
+
+    // --------------------------------------------------
+    // Footer Layout :: Top Bar (just visible in desktop)
+    // --------------------------------------------------
+    .w-footer__top {
+        background-color: $primary-color;
+        color: $white;
+        padding: $global-padding;
+    }
+
+    .w-footer-top__bar {
+        @include grid-row(12);
+    }
+
+    .w-footer-top__bar__column {
+        @include grid-column(12);
+    }
+
+    .w-footer__logo {
+        @include hide-text;
+        background-image: url(../img/w-logo-worten.svg);
+        background-size: 91px 20px;
+        display: block;
+        height: 20px;
+        margin-bottom: 0;
+        width: 91px;
+    }
+}
+
+
+// ----------------------------------------------------
+// Footer Layout :: Footer Menu (accordeon for Mobile)
+// ----------------------------------------------------
+.w-footer__menu {
+    .menu {
+        @include grid-row(15);
+
+        .w-footer__submenu {
+            @include grid-column(15);
+        }
+
+        @include breakpoint(medium) {
+            @include grid-row(13) {
+                .w-footer__submenu {
+                    @include grid-column(3);
+
+                    a {
+                        border: 0;
+                    }
+                }
+
+                .w-social-menu {
+                    @include grid-column(4);
+
+                    li:nth-child(3n) {
+                        @include breakpoint(large) {
+                            margin-right: 0;
+                        }
+                    }
+                }
+
+                .w-contactUs-menu {
+                    @include grid-column(13);
+                }
+            }
+        }
+
+        @include breakpoint(large) {
+            @include grid-row(17) {
+                .w-footer__submenu {
+                    @include grid-column(3);
+                }
+
+                .w-social-menu,
+                .w-contactUs-menu {
+                    @include grid-column(4);
+                }
+            }
+        }
+    }
+
+    .menu > li > a {
+        padding-bottom: ($global-padding * .9);
+        padding-top: ($global-padding * .9);
+
+        @include breakpoint(medium) {
+            padding: ($global-padding * .7) 0;
+        }
+
+        @include breakpoint(large) {
+            padding: ($global-padding * .5) 0;
+        }
+    }
+
+
+    .w-footer__submenu a {
+        @include font-size(1.2);
+        border-top: 1px solid $light-gray;
+        color: $black;
+        font-weight: $global-weight-bold;
+        text-transform: uppercase;
+    }
+
+    .w-submenu a {
+        border: 0;
+        color: $dark-gray;
+        font-weight: $global-weight-normal;
+        text-transform: inherit;
+    }
+}
+
+// ----------------------------
+// Footer Layout :: Box Opinion
+// ----------------------------
+.w-opinion-box {
+    position: relative;
+
+    &:after {
+        @include font-size(5);
+        color: $light-gray;
+        content: '\f086';
+        font-family: 'worten-icons';
+        line-height: 1;
+        position: absolute;
+        right: $global-margin;
+        top: 0;
+    }
+
+    h3 {
+        @include font-size(2.1);
+        color: $primary-color;
+        width: 85%;
+    }
+
+    p {
+        @include font-size(1.2);
+    }
+
+    a {
+        text-decoration: underline;
+    }
+}
+
+// ------------------------------------------
+// Footer Layout :: Overwrite Accordion Menu
+// ------------------------------------------
+.is-accordion-submenu-parent > a {
+    position: relative;
+
+    &::after {
+        color: $primary-color;
+        content: '\e145';
+        font-family: 'worten-icons';
+        position: absolute;
+        top: 50%;
+        margin-top: -4px;
+        right: 1rem;
+    }
+}
+
+.is-accordion-submenu-parent[aria-expanded='true'] > a::after {
+    content: '\e15b';
+}
+
+// ------------------------------
+// Footer Layout :: Footer Bottom
+// ------------------------------
+.w-footer__bottom {
+    @include grid-row(12);
+    @include font-size(1.2);
+    color: $dark-gray;
+
+    @include breakpoint(medium) {
+        border-top: 1px solid $light-gray;
+        margin-top: $global-margin;
+        padding-top: $global-padding;
+    }
+
+    a {
+        color: $dark-gray;
+        font-weight: $global-weight-bold;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+}
+// ----------------------
+// Footer Layout :: Terms
+// ----------------------
+.w-footer__bottom__terms {
+    @include grid-column(12);
+    margin-top: $global-margin;
+
+    @include breakpoint(medium) {
+        margin-bottom: $global-margin;
+        margin-top: 0;
+    }
+
+    @include breakpoint(large) {
+        margin-bottom: 0;
+    }
+
+    ul {
+        margin-bottom: $global-margin;
+    }
+
+    li {
+        display: inline-block;
+
+        &:after {
+            content: "|";
+            padding: 0 ($global-padding / 2);
+        }
+
+        &:last-child:after {
+            content: "";
+            padding: 0;
+        }
+    }
+}
+
+// --------------------------------
+// Footer Layout :: Payment Methods
+// --------------------------------
+.w-footer__bottom__payment {
+    @include grid-column(8);
+    @include grid-col-pos(4);
+
+    h3 {
+        @include font-size(1.2);
+        color: $black;
+        font-weight: $global-weight-bold;
+        text-transform: uppercase;
+    }
+
+    li {
+        display: inline-block;
+        margin-bottom: 11px;
+        margin-right: 7px;
+
+        @include breakpoint(medium) {
+            margin-bottom: 5px;
+            margin-right: 4px;
+        }
+
+        @include breakpoint(medium only) {
+            float: none;
+        }
+
+        &:nth-child(3n+4) {
+            clear: left;
+        }
+    }
+
+    span {
+        @include hide-text;
+        background: url(../img/w-logo-payment-methods.png) no-repeat 0 0;
+        display: block;
+        height: 31px;
+        width: 52px;
+
+        &.w-footer__bottom__payment__visa {
+            background-position: 0 0;
+        }
+
+        &.w-footer__bottom__payment__mastercard {
+            background-position: -59px 0;
+        }
+
+        &.w-footer__bottom__payment__mb {
+            background-position: -118px 0;
+        }
+
+        &.w-footer__bottom__payment__worten {
+            background-position: 0 -42px;
+        }
+
+        &.w-footer__bottom__payment__paypal {
+            background-position: -59px -42px;
+        }
+
+        &.w-footer__bottom__payment__universo {
+            background-position: -118px -42px;
+        }
+    }
+}
+
+// -------------------------
+// Footer Layout :: Security
+// -------------------------
+.w-footer__bottom__security {
+    @include grid-column(4);
+    @include grid-col-pos(-8);
+
+    @include breakpoint(medium) {
+        text-align: right;
+    }
+
+    li {
+        display: inline-block;
+        margin-right: 7px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+// -----------------------
+// Footer Bottom :: Layout
+// -----------------------
+.w-footer__bottom {
+    @include breakpoint(medium) {
+        @include grid-row(12);
+    }
+
+    @include breakpoint(large) {
+        @include grid-row(17);
+    }
+
+    .w-footer__bottom__terms {
+        @include breakpoint(large) {
+            @include grid-column(9);
+        }
+    }
+
+    .w-footer__bottom__security {
+        @include breakpoint(medium) {
+            @include grid-column(5);
+            @include grid-column-end;
+            @include grid-col-unpos;
+        }
+
+        @include breakpoint(large) {
+            @include grid-column(4);
+            @include grid-col-off(1);
+        }
+    }
+
+    .w-footer__bottom__payment {
+        @include breakpoint(medium) {
+            @include grid-column(7);
+            @include grid-col-unpos;
+        }
+
+        @include breakpoint(large) {
+            @include grid-column(3);
+        }
+    }
+}

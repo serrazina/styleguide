@@ -1,0 +1,405 @@
+// -----------------------------
+// Magento :: Checkout :: Steps
+// -----------------------------
+.opc-checkoutSteps {
+    //Step
+    .step {
+        @include breakpoint(large) {
+            padding-top: 100px;
+        }
+    }
+
+    #opc-login {
+        display: none;
+    }
+
+    .opc {
+        @include grid-row;
+        @include w-box($white, 0, 0, 5px, rgba($shadow-color, .5));
+        padding-top: $global-padding;
+        position: relative;
+
+        @include breakpoint(medium) {
+            padding-top: 0;
+        }
+
+        .section {
+            @include grid-column(12);
+        }
+    }
+
+    .step-title {
+        @include show-for(large);
+        @include font-size(1.2);
+        color: $light-gray;
+        display: block;
+        position: absolute;
+        text-transform: uppercase;
+        text-align: center;
+        top: $global-margin;
+        width: 20%;
+        z-index: 1;
+
+        &:before {
+            background-color: $light-gray;
+            content: "";
+            height: 1px;
+            left: -41%;
+            position: absolute;
+            top: 15px;
+            width: 82%;
+            z-index: 0
+        }
+
+        h2 {
+            @include font-size(1.2);
+            font-weight: $global-weight-normal;
+            margin-top: $global-margin;
+        }
+
+        .number {
+            background-color: $white;
+            border: solid 1px $light-gray;
+            border-radius: 50%;
+            color: $light-gray;
+            display: block;
+            height: 30px;
+            line-height: 30px;
+            margin: 0 auto;
+            text-align: center;
+            width: 30px;
+            z-index: 1;
+        }
+    }
+
+    .active,
+    .allow {
+        .step-title {
+            color: $primary-color;
+            cursor: pointer;
+
+            &:before {
+                background-color: $primary-color;
+                height: 3px;
+            }
+
+            .number {
+                background-color: $primary-color;
+                border-color: $primary-color;
+                color: $white;
+            }
+        }
+    }
+}
+
+.opc-block-progress {
+    dl {
+        @include grid-row;
+
+        div {
+            @include grid-column(12);
+            margin-bottom: $global-margin;
+
+            // Tablet
+            @include breakpoint(medium) {
+                @include grid-column(6);
+            }
+        }
+    }
+
+    dt {
+        @include font-size(1.8);
+        margin-bottom: ($global-margin / 2);
+        text-transform: uppercase;
+    }
+
+    dd {
+        color: $medium-gray;
+    }
+}
+
+// Step 1 :: Billing
+#opc-billing {
+    .step-title {
+        left: 0;
+
+        &:before {
+            height: 0;
+        }
+    }
+}
+
+// Step 2 :: Shipping
+#opc-shipping {
+    .step-title {
+        left: 20%;
+    }
+}
+
+// Step 3 :: Shipping Method
+#opc-shipping_method {
+    .step-title {
+        left: 40%;
+    }
+}
+
+// Step 4 :: Payment
+#opc-payment {
+    .step-title {
+        left: 60%;
+    }
+}
+
+// Step 5 :: Review
+#opc-review {
+    .step-title {
+        left: 80%;
+    }
+}
+
+// Shipping Method
+#shipping_method-progress-opcheckout,
+#payment-review-progress-opcheckout {
+    dd:before {
+        @include font-size(3);
+        color: $primary-color;
+        font-family: 'Material Icons';
+        margin-right: ($global-margin / 2);
+        vertical-align: middle;
+    }
+}
+
+#shipping_method-progress-opcheckout dd:before {
+    content: '\E558';
+}
+
+#payment-review-progress-opcheckout {
+    dd:before {
+        content: '\E870';
+    }
+
+    p {
+        display: inline-block;
+    }
+}
+
+.shipping-change-btn {
+    margin-bottom: $global-margin;
+
+    a {
+        color: $primary-color;
+
+        &:before {
+            content: '\E3C9';
+            font-family: 'Material Icons';
+            margin-right: ($global-margin / 3);
+            vertical-align: middle;
+        }
+    }
+}
+
+.shipping-price {
+    margin-bottom: $global-margin;
+}
+
+// Checkout Review Table
+#checkout-review-table {
+    .product-image {
+        display: table-cell;
+    }
+
+    .product-name {
+        @include font-size(1.4);
+        display: table-cell;
+        margin: 0;
+        vertical-align: middle;
+    }
+}
+
+// Checkout Totals Table
+#checkout-totals-table {
+    float: right;
+    width: auto;
+
+    tr {
+        border: 0;
+    }
+}
+
+// Checkout Sidebar Totals Table
+#checkout-sidebar-totals-table {
+    tr {
+        border: 0;
+    }
+}
+
+// Grand Total
+.tb-f-grandtotal {
+    @include font-size(1.8);
+    color: $primary-color;
+
+    @include breakpoint(medium) {
+        @include font-size(1.6);
+    }
+
+    @include breakpoint(large) {
+        @include font-size(1.8);
+    }
+}
+
+// Co Billing Form
+#co-billing-form {
+    .form-alt,
+    .saved-address-container {
+        @include breakpoint(medium) {
+            @include grid-column(12);
+        }
+    }
+
+}
+// Billing New Address
+#billing-new-address-form {
+    li {
+        @include breakpoint(medium) {
+            @include grid-column(12);
+        }
+
+        .customer-name,
+        .customer-nif {
+            @include breakpoint(medium) {
+                @include grid-row(12);
+            }
+
+            .field {
+                @include breakpoint(medium) {
+                    @include grid-column(6);
+
+                    &:first-child {
+                        padding-left: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .add-field {
+        @include breakpoint(medium) {
+            display: none;
+        }
+    }
+
+    .bloc-right {
+        .fields {
+            @include breakpoint(medium) {
+                @include grid-row(12);
+            }
+        }
+
+        .field {
+            @include breakpoint(medium) {
+                @include grid-column(6);
+                @include grid-column-end;
+            }
+        }
+    }
+
+    #register-customer-password {
+        .field:first-child {
+            padding-left: 0;
+        }
+    }
+}
+
+// Payment Method
+#checkout-payment-method-load {
+    .bloc-left {
+        @include breakpoint(medium) {
+            @include grid-row(15);
+            margin-bottom: ($global-margin * 2);
+        }
+    }
+
+    h2 {
+        @include breakpoint(medium) {
+            @include grid-column(15);
+        }
+    }
+
+    dt {
+        @include breakpoint(medium) {
+            @include grid-column(3);
+        }
+
+        label {
+            @include breakpoint(medium) {
+                height: 135px;
+            }
+        }
+    }
+}
+
+
+// Delivery
+.delivery-type {
+    @include breakpoint(medium) {
+        margin: $global-margin 0;
+    }
+
+    .form-list {
+        @include breakpoint(medium) {
+            @include grid-row(12);
+        }
+    }
+
+    .form-alt {
+        @include breakpoint(medium) {
+            @include grid-column(12);
+        }
+    }
+
+    .add-field {
+        @include breakpoint(medium) {
+            display: none;
+        }
+    }
+}
+
+.m_funnel_payment_data {
+    li {
+        @include breakpoint(medium) {
+            color: $medium-gray;
+            line-height: 22px;
+            padding: 4px 0px 4px 40px;
+            position: relative;
+        }
+    }
+
+    li:before {
+        @include breakpoint(medium) {
+            content: "-";
+            left: 15px;
+            position: absolute;
+        }
+    }
+
+    a {
+        @include breakpoint(medium) {
+            color: $primary-color;
+            text-decoration: underline;
+        }
+    }
+}
+
+.img-tooltip-payment {
+    @include breakpoint(medium) {
+        color: $primary-color;
+        display: block;
+        margin-top: ($global-margin / 2) * -1;
+        text-decoration: underline;
+    }
+}
+
+// Account Create
+#terms-box-container .qa-account-create-terms {
+    margin: 0;
+}

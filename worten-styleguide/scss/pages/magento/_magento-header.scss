@@ -1,0 +1,26 @@
+.w-checkout-header {
+    @include grid-row;
+    margin-bottom: $global-margin;
+
+    .w-checkout-header__container {
+        @include grid-column(12);
+    }
+
+    .w-main-header__site-title {
+        background-color: $primary-color;
+        margin-top: $global-margin;
+        padding: $global-padding;
+        width: auto;
+    }
+
+    &.w-main-header-block {
+        .w-main-header__container {
+            background-color: transparent;
+            position: relative;
+        }
+
+        .w-main-header__site-title a {
+            background-color: yellow;
+        }
+    }
+}

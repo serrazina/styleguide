@@ -1,0 +1,51 @@
+// ---------------
+// Shopcart Styles
+// ---------------
+.w_checkout__product-img {
+    @include show-for(medium);
+}
+
+.w_checkout__mobile_label {
+    display: block;
+    font-weight: $global-weight-thin;
+
+    @include breakpoint(medium) {
+        display: none;
+    }
+}
+
+.w-checkout__promo {
+    .w-checkout__promo__input,
+    .w-checkout__promo_button {
+        width: 100%;
+    }
+
+    .w-checkout-promo-msg {
+        @include breakpoint(medium) {
+            display: inline-block;
+        }
+    }
+
+    .w-checkout__promo__input {
+        @include breakpoint(medium) {
+            margin-right: $global-margin;
+            width: 200px;
+        }
+    }
+
+    .w-checkout__promo_button {
+        @include breakpoint(medium) {
+            margin-bottom: .2rem;
+            width: auto;
+        }
+    }
+}
+
+.w-checkout__promo_button,
+.w-checkout__button {
+    @include button-expand(expand);
+
+    @include breakpoint(medium) {
+        @include button-expand(false);
+    }
+}

@@ -1,0 +1,9 @@
+// Flex Elements
+.w-flex-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.w-flex-item-stretched {
+    align-self: stretch;
+}

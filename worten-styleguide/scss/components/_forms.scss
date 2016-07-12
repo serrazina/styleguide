@@ -1,0 +1,263 @@
+// ----------------
+// Forms Components
+// ----------------
+@include foundation-range-input;
+
+// Labels
+label {
+    text-transform: uppercase;
+}
+
+.inline-label {
+    text-transform: inherit;
+
+    @include breakpoint(medium) {
+        line-height: 1;
+    }
+}
+
+.inline-block-label {
+    display: inline-block;
+}
+
+.w-cancel-link {
+    margin-left: ($global-margin / 2);
+}
+
+.w-mandatory {
+    @include grid-column(12);
+    @include font-size(1.2);
+    color: $medium-gray;
+    margin-top: -0.5rem;
+}
+
+// Turn Off Number Input Spinners
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+// Custom Checkboxes & Radio Buttons
+.w-custom-input {
+
+    &.w-custom-block {
+        margin-bottom: ($global-margin / 2);
+
+        &:first-child {
+            margin-right: $global-margin;
+        }
+    }
+
+    &.inline-label {
+        @include font-size(1.3);
+        color: $medium-gray;
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+        display: none;
+    }
+
+    input[type="checkbox"] + .w-fancy-check,
+    input[type="radio"] + .w-fancy-check {
+        &:before {
+            @include font-size(2);
+            color: $light-gray;
+            font-family: "worten-icons";
+            line-height: 1;
+            vertical-align: text-bottom;
+        }
+    }
+
+    input[type="checkbox"]:checked + .w-fancy-check,
+    input[type="radio"]:checked + .w-fancy-check {
+        &:before {
+            color: $primary-color;
+        }
+    }
+
+    input[type="checkbox"] + .w-fancy-check {
+        &:before {
+            content: "\e835";
+        }
+    }
+
+    input[type="checkbox"]:checked + .w-fancy-check {
+        &:before {
+            content: "\e834";
+        }
+    }
+
+    input[type="radio"] + .w-fancy-check {
+        &:before {
+            content: "\e836";
+        }
+    }
+
+    input[type="radio"]:checked + .w-fancy-check {
+        &:before {
+            content: "\e837";
+        }
+    }
+
+    .w-custom-help-text {
+        color: $medium-gray;
+        display: block;
+        margin-left: ($global-margin * 1.6);
+    }
+}
+
+// Form Elements With Auto Width
+.w-form-width-auto {
+    display: inline-block;
+    padding-right: ($global-padding * 1.5);
+    width: auto;
+}
+
+// -----------------------------------
+// Forms Components :: Read-only State
+// -----------------------------------
+.form-readonly {
+    @include font-size(1.2);
+    color: $medium-gray;
+
+    input,
+    select {
+        background-color: transparent;
+        border: 0;
+        height: auto;
+        padding: 0;
+    }
+}
+
+// ----------------------------------
+// Forms Components :: Disabled State
+// ----------------------------------
+input:disabled,
+input[readonly] {
+    background-color: transparent;
+    border: 0;
+}
+
+// -----------------------------------
+// Forms Components :: Status Messages
+// -----------------------------------
+.is-submited {
+    label {
+        position: relative;
+
+        &:after {
+            content: '';
+            font-family: 'Material Icons';
+            position: absolute;
+            right: 20px;
+            top: 34px;
+        }
+    }
+
+    &.has-error {
+        label {
+            &:after {
+                color: $primary-color;
+                content: '\E5CD';
+            }
+        }
+    }
+
+    &.is-ok {
+        label {
+            &:after {
+                color: $success-color;
+                content: '\E5CA';
+            }
+        }
+    }
+}
+
+.has-error {
+    * {
+        &:focus {
+            border-color: $primary-color;
+        }
+    }
+
+    .help-text {
+        color: $primary-color;
+    }
+}
+
+// --------------------------------------------
+// Forms Components :: MyAccount Form Messages
+// --------------------------------------------
+.error {
+    color: $primary-color;
+    margin-bottom: ($global-margin / 2);
+
+    span {
+        display: block;
+        line-height: 1.2;
+    }
+}
+
+.ng-invalid + .error {
+    margin-top: -($global-margin / 2);
+}
+
+.ng-submitted .ng-invalid,
+.ng-touched.ng-invalid {
+    border-color: $primary-color;
+}
+
+.ng-touched.ng-valid {
+    border-color: $success-color;
+}
+
+.ng-touched.ng-invalid {
+
+}
+
+// --------------------------
+// Forms Components :: Tablet
+// --------------------------
+@include breakpoint(medium) {
+    .form-row {
+        @include grid-row(12);
+    }
+
+    .form-header {
+        @include grid-column(12);
+    }
+
+    .form-sixth-col {
+        @include grid-column(2);
+    }
+
+    .form-fourth-col {
+        @include grid-column(3);
+    }
+
+    .form-third-col {
+        @include grid-column(4);
+    }
+
+    .form-half-col {
+        @include grid-column(6);
+    }
+
+    .form-twothird-col {
+        @include grid-column(8);
+    }
+
+    .form-full-col {
+        @include grid-column(100%);
+    }
+
+    .form-col-last {
+        @include grid-column-end;
+    }
+
+    .inline-block-label {
+        margin-right: $global-margin;
+    }
+}

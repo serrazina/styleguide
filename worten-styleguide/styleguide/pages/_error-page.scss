@@ -1,0 +1,68 @@
+// ---------------------
+// Error Page
+// ---------------------
+.w-error-block {
+    .w-error-actions {
+        @include breakpoint(large) {
+            @include grid-row;
+        }
+    }
+
+    .w-error-categories {
+        @include breakpoint(large) {
+            @include grid-column(4);
+            @include grid-column-offset(1);
+        }
+    }
+
+    .w-error-msg {
+        margin-bottom: ($global-margin * 2);
+        text-align: center;
+
+        h2 {
+            @include font-size(4)
+            color: $gold-color;
+        }
+
+        h3 {
+            @include font-size(2.4);
+            color: $medium-gray;
+        }
+
+        p {
+            color: $dark-gray;
+        }
+    }
+
+    .w-error-search {
+        input {
+            border-right: 0;
+        }
+
+        button {
+            border-color: $light-gray;
+            border-left: 0;
+            padding: .45rem .8em;
+        }
+    }
+
+    .w-error-hp {
+        @include breakpoint(large) {
+            @include grid-column(5);
+        }
+
+        a {
+            color: $primary-color;
+            line-height: 48px;
+        }
+
+        i {
+            float: left;
+        }
+    }
+}
+
+.w-error-block__wrapper {
+    @include w-box($white, 0, 0, 5px, rgba($shadow-color, .5));
+    padding: $global-padding;
+}

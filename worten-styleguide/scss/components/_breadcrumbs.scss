@@ -1,0 +1,41 @@
+// -------------------------
+// Breadcrumbs Block Styles
+// -------------------------
+.w-breadcrumbs-block {
+  @include show-for(medium);
+  margin: 0;
+}
+
+.w-nav-breadcrumbs {
+  @include grid-column(12, 0);
+}
+
+.w-breadcrumbs {
+  margin: 0;
+
+  li {
+    margin-right: 0;
+    position: relative;
+  }
+
+  li:not(:last-child):after {
+    color: $medium-gray;
+    content: '\e315';
+    font-family: 'worten-icons';
+    vertical-align: middle;
+  }
+
+  a,
+  h1 {
+    @include font-size(1.3);
+    display: inline-block;
+    line-height: inherit;
+    margin: 0;
+    padding: ($global-padding / 2);
+  }
+
+  a:hover {
+    color: $breadcrumbs-item-color-current;
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,115 @@
+// ---------------------
+// Banner Image Type A
+// ---------------------
+
+// Banner Image Type A
+//
+// markup:
+// <section class="w-banner w-section">
+//   <div class="w-banner__wrapper">
+//     <header class="w-section__wrapper__header w-section__header">
+//       <h2 class="w-section__title">Titulo do Banner</h2>
+//     </header>
+//     <div class="w-section__wrapper__content">
+//       <!-- Banner Image Type A -->
+//       <!-- Banner Image Type A -->
+//       <div class="w-banner__type-a">
+//         <div class="w-banner__type-a__background-image">
+//           <picture>
+//             <!--[if IE 9]><video style="display: none;"><![endif]-->
+//             <source srcset="http://placehold.it/350x150" media="(min-width: 1024px)">
+//             <source srcset="http://placehold.it/350x150" media="(min-width: 768px)">
+//             <!--[if IE 9]></video><![endif]-->
+//             <img srcset="http://placehold.it/350x150" alt="#">
+//           </picture>
+//         </div>
+//         <div class="w-banner__type-a__content" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+//           <h3 class="w-banner__title w-banner__type-a__title">Highlight Title</h3>
+//           <p class="w-banner__subtitle w-banner__type-a__subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus sequi rem doloremque ab nisi </p>
+//           <a class="w-link-primary w-banner__type-a__link w-icon" href="#">Link</a>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+// </section>
+//
+// Styleguide 3.0.0
+
+.w-banner__type-a {
+    @include w-box($white, 0, 0, 5px, rgba($shadow-color, .5));
+    position: relative;
+
+    img {
+        width: 100%;
+    }
+}
+
+.w-banner__type-a__content {
+    background-color: $white;
+    bottom: ($global-margin / 2);
+    left: ($global-margin / 2);
+    padding: $global-padding;
+    position: absolute;
+    width: calc(100% - 1rem);
+
+    
+}
+
+.w-banner__type-a__title {
+    @include font-size(2.3);
+    color: $primary-color;
+    font-weight: $global-weight-normal;
+
+   
+    &.w-banner__font-big {
+        @include font-size(2.8);
+
+        @include breakpoint(medium) {
+            @include font-size(3);
+        }
+
+        @include breakpoint(large) {
+            @include font-size(3.4);
+        }
+    }
+}
+
+.w-banner__type-a__subtitle {
+    @include font-size(1.7);
+    font-weight: $global-weight-thin;
+
+    @include breakpoint(medium) {
+        @include font-size(1.8);
+    }
+
+    @include breakpoint(large) {
+        @include font-size(2);
+    }
+
+    &.w-banner__font-big {
+        @include font-size(2.2);
+
+        @include breakpoint(medium) {
+            @include font-size(2.2);
+        }
+
+        @include breakpoint(large) {
+            @include font-size(2.5);
+        }
+    }
+}
+
+.w-banner__type-a__link {
+
+
+    @include breakpoint(large) {
+        bottom: $global-margin;
+        position: absolute;
+        width: calc(100% - 2rem);
+    }
+
+    &:after {
+        position: absolute;
+        top: -2px;
+    }
+}

@@ -1,0 +1,113 @@
+// -------------------------
+// Category Page Styles
+// -------------------------
+.w-category-slider-menu {
+    .w-category-slider-menu__container {
+        background-color: $white;
+        padding: $global-padding;
+
+        @include breakpoint(medium) {
+            height: 320px;
+        }
+    }
+
+    .menu:first-child {
+        @include breakpoint(medium) {
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+        }
+
+        > li {
+            @include breakpoint(medium) {
+                display: inherit;
+            }
+
+            &:first-child {
+                @include breakpoint(medium) {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .w-category-toplevel {
+        display: block;
+        font-weight: $global-weight-bold;
+        margin-bottom: ($global-margin / 2);
+
+        a {
+            color: $primary-color;
+            float: right;
+            font-weight: $global-weight-bold;
+
+            @include breakpoint(medium) {
+                display: block;
+                float: none;
+            }
+
+            @include breakpoint(large) {
+                display: inline;
+                float: right;
+            }
+
+            &.w-category-toplevel_title {
+                color: $black;
+                float: none;
+            }
+        }
+    }
+
+    a {
+        display: inline-block;
+        font-weight: $global-weight-thin;
+    }
+
+    .w-category-morelevel {
+        color: $primary-color;
+        font-weight: $global-weight-bold;
+    }
+
+    .is-dropdown-submenu-parent {
+        @include breakpoint(medium) {
+            position: initial;
+        }
+    }
+
+    .menu > li {
+        display: block;
+    }
+
+    .menu > li:not(:first-child) {
+        text-transform: uppercase;
+    }
+
+    .menu > li:not(.menu-text) > a {
+        @include font-size(1.4);
+        padding-bottom: ($global-padding / 2);
+        padding-left: ($global-padding / 2);
+        padding-top: ($global-padding / 2);
+    }
+
+    .dropdown.menu .submenu.first-sub {
+        z-index: 2;
+    }
+
+    .dropdown.menu .submenu.first-sub.w-category-menu-submenu {
+        @include breakpoint(medium) {
+            height: 320px;
+            left: 100%;
+            padding-top: ($global-padding * 3);
+            position: absolute;
+            top: -1rem;
+        }
+    }
+
+    .wcategory-menu-submenu.is-dropdown-submenu {
+        @include breakpoint(medium) {
+            min-width: 100%;
+        }
+    }
+}

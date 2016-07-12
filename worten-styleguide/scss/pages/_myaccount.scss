@@ -1,0 +1,658 @@
+// --------------------------
+// MyAccount Page Styles
+// --------------------------
+.w-myaccount {
+    .w-main-header-block {
+        margin-bottom: 1px;
+    }
+
+    address {
+        color: $dark-gray;
+        font-style: normal;
+    }
+}
+
+.w-myaccount-sidebar {
+    @include grid-column(12);
+
+    @include breakpoint(small only) {
+        display: none;
+        @include transition(all 1000ms ease);
+    }
+
+    @include breakpoint(medium) {
+        @include grid-column(4);
+        margin-bottom: $global-margin;
+    }
+
+    @include breakpoint(large) {
+        @include grid-column(3);
+    }
+
+    &.is-visible {
+        @include breakpoint(small only) {
+            bottom: 0;
+            display: block;
+            position: fixed;
+            top: auto;
+            z-index: 3;
+        }
+    }
+}
+
+.w-myaccount-content {
+    @include grid-column(12);
+
+    @include breakpoint(medium) {
+        @include grid-column(8);
+    }
+
+    @include breakpoint(large) {
+        @include grid-column(9);
+    }
+
+    &.w-myaccount-create {
+        @include breakpoint(large) {
+            @include grid-column(12);
+        }
+    }
+}
+
+.w-myaccount-trigger-menu {
+    @include grid-column(12);
+    margin-top: $global-margin;
+
+    .w-myaccount-trigger-menu__button {
+        width: 100%;
+    }
+}
+
+.w-myaccount-create__social {
+    button {
+        width: 100%;
+
+        @include breakpoint(medium) {
+            width: auto;
+        }
+    }
+}
+
+.w-myaccount-print-btn {
+    color: $dark-gray;
+}
+
+.w-myaccount__emptylist {
+    color: $medium-gray;
+    padding: ($global-padding * 2) 0;
+    text-align: center;
+
+    &:before {
+        @include font-size(12);
+        content: '\E156';
+        font-family: 'worten-icons'
+    }
+}
+
+// Special form elements styles
+.w-myaccount-content {
+  .inline-multiple-input {
+    display: block;
+
+    span {
+      @include font-size(1.6);
+    }
+  }
+}
+
+// ------------------------------------
+// MyAccount Page Styles :: Sidebar Nav
+// ------------------------------------
+.w-myaccount-sidebar__wrapper {
+    @include w-box($white, 0, 0, 5px, rgba($shadow-color, .5));
+    font-weight: $global-weight-thin;
+    margin-bottom: $global-margin;
+    padding: $global-padding;
+}
+
+.w-myaccount-sidebar__title {
+    @include font-size(1.5);
+    font-weight: $global-weight-thin;
+    margin-bottom: $global-margin;
+}
+
+.w-myaccount-nav {
+    margin: 0;
+    list-style: none;
+
+    ul {
+        list-style: none;
+    }
+
+    .active a {
+        color: $primary-color;
+        font-weight: $global-weight-normal;
+    }
+}
+
+.w-myaccount-nav__trigger {
+    display: block;
+    padding: ($global-padding / 2) 0;
+
+    &:after {
+        @include font-size(2.5);
+        color: $primary-color;
+        content: '\e145';
+        float: right;
+        font-family: 'worten-icons';
+        line-height: 1;
+
+        @include breakpoint(medium) {
+            content: '\e313';
+        }
+    }
+
+    .is-active & {
+        &:after {
+            content: '\e15b';
+
+            @include breakpoint(medium) {
+                content: '\e316';
+            }
+        }
+    }
+}
+
+.w-myaccount-nav__content {
+    @include accordion-content;
+    border: 0;
+    margin: 0;
+    padding: 0;
+
+    li {
+        margin-bottom: ($global-margin / 3);
+    }
+
+    a {
+        &:before {
+            content: '\2014';
+            margin-right: ($global-margin / 2);
+        }
+
+        &.is-active {
+            color: $primary-color;
+            font-weight: $global-weight-normal;
+        }
+    }
+}
+
+// --------------------------------
+// MyAccount Page Styles :: Content
+// --------------------------------
+.w-myaccount__wrapper {
+    @include w-box($white, 0, 0, 5px, rgba($shadow-color, .5));
+    margin-bottom: $global-margin;
+    padding: $global-padding;
+}
+
+.w-myaccount__container {
+    @include grid-row;
+
+    header {
+        margin-bottom: $global-margin;
+
+        .w-action-button {
+            float: right;
+        }
+
+        &.has-filters {
+            .w-myaccount__title {
+                display: inline-block;
+            }
+        }
+
+        .w-filters-block {
+            float: right;
+            padding: 0;
+        }
+    }
+
+    p {
+        font-weight: $global-weight-thin;
+    }
+
+    .w-myaccount__action button {
+        @include breakpoint(medium) {
+            width: auto;
+        }
+    }
+}
+
+.w-myaccount__header-top {
+    margin-bottom: $global-margin;
+}
+
+.w-myaccount__title {
+    @include font-size(1.8);
+    font-weight: $global-weight-bold;
+    text-transform: uppercase;
+}
+
+.w-myaccount__subtitle {
+    @include font-size(1.4);
+    text-transform: uppercase;
+}
+
+.w-myaccount__terms {
+    margin-bottom: ($global-margin / 2);
+
+    .error {
+        margin-top: ($global-margin / 2);
+    }
+}
+
+.w-myaccount__action {
+    margin-top: ($global-margin * 2);
+
+    @include breakpoint(medium) {
+        margin-top: 0;
+    }
+
+
+    button {
+        margin-bottom: 0;
+        width: 100%;
+    }
+}
+
+// ------------------------------------
+// MyAccount Page Styles :: Dashboard
+// ------------------------------------
+.w-myaccount__dashboard {
+    @include grid-row;
+    @include w-box($white, 0, 0, 5px, rgba($shadow-color, .5));
+
+    .w-cards__icon,
+    .w-list-bullet:last-child {
+        margin-bottom: 0;
+    }
+}
+
+// ------------------------------------
+// MyAccount Page Styles :: Information
+// ------------------------------------
+.w-myaccount__social {
+    @include grid-column(12);
+    list-style: none;
+    margin: 0;
+
+    li {
+        font-weight: $global-weight-bold;
+        margin-bottom: $global-margin;
+
+        &:before {
+            @include font-size(3);
+            font-family: 'worten-icons';
+            margin-right: $global-margin;
+        }
+
+        a {
+            font-weight: $global-weight-thin;
+        }
+
+        i {
+            @include font-size(3);
+        }
+    }
+
+    .fb {
+        i{
+            color: #395197;
+        }
+    }
+
+    .twitter {
+        i {
+            color: #009CE3;
+        }
+    }
+
+    .googleplus {
+        i {
+            color: #F13A00;
+        }
+    }
+}
+
+// ---------------------------------
+// MyAccount Page Styles :: Shoplist
+// ---------------------------------
+.w-myaccount__shoplist__action {
+    margin-bottom: 0;
+
+    &:before {
+        @include font-size(3);
+        content: '\e313';
+        cursor: pointer;
+        display: block;
+        font-family: 'worten-icons';
+        height: 20px;
+        line-height: 1;
+        text-align: center;
+        width: 25px;
+    }
+
+    &.is-visible {
+        &:before {
+            content: '\e316';
+        }
+    }
+}
+
+.w-myaccount__shoplist__details {
+    background-color: $secondary-color;
+    display: none;
+
+    .w-myaccount__shoplist__thead {
+        color: $primary-color;
+    }
+
+    thead {
+        color: $dark-gray;
+    }
+
+    th {
+        font-weight: $global-weight-thin;
+    }
+
+    tbody {
+        background-color: transparent;
+    }
+
+    .shoplist__address {
+        @include grid-row(12);
+        margin-bottom: $global-margin;
+    }
+
+    address {
+        @include grid-column(5, 0);
+        font-style: normal;
+        font-weight: $global-weight-thin;
+
+        span {
+            display: block;
+        }
+    }
+
+    .w-myaccount__shoplist__title {
+        @include font-size(1.4);
+        color: $primary-color;
+        text-transform: uppercase;
+    }
+}
+
+.shoplist_location_icon {
+    color: $warning-color;
+    vertical-align: middle;
+}
+
+// ----------------------------------------
+// MyAccount Page Styles :: Shoplist Status
+// ----------------------------------------
+.shoplist__status {
+    @include label;
+    background-color: $dark-gray;
+    color: $white;
+    text-align: center;
+    width: 100%;
+}
+
+.shoplist__default {
+    background-color: $black,
+}
+
+.shoplist__pendingpayment {
+    background: $alert-color;
+}
+
+.shoplist__preparation {
+    background: $warning-color;
+}
+
+.shoplist__shipped {
+    background: $success-color;
+}
+
+.shoplist__complete {
+    background: $success-color;
+}
+
+.shoplist__canceled {
+    background: $alert-color;
+}
+
+.w-myaccount-overlay {
+    background-color: $black;
+    height: 100%;
+    left: 0;
+    opacity: .6;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+// -----------------------------------
+// MyAccount Delete Account
+// -----------------------------------
+.w-myaccount__delete-account {
+    padding: ($global-padding * 2);
+    text-align: center;
+
+    h4 {
+        @include font-size(1.8);
+    }
+}
+
+.w-btn-delete-account {
+    color: $dark-gray;
+
+    &:before {
+        content: '\E872';;
+        font-family: 'Material Icons';
+        margin-right: ($global-margin / 3);
+    }
+}
+
+// -----------------------------------
+// MyAccount Create Account
+// -----------------------------------
+.w-myaccount-create__terms {
+    margin-top: ($global-margin * 2);
+
+    @include breakpoint(medium) {
+        margin-top: 0;
+    }
+
+    .w-commitment-block__wrapper {
+        border-bottom: 1px solid $light-gray;
+        margin-bottom: ($global-margin * 2);
+
+        li {
+            color: $medium-gray;
+            display: block;
+            // needed to overwrite a specific rule used in commitments-icons.scss
+            float: none !important;
+            width: 100% !important;
+        }
+
+        img {
+            float: none;
+            margin-right: $global-margin;
+            padding-bottom: 0;
+            transform: inherit;
+            top: auto;
+        }
+
+        span {
+            margin-bottom: ($global-margin * 1.5);
+            padding: 0;
+
+            &:after {
+                border-right: 0;
+            }
+        }
+    }
+
+    p {
+        font-weight: $global-weight-thin;
+    }
+
+    footer {
+        text-align: right;
+
+        i {
+            vertical-align: middle;
+        }
+
+        a {
+            color: $primary-color;
+            font-weight: $global-weight-bold;
+        }
+    }
+}
+
+.w-myaccount__adresses {
+    h4 {
+        @include font-size(1.6);
+    }
+}
+
+.w-myaccount__additionalAddress {
+    margin-top: ($global-margin * 2);
+}
+
+.w-myaccount-password__form {
+     @include breakpoint(medium) {
+        @include grid-column(7);
+    }
+}
+
+.w-myaccount-create {
+    .w-myaccount-create__form {
+        @include breakpoint(large) {
+            @include grid-column(7, 35);
+            border-right: 1px solid $light-gray;
+        }
+    }
+
+    .w-myaccount-create__terms {
+        @include breakpoint(large) {
+            @include grid-column(5, 35);
+        }
+    }
+}
+
+.form-row {
+    .w-myaccount__action {
+        @include breakpoint(large) {
+            @include grid-column(12);
+        }
+    }
+}
+
+// --------------
+// Favorites List
+// --------------
+.w-myaccount-block {
+    .w-products-block {
+        @include breakpoint(medium) {
+            @include grid-column(8);
+        }
+
+        @include breakpoint(large) {
+            @include grid-column(9);
+        }
+
+        .w-products-list__wrapper {
+            @include breakpoint(medium) {
+                @include grid-row;
+            }
+        }
+
+        .w-product {
+            @include breakpoint(medium) {
+                @include grid-column(100%);
+                margin-bottom: ($global-margin / 2);
+                padding: $global-padding;
+            }
+        }
+
+        .w-product__wrapper {
+            @include breakpoint(medium) {
+                @include grid-row(12);
+            }
+        }
+
+        .w-product__image {
+            @include breakpoint(medium) {
+                @include grid-column(3);
+                min-height: 0;
+            }
+        }
+
+        .w-product__content {
+            @include breakpoint(medium) {
+                @include grid-column(9);
+            }
+        }
+
+        .w-product__title {
+            @include breakpoint(medium) {
+                height: auto;
+            }
+        }
+
+        .w-product__description {
+            @include breakpoint(medium) {
+                @include grid-column(7, 0);
+            }
+
+            @include breakpoint(large) {
+                @include grid-column(8, 0);
+            }
+        }
+
+        .w-product__details {
+            @include breakpoint(medium) {
+                @include grid-column(5, 0);
+                @include grid-column-end;
+                text-align: right;
+            }
+
+            @include breakpoint(large) {
+                @include grid-column(4, 0);
+            }
+        }
+
+        .w-currentPrice {
+            @include breakpoint(medium) {
+                display: block;
+                margin-right: 0;
+            }
+        }
+
+        .w-product__footer {
+            @include breakpoint(medium) {
+                @include grid-column(9);
+                @include grid-column-end;
+            }
+        }
+
+        .w-product__favorites,
+        .w-product__addCompare {
+            @include breakpoint(medium) {
+                width: auto;
+            }
+        }
+    }
+}

@@ -1,0 +1,505 @@
+// ----------------------
+// Compare Products Block
+// ----------------------
+body.w-compare-active {
+    overflow: hidden;
+
+    .w-compare-active-shadow {
+        background: $background-opacity;
+        height: 100%;
+        left: 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 10;
+    }
+}
+
+.w-compare-block {
+    background: $white;
+    box-shadow: 0 0 5px rgba($black, .25);
+    bottom: 0;
+    height: 70px;
+    left: 0;
+    margin: 0;
+    padding: ($global-padding / 2);
+    position: fixed;
+    width: 100%;
+    z-index: 5;
+
+    @include breakpoint(medium) {
+        height: 100px;
+    }
+
+    &.visible {
+        bottom: 0;
+    }
+
+    &.empty {
+        display: none;
+    }
+}
+
+.w-button-compare-trigger {
+    bottom: 0;
+    position: fixed;
+    right: 5%;
+    margin: 0;
+    z-index: 3;
+
+    &:after {
+        @include font-size(2.2);
+        content: '\e5ce';
+        font-family: 'worten-icons';
+        line-height: .8;
+        margin-left: ($global-margin / 2);
+        vertical-align: middle;
+    }
+
+    &.not-visible {
+        bottom: -43px;
+    }
+
+    .hide {
+        display: none;
+    }
+}
+
+.w-compare__container {
+    @include grid-row(13);
+
+    @include breakpoint(medium) {
+        position: relative;
+    }
+
+    &:after,
+    &:before {
+        @include breakpoint(medium) {
+            height: 115px;
+            position: absolute;
+            top: -15px;
+            width: 80%;
+            z-index: 2;
+        }
+    }
+
+    &:after {
+        @include breakpoint(medium) {
+            background: linear-gradient(to left, rgba($body-background,1) 0%,rgba($body-background,1) 75%,rgba($body-background,.01) 100%);
+            right: -80%;
+        }
+    }
+
+    &:before {
+        @include breakpoint(medium) {
+            background: linear-gradient(to right, rgba($body-background,1) 0%,rgba($body-background,1) 75%,rgba($body-background,.01) 100%);
+            left: -80%;
+        }
+    }
+
+    .w-compare__products {
+        @include grid-column(10, 0);
+    }
+
+    .w-compare__action {
+        @include grid-column(3);
+    }
+
+    ul {
+        @include grid-row(12);
+        list-style: none;
+        margin: 0;
+    }
+
+    th,
+    li {
+        position: relative;
+    }
+}
+
+.w-compare__item {
+    height: 54px;
+
+    @include breakpoint(medium) {
+        border-right: 1px solid $light-gray;
+        height: 80px;
+    }
+
+    @include with-count(1) {
+        @include grid-column(12);
+    }
+
+    @include with-count(2) {
+        @include grid-column(6);
+        @include grid-column-end;
+    }
+
+    @include with-count(3) {
+        @include grid-column(4);
+        @include grid-column-end;
+    }
+}
+
+.w-compare__wrapper {
+    @include vertical-align;
+    float: left;
+    width: 100%;
+
+    @include breakpoint(medium) {
+        height: 55px;
+    }
+}
+
+.w-compare__content,
+.w-compare__empty {
+    @include show-for(xmedium);
+}
+
+.w-compare__empty {
+    text-align: center;
+
+    .w-compare__add {
+        display: block;
+        @include vertical-align;
+    }
+}
+
+.w-compare__content {
+    @include font-size(1.1);
+    width: 90%;
+
+    @include breakpoint(large) {
+        @include font-size(1.2);
+    }
+}
+
+.w-compare__title {
+    display: block;
+}
+
+.w-compare__price {
+    @include font-size(1.4);
+    color: $primary-color;
+    font-weight: $global-weight-bold;
+}
+
+.w-compare__figure {
+    @include breakpoint(medium) {
+        float: left;
+        text-align: center;
+    }
+
+    .w-compare__products & {
+        img {
+            max-width: 50px;
+
+            @include breakpoint(large) {
+                max-width: 70px;
+            }
+        }
+    }
+}
+
+.w-compare__footer {
+    button {
+        margin-top: $global-margin;
+        width: 100%;
+
+        i {
+            @include breakpoint(xmedium) {
+                display: none;
+            }
+        }
+
+        span {
+            display: none;
+
+            @include breakpoint(xmedium) {
+                display: block;
+            }
+        }
+    }
+
+    small {
+        @include show-for(xmedium);
+    }
+}
+
+.w-compare__action {
+    text-align: center;
+
+    @include breakpoint(medium) {
+        height: 80px;
+    }
+
+    a {
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+
+    i {
+        @include hide-for(medium);
+    }
+
+    span {
+        @include show-for(medium);
+    }
+}
+
+.w-compare__remove {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.w-compare__clear {
+    @include show-for(medium);
+    font-weight: $global-weight-thin;
+}
+
+// --------------------------------
+// Compare Products Details
+// --------------------------------
+.w-compare-details-block {
+    display: none;
+
+    &.show {
+        display: block;
+    }
+
+    .w-section__wrapper__content {
+        bottom: 0;
+        max-width: 1100px;
+        position: fixed;
+        z-index: 11;
+    }
+
+    .w-compare-details_container {
+        @include w-box($white, 0, 0, 5px, rgba($shadow-color, .5));
+        bottom: 0;
+        height: 80vh;
+        overflow: scroll;
+        padding: 0;
+        position: relative;
+
+        @include breakpoint(medium) {
+            display: flex;
+            flex-direction: column;
+            height: 90vh;
+            overflow: auto;
+        }
+    }
+
+    .w-compare-details__close {
+        background: $primary-color;
+        color: $white;
+        height: 36px;
+        line-height: 36px;
+        text-align: center;
+        position: absolute;
+        right: 0;
+        top: -36px;
+        width: 36px;
+
+        i {
+            display: block;
+            line-height: 36px;
+        }
+    }
+}
+
+.w-compare-details__table {
+    @include font-size(1.2);
+    margin-bottom: 0;
+    min-width: 600px;
+
+    @include breakpoint(medium) {
+        @include font-size(1.4);
+    }
+
+    th {
+        position: relative;
+        vertical-align: top;
+        width: 150px;
+    }
+
+    td {
+        width: 150px;
+    }
+
+    th, td {
+        border-right: 1px solid $light-gray;
+
+        &:first-child {
+            background: lighten($light-gray, 7%);
+
+            @include breakpoint(large) {
+                background: $white;
+            }
+        }
+
+        &:last-child {
+            border-right: 0;
+        }
+    }
+
+    .w-erase-compare {
+        bottom: 0;
+        position: absolute;
+    }
+
+    .w-compare__title {
+        @include font-size(1.1);
+        height: 50px;
+    }
+
+    .w-compare__figure img {
+        max-height: 50px;
+    }
+
+    .w-compare__content {
+        @include breakpoint(medium) {
+            @include grid-column(9);
+        }
+    }
+
+    // Availability
+    .w-compare__availability {
+        font-weight: $global-weight-normal;
+
+        span:before {
+            @include font-size(2.5);
+            font-family: 'Material Icons';
+            line-height: 1;
+            margin-right: ($global-margin / 2);
+            vertical-align: middle;
+        }
+
+        .available {
+            color: $success-color;
+
+            &:before {
+                content: '\E86C';
+            }
+        }
+
+        .not-available {
+            color: $warning-color;
+
+            &:before {
+                content: '\E888';
+            }
+        }
+
+        small {
+            color: $medium-gray;
+            display: inline-block;
+            margin-left: 33px;
+        }
+    }
+
+    .w-plus-difference {
+        background: rgba(126, 211, 33, .15);
+    }
+
+    .w-minus-difference {
+        background: rgba(228, 26, 21, .15);
+    }
+}
+
+.w-compare-details__info {
+    @include font-size(1.6);
+    color: $medium-gray;
+    margin-right: ($global-margin / 2);
+}
+
+.w-compare-body {
+    overflow-y: scroll;
+
+    @include breakpoint(small only) {
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
+        width: fit-content;
+    }
+}
+
+// ----------------------------------------
+// Compare Products Details :: MediaQueries
+// ----------------------------------------
+.w-compare-details-block .w-compare-details_container {
+    @include breakpoint(medium down) {
+        height: 75vh;
+    }
+
+    @include breakpoint(portrait) {
+        height: 80vh;
+    }
+
+    @include breakpoint(landscape) {
+        height: 75vh;
+    }
+
+    @media screen and #{breakpoint(medium)} and #{breakpoint(portrait)} {
+        height: 88vh;
+    }
+
+    @media screen and #{breakpoint(medium)} and #{breakpoint(landscape)} {
+        height: 83vh;
+    }
+
+    @media screen and #{breakpoint(medium down)} and #{breakpoint(landscape)} {
+        height: 75vh;
+    }
+
+    @media screen and #{breakpoint(large)} and #{breakpoint(portrait)} {
+        height: 88vh;
+    }
+}
+
+// ---------
+// Animation
+// ---------
+@keyframes slideIn {
+    0% {
+        bottom: -100px;
+    }
+
+    100% {
+        bottom: 0;
+        z-index: 10;
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        bottom: 0;
+    }
+
+    100% {
+        bottom: -100px;
+    }
+}
+
+.visible {
+    animation-name: slideIn;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-delay: 0;
+    animation-play-state: running;
+    animation-fill-mode: forwards;
+}
+
+.not-visible {
+    animation-name: slideOut;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-delay: 0;
+    animation-play-state: running;
+    animation-fill-mode: forwards;
+}

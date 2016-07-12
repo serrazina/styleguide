@@ -1,0 +1,56 @@
+// --------------------------
+// Magento Checkout :: Step 2
+// --------------------------
+
+// Radio Buttons Home Delivery/Worten Store
+#store-home-switch {
+    margin-bottom: $global-margin;
+
+    @include breakpoint(medium) {
+        margin-bottom: 0;
+    }
+
+    [type=checkbox]+label,
+    [type=radio]+label {
+        margin-left: 0;
+
+        @include breakpoint(medium) {
+            margin-left: ($global-margin / 2);
+        }
+    }
+
+    .control {
+        display: inline-block;
+    }
+}
+
+#co-shipping-form {
+    margin-top: $global-margin;
+
+    @include breakpoint(medium) {
+        margin-top: 0;
+    }
+}
+
+// Store Selection
+.selected-store {
+    @include breakpoint(medium) {
+        margin: $global-margin 0;
+    }
+
+    span {
+        display: block;
+        font-weight: $global-weight-bold;
+    }
+}
+
+.storelocator-trigger {
+    @include button(false, $primary-color, $button-background-hover, $white);
+    @extend %w-button;
+    box-shadow: 0 -3px $button-background-hover inset;
+}
+
+#store-locator-wrapper .mfp-content {
+    opacity: 1;
+    transform: translateY(0);
+}

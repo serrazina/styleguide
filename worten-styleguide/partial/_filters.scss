@@ -1,0 +1,120 @@
+// ------------------------
+// Filters Component Block
+// ------------------------
+.w-filters-block {
+    padding: ($global-padding / 2);
+
+    // ---------------------------------------------------
+    // Filters Component Block :: Inside Breadcrumbs Block
+    // ---------------------------------------------------
+    &.w-breadcrumbs-block .w-filters {
+        @include grid-column(12);
+
+        @include breakpoint(medium) {
+            @include grid-column(7);
+        }
+    }
+}
+
+.w-filters {
+    @include font-size(1.3);
+    color: $medium-gray;
+    text-align: right;
+
+    .w-filters__element {
+        display: none;
+
+        span {
+            cursor: pointer;
+        }
+
+        @include breakpoint(xmedium) {
+            display: inline;
+        }
+    }
+
+    .w-filters__number {
+        span {
+            margin-right: ($global-margin / 2);
+        }
+
+        select {
+            width: 50px;
+        }
+    }
+
+    .w-filters__order {
+        label {
+            @include breakpoint(medium) {
+                display: inline;
+            }
+        }
+
+        span {
+            @include breakpoint(medium) {
+                display: none;
+            }
+        }
+
+        select {
+            width: 100px;
+
+            @include breakpoint(medium) {
+                margin-right: ($global-margin / 3);
+            }
+        }
+    }
+
+    .w-filters__results {
+        display: block;
+        margin-bottom: ($global-margin / 2);
+
+        @include breakpoint(medium) {
+            display: inline;
+        }
+
+        &:after {
+            @include breakpoint(medium) {
+                content: '|';
+                margin-left: ($global-margin / 3);
+            }
+        }
+    }
+
+    .input-group {
+        margin-right: ($global-margin / 3);
+    }
+
+    select {
+        @include font-size(1.3);
+        height: 2.1rem;
+        margin-bottom: 0;
+        width: auto;
+    }
+
+    .w-filters__order {
+        @include breakpoint(small only) {
+            display: block;
+        }
+    }
+}
+
+.w-filters-list {
+    margin-left: ($global-margin / 3);
+}
+
+.w-filters-list,
+.w-filters-grid {
+    background-color: $white;
+    border: 1px solid $light-gray;
+    color: $medium-gray;
+    display: inline-block;
+    float: right;
+    line-height: 1;
+    padding: ($global-padding * .2);
+    vertical-align: middle;
+
+    &.is-active {
+        color: $primary-color;
+    }
+}

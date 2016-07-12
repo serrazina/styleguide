@@ -1,0 +1,592 @@
+// Banner Block Styles
+//
+// markup:
+// <section class="w-banner w-section__block>
+//     <div class="w-banner__wrapper">
+//         <header class="w-banner__wrapper__header">
+//             <h3 class="w-section__title">Banner Title</h3>
+//         </header>
+//         <div class="w-banner__wrapper__content">
+//              <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.<br>Donec id elit non mi porta gravida at eget metus.</p>
+//         </div>
+//     </div>
+// </section>
+//
+// Styleguide 4.0.0
+
+.w-banner__container {
+    position: relative;
+}
+
+.w-banner__background-image {
+    img {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.w-banner__content {
+    color: $white;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 15%;
+    width: 100%;
+
+    @include breakpoint(medium) {
+        padding-left: ($global-padding * 3);
+        text-align: left;
+    }
+}
+
+.w-banner__title {
+    @include font-size(4);
+    font-weight: $global-weight-bold;
+
+    @include breakpoint(medium) {
+        @include font-size(7);
+    }
+
+    &.w-banner__font-big {
+        @include font-size(4.5);
+
+        @include breakpoint(medium) {
+            @include font-size(7.5);
+        }
+    }
+}
+
+.w-banner__subtitle {
+    @include font-size(1.8);
+
+    @include breakpoint(medium) {
+        @include font-size(3);
+    }
+
+    &.w-banner__font-big {
+        @include font-size(2.3);
+
+        @include breakpoint(medium) {
+            @include font-size(3.5);
+        }
+    }
+}
+
+// ---------------------
+// Global Banner Wrapper
+// ---------------------
+.w-banner__wrapper {
+    .w-section__container-center & {
+        @include grid-row;
+    }
+}
+
+.w-banner__wrapper__header {
+    text-align: center;
+}
+
+.w-banner__wrapper__header,
+.w-banner__wrapper__content {
+    .w-section__container-center & {
+        @include grid-column(12, 0);
+    }
+}
+
+// Banner Image Type A
+//
+// markup:
+// <section class="w-banner w-section">
+//   <div class="w-banner__wrapper">
+//     <header class="w-section__wrapper__header w-section__header">
+//       <h2 class="w-section__title">Titulo do Banner</h2>
+//     </header>
+//     <div class="w-section__wrapper__content">
+//       <!-- Banner Image Type A -->
+//       <!-- Banner Image Type A -->
+//       <div class="w-banner__type-a">
+//         <div class="w-banner__type-a__background-image">
+//           <picture>
+//             <!--[if IE 9]><video style="display: none;"><![endif]-->
+//             <source srcset="images/banner-type-a/large.jpg" media="(min-width: 1200px)">
+//             <source srcset="images/banner-type-a/medium.jpg" media="(min-width: 1024px)">
+//             <source srcset="images/banner-type-a/small.jpg" media="(min-width: 640px)">
+//             <!--[if IE 9]></video><![endif]-->
+//             <img srcset="images/banner-type-a/extra-small.jpg" alt="#">
+//           </picture>
+//         </div>
+//         <div class="w-banner__type-a__content" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+//           <h3 class="w-banner__title w-banner__type-a__title">Highlight Title</h3>
+//           <p class="w-banner__subtitle w-banner__type-a__subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>Doloribus sequi rem doloremque ab nisi </p>
+//           <a class="w-link-primary w-banner__type-a__link w-icon" href="#">Link</a>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+// </section>
+//
+// Styleguide 4.1
+.w-banner__type-a {
+    @include w-box($white, 0, 0, 5px, rgba($shadow-color, .5));
+    position: relative;
+
+    img {
+        width: 100%;
+    }
+}
+
+.w-banner__type-a__content {
+    background-color: $white;
+    bottom: ($global-margin / 2);
+    left: ($global-margin / 2);
+    padding: $global-padding;
+    position: absolute;
+    width: calc(100% - 1rem);
+
+    @include breakpoint(large) {
+        bottom: ($global-margin * 2);
+        left: ($global-margin * 2);
+        top: ($global-margin * 2);
+        width: auto;
+    }
+}
+
+.w-banner__type-a__title {
+    @include font-size(2.3);
+    color: $primary-color;
+    font-weight: $global-weight-normal;
+
+    @include breakpoint(medium) {
+        @include font-size(2.4);
+    }
+
+    @include breakpoint(large) {
+        @include font-size(2.9);
+    }
+
+    &.w-banner__font-big {
+        @include font-size(2.8);
+
+        @include breakpoint(medium) {
+            @include font-size(3);
+        }
+
+        @include breakpoint(large) {
+            @include font-size(3.4);
+        }
+    }
+}
+
+.w-banner__type-a__subtitle {
+    @include font-size(1.7);
+    font-weight: $global-weight-thin;
+
+    @include breakpoint(medium) {
+        @include font-size(1.8);
+    }
+
+    @include breakpoint(large) {
+        @include font-size(2);
+    }
+
+    &.w-banner__font-big {
+        @include font-size(2.2);
+
+        @include breakpoint(medium) {
+            @include font-size(2.2);
+        }
+
+        @include breakpoint(large) {
+            @include font-size(2.5);
+        }
+    }
+}
+
+.w-banner__type-a__link {
+    @include before-after-background(1.5rem, $primary-color, 1, $global-margin, 0, '', '\E5C8');
+
+    @include breakpoint(large) {
+        bottom: $global-margin;
+        position: absolute;
+        width: calc(100% - 2rem);
+    }
+
+    &:after {
+        position: absolute;
+        top: -2px;
+    }
+}
+
+// Banner Image Type B
+//
+// markup:
+// <div class="w-banner w-banner__type-b" itemscope itemtype="http://schema.org/Offer">
+//   <div class="w-banner__type-b__text">
+//     <h3 class="w-banner__title w-banner__type-b__title" itemprop="name">TV'S 4K</h3>
+//     <p class="w-banner__subtitle w-banner__type-b__subtitle" itemprop="description">Chegaram para ficar</p>
+//   </div>
+//   <div class="w-banner__type-b__teaser-image">
+//       <picture>
+//         <source srcset="images/banner-type-b/large.jpg" media="(min-width: 1200px)">
+//         <source srcset="images/banner-type-b/medium.jpg" media="(min-width: 1024px)">
+//         <source srcset="images/banner-type-b/small.jpg" media="(min-width: 640px)">
+//         <!--[if IE 9]></video><![endif]-->
+//         <img srcset="images/banner-type-b/extra-small.jpg" alt="#">
+//       </picture>
+//   </div>
+// </div>
+//
+// Styleguide 4.2.0
+
+.w-banner__type-b {
+    @include w-box($white, 0, 0, 5px, rgba($shadow-color, .5));
+    color: $white;
+    overflow: hidden;
+    position: relative;
+}
+
+.w-banner__type-b__text {
+    padding: ($global-padding * 2);
+    position: absolute;
+    z-index: 1;
+
+    @include breakpoint(medium) {
+        padding: ($global-padding * 3);
+    }
+}
+
+.w-banner__type-b__title {
+    @include font-size(3.5);
+
+    @include breakpoint(large) {
+        @include font-size(5);
+    }
+
+    &.w-banner__font-big {
+        @include font-size(4);
+    }
+
+    @include breakpoint(large) {
+        @include font-size(5.5);
+    }
+}
+
+.w-banner__type-b__subtitle {
+    @include font-size(1.5);
+
+    @include breakpoint(large) {
+        @include font-size(2.5);
+    }
+
+    &.w-banner__font-big {
+        @include font-size(2);
+
+        @include breakpoint(large) {
+            @include font-size(3);
+        }
+    }
+}
+
+.w-banner__type-b__teaser-image {
+    bottom: 0;
+    left: 0;
+    position: relative;
+    right: 0;
+    top: 0;
+
+    img {
+        height: 100%;
+        width: 100%;
+
+        @include breakpoint(medium) {
+            height: auto;
+        }
+    }
+}
+
+// Banner Image Type C
+//
+// markup:
+// <div class="w-banner w-banner__type-c" itemscope itemtype="http://schema.org/Offer">
+//   <div class="w-banner__type-c__background-image">
+//     <picture>
+//         <source srcset="images/banner-type-c/large.jpg" media="(min-width: 1200px)">
+//         <source srcset="images/banner-type-c/medium.jpg" media="(min-width: 1024px)">
+//         <source srcset="images/banner-type-c/small.jpg" media="(min-width: 640px)">
+//         <!--[if IE 9]></video><![endif]-->
+//         <img srcset="images/banner-type-c/extra-small.jpg" alt="#">
+//     </picture>
+//   </div>
+//   <div class="w-banner__type-c__content w-align-right">
+//     <h3 class="w-banner__title w-banner__type-c__title" itemprop="name">TV'S 4K</h3>
+//     <div class="w-banner__subtitle w-banner__type-c__subtitle" itemprop="description">
+//        <p>Chegaram para ficar</p>
+//     </div>
+//   </div>
+// </div>
+//
+// Styleguide 4.3.0
+.w-banner__type-c {
+    @include w-box($white, 0, 0, 5px, rgba($shadow-color, .5));
+    position: relative;
+
+    img {
+        width: 100%;
+    }
+}
+
+.w-banner__type-c__content {
+    color: $white;
+    padding: $global-padding;
+    position: absolute;
+    top: 0;
+
+    @include breakpoint(xsmall) {
+        padding: ($global-padding * 3);
+    }
+
+    @include breakpoint(medium) {
+        @include grid-column(10, 0);
+    }
+
+    @include breakpoint(large) {
+        @include grid-column(8, 0);
+    }
+
+    &.w-align-right {
+        @include breakpoint(medium) {
+            @include grid-column-offset(1);
+        }
+
+        @include breakpoint(large) {
+            @include grid-column-offset(4);
+        }
+    }
+
+    &.full-width {
+        @include breakpoint(large) {
+            @include grid-column(12, 0);
+        }
+    }
+}
+
+.w-banner__type-c__title {
+    @include font-size(3.5);
+
+    @include breakpoint(medium) {
+        @include font-size(4);
+        font-weight: $global-weight-bold;
+    }
+
+    &.w-banner__font-big {
+        @include font-size(3.8);
+
+        @include breakpoint(medium) {
+            @include font-size(4.5);
+        }
+    }
+}
+
+.w-banner__type-c__subtitle {
+    @include font-size(1.5);
+
+    @include breakpoint(xsmall) {
+        @include font-size(1.8);
+    }
+
+    @include breakpoint(medium) {
+        @include font-size(2.5);
+    }
+
+    &.w-banner__font-big {
+        @include font-size(2.2);
+
+        @include breakpoint(medium) {
+            @include font-size(2.75);
+        }
+    }
+}
+
+// Banner Image Type D
+//
+// markup:
+// <div class="w-banner w-banner__type-d" itemscope itemtype="http://schema.org/Offer">
+//     <div class="w-banner__type-d__wrapper">
+//             <div class="w-banner__type-d__content">
+//                 <h3 class="w-banner__title w-banner__type-d__title" itemprop="name">
+//                     <a href="#" class="qa-banner-image-type-d__content" itemprop="url">Nullam id dolor id nibh</a>
+//                 </h3>
+//                 <p class="w-banner__subtitle w-banner__type-d__subtitle" itemprop="description">
+//                     Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis.
+//                 </p>
+//             </div>
+//             <figure class="w-banner__type-d__image">
+//                 <a href="#" class="qa-banner-image-type-d__image" itemprop="url">
+//                     <picture>
+//                         <source srcset="images/banner-type-d/large.jpg" media="(min-width: 1200px)">
+//                         <source srcset="images/banner-type-d/medium.jpg" media="(min-width: 1024px)">
+//                         <source srcset="images/banner-type-d/small.jpg" media="(min-width: 640px)">
+//                         <!--[if IE 9]></video><![endif]-->
+//                         <img srcset="images/banner-type-d/extra-small.jpg" alt="#">
+//                     </picture>
+//                 </a>
+//             </figure>
+//         </div>
+//     </div>
+// </div>
+//
+// Styleguide 4.4.0
+.w-banner__type-d {
+    margin-bottom: $global-margin;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.w-banner__type-d__wrapper {
+    @include w-box($white, 0, 0, 5px, rgba($shadow-color, .5));
+
+    @include breakpoint(large) {
+        @include grid-row(12, collapse , 100%, true, 10);
+    }
+}
+
+.w-banner__type-d__content {
+    padding: $global-padding;
+
+    @include breakpoint(large) {
+        @include grid-column(6, 0);
+    }
+}
+
+.w-banner__type-d__title {
+    @include font-size(3);
+    font-weight: $global-weight-normal;
+    margin-bottom: ($global-margin / 2);
+    &.w-banner__font-big {
+        @include font-size(3.5);
+    }
+}
+
+.w-banner__type-d__subtitle {
+    @include font-size(1.4);
+
+    @include breakpoint(medium) {
+        @include font-size(1.5);
+    }
+
+
+    &.w-banner__font-big {
+        @include font-size(1.9);
+
+        @include breakpoint(medium) {
+            @include font-size(1.8);
+        }
+    }
+}
+
+.w-banner__type-d__description {
+    @include breakpoint(medium) {
+        @include font-size(1.4);
+    }
+}
+
+.w-banner__type-d__image {
+    background-color: $white;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+
+    @include breakpoint(large) {
+        @include grid-column(6, 0);
+    }
+
+    img {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.w-banner__type-d__item {
+    @include breakpoint(large) {
+        width: 33%;
+    }
+}
+
+// Banner Image Type D :: Side Image
+//
+// markup:
+// <div class="w-section__wrapper__content">
+//     <div class="w-banner__type-d w-banner__type-d__sideimage" itemscope itemtype="http://schema.org/Offer">
+//         <div class="w-banner__type-d__wrapper">
+//             <figure class="w-banner__type-d__image">
+//                 <a href="{.url}" class="qa-card-big__image">
+//                     <picture>
+//                         <source srcset="images/banner-type-d-sideimage/large.jpg" media="(min-width: 1200px)">
+//                         <source srcset="images/banner-type-d-sideimage/medium.jpg" media="(min-width: 1024px)">
+//                         <source srcset="images/banner-type-d-sideimage/small.jpg" media="(min-width: 640px)">
+//                         <!--[if IE 9]></video><![endif]-->
+//                         <img srcset="images/banner-type-d-sideimage/extra-small.jpg" alt="#">
+//                     </picture>
+//                 </a>
+//             </figure>
+//             <div class="w-banner__type-d__content">
+//                <h4 class="w-banner__type-d__title" itemprop="name"><a href="#" class="qa-card-big__content" itemprop="url">RESOLUÇÃO DA TV</a></h4>
+//                <p class="w-banner__type-d__description" itemprop="description">O seu televisor poderá ter uma resolução HD, Full HD ou Ultra HD. Os televisores HD têm 720p, os 1080p e os Ultra HD chegam aos 2160p por frame, apresentando imagens com a melhor qualidade possível.</p>
+//                <h4 class="w-banner__type-d__title" itemprop="name"><a href="#" class="qa-card-big__content" itemprop="url">TIPO DE ECRÃ</a></h4>
+//                <p class="w-banner__type-d__description" itemprop="description">Desde ecrãs Curvos, Oled com grande contraste, até Led com qualidade de imagem bastante realista ou até os tradicionais Plasmas, na hora de escolher um ecrã as opções são quase infinitas.</p>
+//                <h4 class="w-banner__type-d__title" itemprop="name"><a href="#" class="qa-card-big__content" itemprop="url">FREQUÊNCIA DE RESPOSTA</a></h4>
+//                <p class="w-banner__type-d__description" itemprop="description">A frequência de resposta dos televisores varia entre 50Hz e 1000Hz, sendo que um televisores entre os 50 Hz e os 330Hz e um televisor evolutivo ou interactivo já apresenta valores entres 400Hz e os 1000Hz.</p>
+//             </div>
+//         </div>
+//     </div>
+// </div>
+//
+// Styleguide 4.5.0
+.w-banner__type-d__sideimage {
+    .w-banner__type-d__wrapper {
+        @include breakpoint(large) {
+            display: flex;
+            justify-content: space-around;
+        }
+    }
+
+    .w-banner__type-d__image {
+        flex-basis: 66%;
+        flex-grow: 2;
+
+        @include breakpoint(large) {
+            @include grid-column(8, 0);
+        }
+    }
+
+    .w-banner__type-d__content {
+        padding: ($global-padding * 1.5);
+        flex-basis: 33%;
+        flex-grow: 1;
+
+
+        @include breakpoint(large) {
+            @include grid-column(4, 0);
+        }
+    }
+
+    .w-banner__type-d__title {
+        @include font-size(2);
+        &.w-banner__font-big {
+            @include font-size(2.5);
+        }
+    }
+
+    .w-banner__type-d__subtitle {
+        @include font-size(1.5);
+        &.w-banner__font-big {
+            @include font-size(2);
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

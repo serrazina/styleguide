@@ -1,0 +1,218 @@
+// --------------------------
+// Magento Checkout :: Layout
+// --------------------------
+.mg-pg {
+    .page {
+        @include grid-row;
+    }
+
+    .col1-layout {
+        @include grid-column(12, 0);
+    }
+
+    .col2-layout {
+        @include grid-column(6);
+    }
+
+    .col3-layout {
+        @include grid-column(4);
+    }
+
+    .col4-layout {
+        @include grid-column(3);
+    }
+
+    // Sidebar Checkout
+    #col-right-opcheckout {
+        display: none;
+
+        @include breakpoint(medium) {
+            display: block;
+            @include grid-column(3);
+        }
+    }
+
+    #sidebar-cart-opcheckout {
+        @include w-box($white, 0, 0, 5px, rgba($shadow-color, .5));
+        padding: ($global-padding / 2);
+    }
+
+    .plus-content-sidebar {
+        display: none;
+    }
+
+    // Sidebar opc-block-sidebar-review
+    .opc-block-sidebar-review {
+        .block-title {
+            @include font-size(2);
+            margin-bottom: $global-margin;
+            text-transform: uppercase;
+
+            a {
+                display: none;
+            }
+        }
+    }
+
+    // Sidebar Cart Wrapper
+    .sidebar-cart-wrapper {
+        @include grid-row;
+        border-bottom: 1px solid $light-gray;
+        padding: ($global-padding / 2) 0;
+
+        .sidebar-cart-img {
+            @include grid-column(3, 0);
+        }
+
+        .sidebar-cart-info {
+            @include grid-column(9);
+
+            .product-name {
+                @include font-size(1.4);
+                margin-bottom: 0;
+            }
+
+            .product-qty {
+                @include font-size(1.2);
+                color: $medium-gray;
+            }
+
+        }
+
+        .sidebar-cart-price {
+            @include grid-column(6);
+            @include font-size(1.4);
+            text-align: right;
+        }
+    }
+
+    #checkout-sidebar-totals-table {
+        tr {
+            border-bottom: 1px solid $light-gray;
+        }
+
+        .tb-f-grandtotal {
+            border: 0;
+        }
+    }
+
+    // Reset Fieldset
+    .fieldset {
+        border: 0;
+        padding: 0;
+    }
+}
+
+.opc-wrapper {
+    @include grid-row;
+}
+
+.opc-checkoutSteps {
+    @include grid-column(12);
+    margin-bottom: ($global-margin * 2);
+
+    // Tablet
+    @include breakpoint(medium) {
+        @include grid-column(9);
+        margin-bottom: 0;
+    }
+}
+
+// Sidebar
+.opc-progress-container {
+    @include grid-column(12);
+
+    // Tablet
+    @include breakpoint(medium) {
+        @include grid-column(3);
+    }
+}
+
+
+// OPC-SHIPPING (Shipping Information)
+#shipping-new-address-form {
+    padding: 0;
+
+    .fields {
+        @include grid-row;
+
+        .field {
+            @include grid-column(6);
+        }
+    }
+
+    .personal {
+        @include grid-column(6);
+
+        .field {
+            @include grid-column(12, 0);
+        }
+    }
+
+    .bloc-right {
+        li:first-child,
+        li.add-field {
+            @include grid-column(12);
+        }
+    }
+}
+
+//OPS Credit Card
+#ops_cc_data {
+    li {
+        &:nth-child(2n+3) {
+            clear: left;
+        }
+    }
+
+    .field-ct-ccv {
+        input {
+            margin-bottom: ($global-margin / 2);
+        }
+    }
+
+    .input-box .v-fix {
+        float: left;
+        margin-right: 2%;
+        width: 48%;
+    }
+
+    // Tablet
+    @include breakpoint(medium) {
+        @include grid-row;
+
+        li {
+            @include grid-column(6);
+        }
+    }
+}
+
+// Payment Type : Worten Card
+#payment_form_wortencardes {
+    > li:first-child {
+        > label:first-child {
+            display: none;
+        }
+
+        > .input-box {
+            display: none;
+        }
+    }
+
+    ul {
+        @include grid-row;
+
+        li {
+            @include grid-column(6);
+
+            .v-fix {
+                @include grid-column(6);
+                padding-right: 0;
+
+                &:first-child {
+                    padding-left: 0;
+                }
+            }
+        }
+    }
+}

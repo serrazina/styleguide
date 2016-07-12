@@ -1,0 +1,32 @@
+.w-checkout-footer {
+    .w-footer__bottom {
+        border: 0;
+        padding-top: 0;
+
+        .w-footer__bottom__security,
+        .w-footer__bottom__payment {
+            @include grid-column(12);
+            @include grid-col-unpos;
+            margin-bottom: $global-margin;
+
+            // Tablet
+            @include breakpoint(medium) {
+                @include grid-column(6);
+                @include grid-col-unpos;
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .w-footer__bottom__payment {
+        li {
+            &:nth-child(3n) {
+                margin-right: 7px;
+            }
+        }
+
+        @include breakpoint(medium) {
+            text-align: right;
+        }
+    }
+}

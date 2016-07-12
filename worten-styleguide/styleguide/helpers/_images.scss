@@ -1,0 +1,15 @@
+figure {
+    margin: 0;
+}
+// Product Image
+.w_product-img-wrapper {
+    display: inline-block;
+    position: relative;
+
+    // Discount Tag
+    .w_discount_tag {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}

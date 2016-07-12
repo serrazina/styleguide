@@ -1,0 +1,48 @@
+// ------------------------------
+// Pagination Styles
+// ------------------------------
+.w-pagination-block {
+    margin-top: $global-margin;
+}
+
+.pagination {
+    li {
+        margin-bottom: ($global-margin / 2);
+        margin-right: ($global-margin / 4);
+    }
+
+    .ellipsis,
+    .ellipsis:after {
+        margin: 0;
+        padding: ($global-padding / 2) 0;
+    }
+
+    a,
+    button {
+        @include w-box($white, 0, 0, 5px, rgba($shadow-color, .5));
+        min-width: 37px;
+    }
+
+    .current {
+        @include w-box($primary-color, 0, 0, 5px, rgba($medium-gray, .5));
+        min-width: 37px;
+    }
+
+    .pagination-previous.disabled:before,
+    .pagination-next.disabled::after {
+        content: '';
+    }
+
+    .pagination-previous a::before{
+        content: '<';
+        margin-right: 0;
+    }
+
+    .pagination-next {
+        a:after,
+        span:after {
+            content: '>';
+            margin-left: 0;
+        }
+    }
+}

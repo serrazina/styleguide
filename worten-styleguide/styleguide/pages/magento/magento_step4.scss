@@ -1,0 +1,142 @@
+// --------------------------
+// Magento Checkout :: Step 4
+// --------------------------
+#opc-payment {
+    .form-list p.required {
+        display: none;
+    }
+
+    #payment-req {
+        @include grid-column(12);
+    }
+}
+
+// Credit Store
+.checkout-onepage-payment-additional-customerbalance {
+    h2 {
+        @include font-size(1.8);
+        text-transform: uppercase;
+    }
+
+    .check-label {
+        margin-bottom: $global-margin;
+    }
+}
+
+// Payment Method
+#checkout-payment-method-load {
+    h2 {
+        @include font-size(1.8);
+        text-transform: uppercase;
+    }
+
+    dt {
+        margin-bottom: $global-margin;
+
+        @include breakpoint(medium) {
+            margin-bottom: 0;
+            text-align: center;
+        }
+
+        [type='radio'] {
+            display: none;
+        }
+
+        [type='radio'] + label {
+            background-color: $white;
+            background-position: 0 50%;
+            background-repeat: no-repeat;
+            background-size: 70px 70px;
+
+
+            @include breakpoint(medium) {
+                background-position: 50% 0;
+                background-size: 100px 100px;
+                padding: 0;
+                padding-top: 90px;
+            }
+        }
+
+        [type='radio']:checked + label {
+            border-color: $primary-color;
+            color: $black;
+        }
+
+        label {
+            border: 1px solid $light-gray;
+            color: $medium-gray;
+            cursor: pointer;
+            line-height: 1.4;
+            margin: 0;
+            padding-bottom: ($global-padding * 1.5);
+            padding-left: 75px;
+            padding-top: ($global-padding * 1.5);
+            width: 100%;
+
+            &:before {
+                content: '';
+            }
+        }
+
+        span {
+            display: block;
+        }
+    }
+}
+
+#p_method_sonae_multibanco + label {
+    background-image: url(../img/multibanco.png);
+}
+
+#p_method_ops_cc + label {
+    background-image: url(../img/cartao-credito.png);
+}
+
+#p_method_paypal_express + label {
+    background-image: url(../img/paypal.png);
+}
+
+#p_method_cartaou + label {
+    background-image: url(../img/cartao-universo.png);
+}
+
+#p_method_wortencardpt + label {
+    background-image: url(../img/cartao-worten.png);
+}
+
+
+.sp-methods .form-list {
+    @include grid-column(12);
+}
+
+// Discount Coupon Form
+#discount-coupon-form {
+    @include grid-column(12);
+    margin-top: ($global-margin * 2);
+
+    h2 {
+        display: none;
+    }
+
+    .input-box,
+    .buttons-set {
+        display: inline-block;
+        float: none;
+        padding: 0;
+        width: auto;
+    }
+
+    .input-box {
+        float: left;
+    }
+
+    .buttons-set {
+        margin-top: 0;
+    }
+
+    .btn-coupon {
+        @include button(false, $medium-gray, $dark-gray, $white);
+        @extend %w-button;
+        box-shadow: 0 -3px $dark-gray inset;
+    }
+}

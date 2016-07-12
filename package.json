@@ -1,0 +1,17 @@
+{
+  "name": "styleguide",
+  "version": "1.0.0",
+  "dependencies": {
+    "foundation-sites": "^6.2.3",
+    "harp": "*",
+    "magnific-popup": "^1.1.0",
+    "motion-ui": "^1.2.2",
+    "sc5-styleguide": "^1.0.0"
+  },
+  "author": "ZURB <foundation@zurb.com>",
+  "license": "MIT",
+  "devDependencies": {},
+  "repository": {},
+  "bugs": {},
+  "private": true
+}

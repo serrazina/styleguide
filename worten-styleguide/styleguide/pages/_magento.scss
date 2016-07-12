@@ -1,0 +1,21 @@
+// -----------------------------
+// Magento Checkout
+// -----------------------------
+@import 'magento/magento-header';
+@import 'magento/magento-footer';
+@import 'magento/magento-layout';
+@import 'magento/magento-forms';
+@import 'magento/magento-components';
+@import 'magento/magento-messages';
+@import 'magento/magento-cartempty';
+@import 'magento/magento-checkout';
+@import 'magento/magento-modal';
+@import 'magento/magento-store-search';
+
+
+// Steps
+@import 'magento/magento_step1';
+@import 'magento/magento_step2';
+@import 'magento/magento_step3';
+@import 'magento/magento_step4';
+@import 'magento/magento_step5';

@@ -1,0 +1,99 @@
+// -----------------
+// Newsletter Block
+// -----------------
+.w-newsletter-block {
+    color: $white;
+
+    .w-section__wrapper__header {
+        @include breakpoint(medium) {
+            @include grid-col(12);
+        }
+
+        @include breakpoint(large) {
+            @include grid-col(6);
+        }
+    }
+
+    .w-newsletter-block__content {
+        @include breakpoint(large) {
+            @include grid-col(6);
+            @include vertical-align(relative);
+        }
+    }
+
+    .w-newsletter-block__box {
+        background-color: $primary-color;
+        padding: ($global-padding / 1.5);
+
+        @include breakpoint(large) {
+            height: 115px;
+        }
+    }
+
+    .w-section__header {
+        text-align: left;
+
+        &:before {
+            @include font-size(3);
+            content: "\e0e1";
+            color: $white;
+            font-family: "worten-icons";
+            line-height: 1;
+            margin-bottom: ($global-margin * 2);
+
+            @include breakpoint(medium) {
+                @include font-size(5);
+                float: left;
+                margin-right: $global-margin;
+            }
+        }
+
+        .w-section__title {
+            @include font-size(2);
+            line-height: 1;
+            text-transform: inherit;
+        }
+    }
+
+    .w-newsletter__formgroup {
+        border-radius: 27px;
+        background-color: $white;
+        margin: 0;
+        padding: 0 14px;
+    }
+
+    .input-group-field {
+        background-color: transparent;
+        border: 0;
+        box-shadow: none;
+        height: 54px;
+    }
+
+    .input-group-button {
+        background-color: transparent;
+        color: $medium-gray;
+        width: 100px;
+
+        &:before {
+            content: "";
+            border-left: 1px solid $light-gray;
+            padding-left: ($global-padding / 2);
+        }
+
+        i {
+            @include hide-for(medium);
+        }
+
+        span {
+            @include show-for(medium);
+            color: $black;
+            font-weight: $global-weight-bold;
+            text-transform: uppercase;
+        }
+    }
+
+    .help-text {
+        color: $white;
+        margin: 0;
+    }
+}

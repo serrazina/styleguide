@@ -1,0 +1,322 @@
+// ------------------
+// Store Page Styles
+// ------------------
+.w-store-search-block {
+    .w-section__wrapper {
+        @include grid-row(12);
+    }
+}
+
+.w-store-search__form {
+    @include grid-column(12, 0);
+}
+
+.w-store-search__wrapper {
+    @include grid-row(12);
+    @include w-box($white, 0, 2px, 5px, rgba($shadow-color, .5));
+    padding: ($global-padding / 2);
+
+    @include breakpoint(medium) {
+        @include grid-row(18);
+    }
+
+    @include breakpoint(large) {
+        @include grid-row(18);
+    }
+
+    .w-store-search__stores,
+    .w-store-search__btn_location,
+    .w-store-search__radius {
+        @include grid-column(12, 0);
+    }
+
+    .w-store-search__stores {
+        @include breakpoint(medium) {
+            @include grid-column(8);
+        }
+
+        @include breakpoint(large) {
+            @include grid-column(6);
+        }
+
+        label input {
+            @include breakpoint(medium) {
+                display: inline-block;
+                width: 175px;
+            }
+
+            @include breakpoint(large) {
+                width: 60%;
+            }
+        }
+    }
+
+    .w-store-search__radius {
+        @include breakpoint(medium) {
+            @include grid-column(4);
+        }
+
+        select {
+            @include breakpoint(medium) {
+                width: auto;
+            }
+        }
+    }
+
+    .w-store-search__btn_location {
+        @include breakpoint(medium) {
+            @include grid-column(1, 0);
+        }
+    }
+
+    .w-store-search__btn {
+        @include grid-column(12);
+
+        @include breakpoint(medium) {
+            @include grid-column(6);
+        }
+
+        @include breakpoint(large) {
+            @include grid-column(8, 0);
+            text-align: right;
+        }
+
+        .material-icons {
+            @include font-size(1.4);
+        }
+
+        button {
+            @include breakpoint(medium) {
+                width: auto;
+            }
+
+            @include breakpoint(large) {
+                margin-right: ($global-margin / 2);
+            }
+        }
+
+        span {
+            @include breakpoint(medium) {
+                display: none;
+            }
+
+            @include breakpoint(large) {
+                display: inline-block;
+            }
+        }
+    }
+
+    button {
+        width: 100%;
+    }
+
+    button,
+    input,
+    select {
+        @include breakpoint(medium) {
+            margin: 0;
+        }
+    }
+
+    input,
+    select {
+        @include breakpoint(medium) {
+            margin-left: ($global-margin / 2);
+        }
+    }
+
+    .w-button-secondary {
+        width: 100%;
+
+        @include breakpoint(medium) {
+            margin-left: ($global-margin / 2);
+            width: auto;
+        }
+
+        i {
+            @include breakpoint(medium) {
+                margin-right: ($global-margin / 4);
+            }
+        }
+    }
+}
+
+// -----------------------------
+// Store Page Styles :: Location
+// -----------------------------
+.w-store-block__store {
+    @include grid-column(12, 0);
+    margin-bottom: $global-margin;
+
+    @include breakpoint(medium) {
+        @include grid-row(12);
+    }
+
+    .w-store-block__wrapper {
+        @include w-box($white, 0, 0, 5px, rgba($shadow-color, .5));
+        overflow: hidden;
+    }
+
+    figure {
+        margin: 0;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .w-store__content {
+        padding: $global-padding;
+
+        @include breakpoint(medium) {
+            @include grid-column(4);
+            @include grid-col-pos(-8);
+            padding-bottom: 0;
+        }
+
+        @include breakpoint(large) {
+            @include grid-column(3);
+            @include grid-col-pos(-9);
+        }
+
+        button {
+            @include hide-for-only(small);
+            margin-bottom: 0;
+            width: 100%;
+        }
+    }
+
+    .w-store__name {
+        @include font-size(1.8);
+        border-bottom: 1px solid $light-gray;
+    }
+
+    address,
+    time,
+    .w-store__phone {
+        font-style: normal;
+        font-weight: $global-weight-thin;
+    }
+
+    .w-store__phone {
+        display: block;
+        margin: $global-margin 0;
+    }
+
+    time {
+        display: block;
+    }
+
+    .w-store__map {
+        @include breakpoint(medium) {
+            @include grid-column(8, 0);
+            @include grid-col-pos(4);
+        }
+
+        @include breakpoint(large) {
+            @include grid-column(9, 0);
+            @include grid-col-pos(3);
+        }
+
+        img {
+            @include breakpoint(large) {
+                height: 320px;
+                width: auto;
+            }
+        }
+    }
+}
+
+// ----------------------------
+// Store Page Styles :: Details
+// ----------------------------
+.w-store-details__content {
+    @include grid-row(12);
+    padding: $global-padding 0;
+
+    .w-store__name {
+        @include font-size(2);
+        border: 0;
+        margin-bottom: ($global-margin * 2);
+
+        span {
+            font-weight: $global-weight-thin;
+        }
+    }
+
+    h4 {
+        @include font-size(1.8);
+    }
+
+    .w-store__name {
+        @include grid-column(12, 50);
+    }
+
+    .w-store-details__address,
+    .w-store-details__phone,
+    .w-store-details__schedule {
+        @include grid-column(12, 50);
+        margin-bottom: $global-margin;
+
+        @include breakpoint(medium) {
+            @include grid-column(4, 50);
+        }
+    }
+
+    .w-store-details__address {
+        border-right: 1px solid $light-gray;
+    }
+
+    .w-store-details__phone {
+        span {
+            margin-top: 0;
+        }
+    }
+
+    .w-store-details__schedule {
+        border-left: 1px solid $light-gray;
+
+        span {
+            color: $primary-color;
+            display: block;
+        }
+    }
+}
+
+.w-store-details__map {
+    height: 300px;
+}
+
+.w-store-details__disclaimer,
+.w-store-details__form {
+    @include breakpoint(medium) {
+        @include grid-column(12, 50);
+    }
+}
+
+.w-store-details__form {
+    .w-store-details__form__wrapper {
+        @include breakpoint(medium) {
+            @include grid-row(12);
+        }
+    }
+
+    .w-store-details__form__name {
+        @include breakpoint(medium) {
+            @include grid-column(12,0);
+        }
+    }
+
+    .w-store-details__form__email,
+    .w-store-details__form__action {
+        @include breakpoint(medium) {
+            @include grid-column(4, 0);
+        }
+    }
+
+    .w-store-details__form__phone {
+        @include breakpoint(medium) {
+            @include grid-column(4);
+        }
+    }
+}

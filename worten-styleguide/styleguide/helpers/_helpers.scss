@@ -1,0 +1,218 @@
+// ---------------------
+// Visibility Classes
+// ---------------------
+.w-hideMobile {
+    @include hide-for-only(small);
+}
+
+.w-hideTablet {
+    @include hide-for(medium);
+}
+
+.w-hideDesktop {
+    @include hide-for(large);
+}
+
+// ---------------------
+// Elements Align
+// ---------------------
+@mixin align-left {
+    text-align: left;
+}
+
+@mixin align-center {
+    text-align: center;
+}
+
+@mixin align-right {
+    text-align: right;
+}
+
+.vertical-align {
+    @include vertical-align;
+}
+
+// ---------------------
+// Hiding Text
+// ---------------------
+@mixin hide-text {
+    text-indent: -999em;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+// ---------------------
+// Tips
+// ---------------------
+.has-tip {
+    border-bottom: 0;
+}
+
+// ---------------------
+// Links
+// ---------------------
+.w-link-primary {
+    color: $primary-color;
+}
+
+.w-link-underline {
+    text-decoration: underline;
+}
+
+.w-edit-link {
+    @include font-size(1.3);
+    color: $primary-color;
+
+    i {
+        @include font-size(1.3);
+    }
+}
+
+// ---------------------
+// Add-Ons
+// ---------------------
+sup {
+    font-size: 55%;
+    top: -.65em;
+}
+
+.hidden {
+    display: none;
+}
+
+// ---------------------
+// Callout Messages
+// ---------------------
+.callout {
+    p {
+        @include font-size(1.3);
+
+        &:before {
+            @include font-size(2);
+            font-family: 'worten-icons';
+            margin-right: ($global-margin / 2);
+            vertical-align: middle;
+        }
+    }
+
+    &.success {
+        border-color: $success-color;
+        color: $success-color;
+
+        p:before {
+            content: '\E5CA';
+        }
+    }
+
+    &.alert {
+        border-color: $primary-color;
+        color: $primary-color;
+
+        p:before {
+            content: '\e5cd';
+        }
+    }
+
+    &.warning {
+        border-color: darken($warning-color, 10%);
+        color: darken($warning-color, 10%);
+
+        p:before {
+            content: '\E002';
+        }
+    }
+}
+
+// -------------
+// Product Price
+// -------------
+.w-product__price {
+    span {
+        display: block;
+    }
+}
+
+.w-product__price__old {
+    @include font-size(1.4);
+    color: $medium-gray;
+    text-decoration: line-through;
+}
+
+.w-product__price__current {
+    @include font-size(3.6);
+    color: $primary-color;
+    display: inline-block;
+    line-height: 1;
+}
+
+// ---------------------
+// Colors Helpers
+// ---------------------
+@include w-color(green, $success-color);
+@include w-color(red, $primary-color);
+@include w-color(warning, $warning-color);
+@include w-color(info, $info-color);
+@include w-color(gray, $medium-gray);
+@include w-color(black, $black);
+@include w-color(white, $white);
+@include w-color(electric-green, $electric-green);
+
+// ---------------------
+// Video Player Hack
+// ---------------------
+.w-video-wrapper {
+    float: none;
+    clear: both;
+    width: 100%;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 25px;
+    height: 0;
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+// -------
+// Loading
+// -------
+@include keyframes(fadeIn) {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@include keyframes(SquareRotate) {
+  0% { transform: perspective(120px) rotateX(0deg) rotateY(0deg) }
+  50% { transform: perspective(120px) rotateX(-180deg) rotateY(0deg) }
+  100% { transform: perspective(120px) rotateX(-180deg) rotateY(-180deg) }
+}
+
+.w-loading {
+    @include animation('fadeIn .5s ease-in .15s forwards');
+    background: $background-opacity;
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity:0;  /* make things invisible upon start */
+    position: fixed;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 501;
+
+    &:after {
+        @include vertical-align(absolute);
+        @include animation('SquareRotate 1.2s infinite ease-in-out .1s');
+        background-color: $primary-color;
+        content: '';
+        height: 40px;
+        left: 50%;
+        position: absolute;
+        width: 40px;
+    }
+}

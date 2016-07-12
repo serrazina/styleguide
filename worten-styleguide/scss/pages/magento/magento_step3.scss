@@ -1,0 +1,42 @@
+// --------------------------
+// Magento Checkout :: Step 2
+// --------------------------
+#opc-shipping_method {
+    h5 {
+        margin-top: $global-margin;
+
+        @include breakpoint(medium) {
+            margin-top: 0;
+        }
+    }
+
+    label {
+        @include font-size(1.5);
+        color: $medium-gray;
+        line-height: 1.3;
+    }
+
+    .shipping-change-price .price {
+        color: $primary-color;
+    }
+}
+
+#special-comments {
+    .input-box {
+        @include breakpoint(medium) {
+            @include grid-row;
+        }
+
+        label {
+            @include breakpoint(medium) {
+                @include grid-column(3, 0);
+            }
+        }
+
+        textarea {
+            @include breakpoint(medium) {
+                @include grid-column(9);
+            }
+        }
+    }
+}

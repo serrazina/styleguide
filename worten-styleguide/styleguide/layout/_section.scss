@@ -1,0 +1,164 @@
+// -------------
+// Section Block
+// -------------
+.w-section {
+    .w-section__wrapper & {
+        @include grid-column(12);
+    }
+
+    .section-column & {
+        padding: 0;
+    }
+}
+
+.section-column {
+    @include grid-column(12);
+}
+
+.w-section__wrapper {
+    @include grid-row;
+}
+
+.w-section__wrapper__header,
+.w-section__wrapper__content {
+    @include grid-column(12, 0);
+}
+
+.w-section__content__row {
+    @include grid-row;
+}
+
+.w-section__header {
+    text-align: center;
+
+    @include breakpoint(medium) {
+        margin-top: ($global-margin * .75);
+        position: relative;
+    }
+}
+
+.w-section__viewAll {
+    margin-bottom: ($global-margin / 2);
+    text-align: right;
+    text-transform: lowercase;
+
+    @include breakpoint(xsmall) {
+        position: absolute;
+        right: 5px;
+        top: 0;
+    }
+
+    .w-icon {
+        @include before-after-background(24px, $primary-color, 1, $global-margin / 5, 0, '', '\e5c8');
+
+        &:after {
+            float: right;
+        }
+    }
+}
+
+.w-section__title {
+    @include font-size(2.2);
+    font-weight: $global-weight-bold;
+    text-transform: uppercase;
+}
+
+.w-section__subtitle {
+    @include font-size(2);
+    font-weight: $global-weight-bold;
+}
+
+.w-section-content__box {
+    .w-section-content__box__wrapper {
+        @include w-box($white, 0, 0, 5px, rgba($shadow-color, .5));
+
+        &.light-gray {
+            background-color: $pure-light-gray;
+        }
+
+        &.gray {
+            background-color: $medium-gray;
+        }
+    }
+}
+
+.w-section-padding {
+    .w-section-content__box__wrapper {
+        padding: ($global-padding / 2);
+    }
+}
+
+// Margin TOP/BOTTOM
+.w-margin-top {
+    margin-top: $global-margin;
+}
+
+.w-margin-bottom {
+    margin-bottom: $global-margin;
+}
+
+.w-section__footer {
+    text-align: right;
+}
+
+
+// -----------------
+// Section Container
+// -----------------
+.section-container {
+    @include breakpoint(medium) {
+        @include grid-row(12);
+    }
+}
+
+.section-column {
+    padding: 0;
+}
+
+.section__20 {
+    @include breakpoint(medium) {
+        @include grid-column(2, 0);
+    }
+}
+
+.section__25 {
+    @include breakpoint(medium) {
+        @include grid-column(3, 0);
+    }
+}
+
+.section__45 {
+    @include breakpoint(medium) {
+        @include grid-column(5, 0);
+    }
+}
+
+.section__50 {
+    @include breakpoint(medium) {
+        @include grid-column(6, 0);
+    }
+}
+
+.section__55 {
+    @include breakpoint(medium) {
+        @include grid-column(7, 0);
+    }
+}
+
+.section__75 {
+    @include breakpoint(medium) {
+        @include grid-column(9, 0);
+    }
+}
+
+.section__80 {
+    @include breakpoint(medium) {
+        @include grid-column(10, 0);
+    }
+}
+
+.section__100 {
+    @include breakpoint(medium) {
+        @include grid-column(12, 0);
+    }
+}

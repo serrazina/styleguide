@@ -1,0 +1,48 @@
+// ---------------------
+// Star Rating Component
+// ---------------------
+.w-rating {
+    direction: ltr;
+    unicode-bidi: bidi-override;
+
+    > span {
+        @include font-size(1.8);
+        display: inline-block;
+        line-height: 1;
+        position: relative;
+        width: 1.1em;
+    }
+
+    strong {
+        @include font-size(2.4);
+
+        @include breakpoint(medium) {
+            display: block;
+        }
+    }
+
+    .w-rating__val {
+        @include font-size(1.35);
+        color: $medium-gray;
+        font-style: normal;
+
+        i {
+            font-style: normal;
+        }
+    }
+}
+
+.w-rating > span {
+    color: transparent;
+}
+
+.w-rating > span:before {
+    color: $light-gray;
+    content: "\2605";
+    position: absolute;
+    left: 0;
+}
+
+.w-rating > span.active:before {
+    color: $gold-color;
+}

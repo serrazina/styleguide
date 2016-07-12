@@ -1,0 +1,173 @@
+.w-iptv {
+    .container {
+        padding: 0;
+        position: relative;
+    }
+
+    select {
+        border: 1px solid $light-gray;
+        max-width: 50%;
+        outline: none;
+        position: relative;
+    }
+
+    .w-check-container {
+        label {
+            margin-bottom: $global-margin;
+            position: relative;
+            text-align: center;
+            
+            img {
+                max-height: 40px;  
+            } 
+        }
+
+        .w-check {
+            padding:10px;
+            position: relative;
+
+            label {
+                background: $light-gray;
+                border-radius: 2px;
+                cursor: pointer;
+                height: 20px;
+                left: 50%;
+                margin: 0;
+                position: relative;
+                top: 0;
+                transform: translateX(-50%);
+                width: 20px;
+                
+                &:after {
+                    content: '';
+                    width: 12px;
+                    height: 8px;
+                    position: absolute;
+                    top: 4px;
+                    left: 4px;
+                    border: 2px solid #fcfff4;
+                    border-top: none;
+                    border-right: none;
+                    background: transparent;
+                    opacity: 0;
+                    transform: rotate(-45deg);
+                }
+
+                &:hover::after {
+                    opacity: 0.3;
+                }
+            }
+
+            input[type=checkbox] {
+                visibility: hidden;
+                display: none;
+
+                &:checked + label {
+                    background: $primary-color;
+
+                    &:after {
+                        opacity: 1;
+                    }  
+                }  
+            }
+
+            &.disabled {
+                background-color: $dark-gray;
+            }
+        }
+
+        span {
+            position: relative;
+            display: block;
+            left:50%;
+            transform:translateX(-50%);
+            margin-top: $global-margin;
+        }
+    }
+
+    .w-input-container {
+        margin-top: $global-margin;
+        
+        label {
+            text-align: right;
+            padding-right: $global-padding;
+            padding-top:7px;
+        }
+    }
+
+    .w-card__tv, 
+    .w-card__net, 
+    .w-card__fixo, 
+    .w-card__wifi {
+        position: relative;
+        padding-left: 50px;
+
+        &:before {
+            content: '';
+            position: absolute;
+            left:0px;
+            top:0;
+            width: 40px;
+        }
+    }
+
+    .w-card__tv {
+        &:before {
+            content: url('../img/iptv/television.png');
+        }
+    }
+
+    .w-card__wifi {
+        &:before {
+            content: url('../img/iptv/wifi.png');
+        }
+    }
+
+    .w-card__net {
+        &:before {
+            content: url('../img/iptv/access-point-network.png');
+        }
+    }
+
+    .w-card__fixo {
+        &:before {
+            content: url('../img/iptv/phone-classic.png');
+        }
+    }
+
+    .w-iptv__loading {
+        display: none;
+    }
+
+
+    .w-iptv__logo-slide {
+        float: right;
+        width: 60px;
+    }
+
+    .w-iptv__header-slide, 
+    .w-iptv__main-slide {
+        border-bottom: 1px solid $light-gray;
+    }
+
+
+    .w-iptv__aderir {
+        width: calc(100% - 1rem - 15px);
+    }
+
+    .w-iptv__simular_button{
+        right: $global-padding;
+        position: relative;
+    }
+    /* ==========================================================================
+    PACOTES
+    ========================================================================== */
+
+    .w-iptv .swiper-button-prev {
+        left: 0;
+    }
+
+    .w-iptv .swiper-button-next {
+        right: 0;
+    }
+}

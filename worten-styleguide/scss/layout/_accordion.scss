@@ -1,0 +1,28 @@
+// ---------------------
+// Accordion Layout
+// ---------------------
+.w-accordion-block__content {
+    @include w-box($white, 0, 0, 5px, rgba($shadow-color, .1));
+}
+
+.w-accordion-block__wrapper {
+    @include accordion-container;
+}
+
+.w-accordion-block__title {
+    @include accordion-title;
+    @include font-size(1.6);
+    color: $black;
+    font-weight: $global-weight-bold;
+
+    @include breakpoint(medium) {
+        @include font-size(1.8);
+    }
+
+    &:before {
+        @include font-size(4);
+        color: $primary-color;
+        font-weight: $global-weight-normal;
+        top: 25%;
+    }
+}

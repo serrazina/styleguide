@@ -1,0 +1,16 @@
+// ---------------------
+// Tags Component
+// ---------------------
+.w_tags {
+    color: $white;
+    font-weight: $global-weight-bold;
+    padding: ($global-padding / 3) ($global-padding / 2);
+
+    &.w_tag_primary {
+        background-color: $primary-color;
+    }
+
+    &.w_tag_secondary {
+        background-color: $secondary-color;
+    }
+}

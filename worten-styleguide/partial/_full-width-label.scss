@@ -1,0 +1,22 @@
+// --------------------------
+// Full Width Label ::  Block
+// --------------------------
+.w-full-with-label {
+    background-color: $dark-gray;
+    color: $white;
+    text-align: center;
+
+    @include breakpoint(medium) {
+        margin: 0;
+    }
+
+    p {
+        @include font-size(1.4);
+        line-height: 2.5;
+        margin: 0;
+    }
+
+    a {
+        color: $white;
+    }
+}

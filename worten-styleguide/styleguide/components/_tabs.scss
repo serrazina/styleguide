@@ -1,0 +1,194 @@
+// ----------------------
+// Navigation Tabs Block
+// ----------------------
+.w-tabs-navigation {
+    ul {
+        @include grid-column(12, 0);
+        list-style: none;
+        margin: 0;
+        @include w-box($white, 0, 0, 5px, rgba($shadow-color, .5));
+    }
+
+    h3 {
+        @include font-size(1.3);
+        margin-bottom: 0;
+    }
+
+    a {
+        display: block;
+        padding: $global-padding ($global-padding / 2);
+
+        @include breakpoint(large) {
+            @include font-size(1.6);
+        }
+    }
+
+    .is-active {
+        color: $primary-color;
+        text-decoration: underline;
+    }
+}
+
+.w-tabs-navigation__element {
+    position: relative;
+    text-align: center;
+    width: 100%;
+
+    &:not(:last-child):after {
+        @include breakpoint(large) {
+            color: $light-gray;
+            content: '|';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    @include with-count(1) {
+        @include breakpoint(large) {
+            @include grid-column(12);
+        }
+    }
+
+    @include with-count(2) {
+        @include breakpoint(large) {
+            @include grid-column(6);
+        }
+    }
+
+    @include with-count(3) {
+        @include breakpoint(large) {
+            @include grid-column(4);
+        }
+    }
+
+    @include with-count(4) {
+        @include breakpoint(large) {
+            @include grid-column(3);
+        }
+    }
+
+    @include with-count(5) {
+        @include breakpoint(large) {
+            @include grid-column(20%);
+        }
+    }
+
+    @include with-count(6) {
+        @include breakpoint(large) {
+            @include grid-column(2);
+        }
+    }
+
+    @include with-count(7) {
+        @include breakpoint(large) {
+            @include grid-column(14.2%);
+        }
+    }
+
+    @include with-count(8) {
+        @include breakpoint(large) {
+            @include grid-column(12.5%);
+        }
+    }
+}
+
+// Foundation Tabs Plugin
+.tabs-title > a {
+    @include font-size(1.6);
+    color: $medium-gray;
+}
+
+.tabs .is-active a {
+    color: $primary-color;
+    text-decoration: underline;
+}
+
+.tabs-content {
+    clear: both;
+}
+
+// -----------------------------------------
+// Navigation Tabs Block :: Tabs With Images
+// -----------------------------------------
+.tabs-image {
+    .w-tabs-navigation__element {
+        padding: 0 !important; // Used to override a rule used in a mixin
+
+        &:not(:last-child):after {
+            @include breakpoint(large) {
+                content: "";
+            }
+        }
+    }
+
+    a {
+        padding: 0;
+        position: relative;
+
+        @include breakpoint(large) {
+            color: $white;
+        }
+    }
+
+    span {
+        @include breakpoint(large) {
+            @include font-size(2);
+            background-color: rgba($black, .7);
+            bottom: 0;
+            color: $white;
+            display: block;
+            left: 0;
+            position: absolute;
+            right: 0;
+            text-align: center;
+            text-transform: uppercase;
+            z-index: 1;
+            width: 100%;
+        }
+    }
+
+    img {
+        @include show-for(large);
+        width: 100%;
+    }
+
+    b {
+        @include font-size(1.6);
+        border-bottom: 5px solid transparent;
+        display: block;
+        font-weight: $global-weight-normal;
+        padding: $global-padding;
+        position: relative;
+
+        @include breakpoint(large) {
+            padding: ($global-padding * 1.5) ($global-padding / 2);
+            font-weight: $global-weight-bold;
+        }
+    }
+
+    .is-active {
+        b {
+            @include breakpoint(large) {
+                border-color: $primary-color;
+            }
+
+            &:after {
+                @include breakpoint(large) {
+                    border-left: 20px solid transparent;
+                    border-right: 20px solid transparent;
+                    border-top: 20px solid $primary-color;
+                    bottom: -20px;
+                    content: "";
+                    display: inline-block;
+                    height: 0;
+                    left: 50%;
+                    position: absolute;
+                    transform: translateX(-50%);
+                    width: 0;
+                }
+            }
+        }
+    }
+}

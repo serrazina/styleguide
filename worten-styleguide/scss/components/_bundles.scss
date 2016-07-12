@@ -1,0 +1,194 @@
+// -------------
+// Bundles
+// -------------
+.w-bundle-block {
+  .w-section__content__row {
+    @include grid-row(12);
+  }
+
+  .w-product__pack__more {
+    @include show-for(large);
+    text-align: center;
+  }
+}
+
+.w-bundle__header {
+  margin-bottom: $global-margin;
+}
+
+.w-bundle__header__right {
+  button {
+    margin-bottom: 0;
+    width: 100%;
+  }
+
+  small {
+    @include show-for(medium);
+  }
+}
+
+.w-bundle__product {
+  position: relative;
+
+  @include grid-column(3);
+  @include grid-column-end;
+
+  &:not(:last-child)::after {
+    @include font-size(3);
+    color: $primary-color;
+    content: "\e145";
+    font-family: "worten-icons";
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .w-product__image {
+    min-height: 60px;
+
+    img {
+      max-height: 60px;
+    }
+  }
+
+  .w-product__content {
+    @include show-for(large);
+  }
+
+  .w-product__description p {
+    height: auto;
+  }
+
+  .w-product__pack__add {
+    @include show-for(large);
+  }
+}
+
+.w-bundle__title {
+  @include font-size(1.4);
+}
+
+@include breakpoint(small down) {
+  .w-bundle__card {
+    margin-top: $global-margin;
+    padding: 0;
+  }
+}
+
+// ------------------------------------------------------
+// Bundles :: Additional Information Smartphones & Tablet
+// ------------------------------------------------------
+.w-bundle__add-info {
+  border-top: 1px solid $light-gray;
+  margin-top: ($global-margin / 2);
+  padding-top: ($global-padding / 2);
+}
+
+.w-bundle__add-info__product {
+  border-bottom: 1px solid $light-gray;
+  padding-top: ($global-padding / 2);
+}
+
+.w-bundle__add-info__accordion-wrapper {
+  @include accordion-container;
+  border: 0;
+}
+
+.w-bundle__add-info__accordion-wrapper__title {
+  @include font-size(1.2);
+  border: 0;
+  color: $primary-color;
+  padding: 0;
+  position: relative;
+
+  &:after {
+    @include font-size(1.7);
+    content: "\E5C5";
+    font-family: "Material Icons";
+    position: absolute;
+
+    .is-active & {
+      content: "\E5C7";
+    }
+  }
+}
+
+.w-bundle__accordion__content {
+  @include accordion-content;
+  border: 0;
+  padding: 0;
+
+  .w-product__pack__add {
+    display: inline-block;
+  }
+}
+
+.w-bundle__pack {
+  @include grid-row(15);
+}
+
+// -----------------------
+// Bundles :: Tablet
+// -----------------------
+@include breakpoint(medium) {
+  .w-bundle-block {
+    .w-section__content__row {
+      @include grid-row(12);
+    }
+  }
+
+  .w-bundle__header {
+    @include grid-row(12);
+  }
+
+  .w-bundle__header__left {
+    @include grid-column(8);
+  }
+
+  .w-bundle__header__right {
+    @include grid-column(4);
+  }
+
+  .w-bundle__product {
+    .w-product__image {
+      img {
+        height: 200px;
+        max-height: 100%;
+      }
+    }
+  }
+}
+
+// -----------------------
+// Bundles :: Desktop
+// -----------------------
+@include breakpoint(large) {
+  .w-bundle-block {
+    @include grid-row(12);
+  }
+
+  .w-bundle__header__left {
+    h3 {
+      display: inline-block;
+      margin-right: $global-margin;
+    }
+  }
+
+  .w-bundle__wrapper {
+    @include grid-column(12);
+
+    &.w-bundle__has-card {
+      @include grid-column(9);
+    }
+  }
+
+  .w-bundle__card {
+    @include grid-column-collapse;
+    height: 415px;
+
+    img {
+      height: 415px;
+    }
+  }
+}

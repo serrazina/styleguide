@@ -1,0 +1,454 @@
+// Banner Slider Type A
+//
+// markup:
+// <div class="w-banner-slider__type-a__product" itemscope itemtype="http://schema.org/Offer">
+//     <div class="w-banner-slider__type-a__product__background-image">
+//         <picture>
+//             <source srcset="images/banner-slider-type-a/large-2200-730.jpg" media="(min-width: 1200px)">
+//             <source srcset="images/banner-slider-type-a/medium-1024-448.jpg" media="(min-width: 1024px)">
+//             <source srcset="images/banner-slider-type-a/small-768_379.jpg" media="(min-width: 640px)">
+//             <!--[if IE 9]></video><![endif]-->
+//             <img srcset="images/banner-slider-type-a/extra-small-768_1440.jpg" alt="#">
+//         </picture>
+//     </div>
+//     <div class="w-banner-slider__type-a__container left-image">
+//         <div class="w-banner-slider__type-a__product__image">
+//             <div class="w-banner-slider__content__wrapper">
+//                 <picture>
+//                     <source srcset="images/banner-slider-type-a/product-image-large-730-730.png" media="(min-width: 1200px)">
+//                     <source srcset="images/banner-slider-type-a/product-image-medium-448-448.png" media="(min-width: 1024px)">
+//                     <source srcset="images/banner-slider-type-a/product-image-small-336-336.png" media="(min-width: 640px)">
+//                     <!--[if IE 9]></video><![endif]-->
+//                     <img srcset="images/banner-slider-type-a/product-image-extra-small-768-768.png" alt="#">
+//                 </picture>
+//             </div>
+//         </div>
+//         <div class="w-banner-slider__type-a__product__content">
+//             <div class="w-banner-slider__content__wrapper" itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer">
+//                 <div class="w-product__price" itemprop="priceCurrency" content="EUR">
+//                     <span class="w-product__price__old" itemprop="lowPrice">
+//                         <small>€</small>
+//                         100,<sup>00</sup>
+//                     </span>
+//                 </div>
+//                 <div class="w-product__price" itemprop="priceCurrency" content="EUR">
+//                     <span class="w-product__price__current" itemprop="highPrice">
+//                         <small>€</small>
+//                         90,<sup>00</sup>
+//                     </span>
+//                 </div>
+//                 <h3 class="w-banner-slider__type-a__title" itemprop="name">
+//                     MacBook Pro 13"
+//                 </h3>
+//                 <p class="w-banner-slider__type-a__description" itemprop="description">
+//                     Em todos os portáteis Apple
+//                 </p>
+//                 <footer class="w-banner-slider__type-a__footer">
+//                     <span>Válida até 15 de Agosto</span>
+//                     <span>Limitado ao Stock Existente</span>
+//                 </footer>
+//             </div>
+//         </div>
+//     </div>
+// </div>
+//
+// Styleguide 5.0.0
+.w-banner-slider__type-a {
+    .w-section__container-center & {
+        @include grid-row;
+    }
+
+    .w-banner-slider__type-a__link {
+        color: $white;
+        display: block;
+    }
+
+    .section-container & {
+        padding: 0;
+    }
+
+    .w-section__container-center & {
+        @include breakpoint(medium) {
+            margin-bottom: $global-margin;
+        }
+
+        .w-banner-slider__type-a__wrapper {
+            @include breakpoint(medium) {
+                @include grid-column(12);
+            }
+        }
+    }
+
+    .w-banner-slider__type-a__wrapper {
+        .section-container &,
+        .w-section__container-center & {
+            @include breakpoint(medium) {
+                padding: 0;
+            }
+        }
+    }
+}
+
+.w-banner-slider__type-a__container {
+    @include breakpoint(medium) {
+        @include grid-row(13) {
+            .w-banner-slider__type-a__product__image {
+                @include grid-column(7);
+            }
+
+            .w-banner-slider__type-a__product__content {
+                height: 330px;
+                padding-bottom: 0;
+                padding-top: 0;
+                @include grid-column(5);
+            }
+        }
+    }
+
+    &.center-image {
+        .w-banner-slider__type-a__product__image {
+            @include breakpoint(medium) {
+                @include grid-column(5);
+                @include grid-column-offset(4);
+                text-align: right;
+            }
+        }
+
+        .w-banner-slider__type-a__product__content {
+            @include breakpoint(medium) {
+                @include grid-column(3);
+            }
+        }
+    }
+
+    &.left-image {
+        .w-banner-slider__type-a__product__image {
+            @include breakpoint(medium) {
+                @include grid-column-offset(0);
+                text-align: right;
+            }
+        }
+
+        .w-banner-slider__type-a__product__content {
+            @include breakpoint(medium) {
+                @include grid-column-end;
+            }
+        }
+    }
+
+    &.right-image {
+        .w-banner-slider__type-a__product__image {
+            @include breakpoint(medium) {
+                @include grid-col-pos(7);
+                @include grid-column-offset(0);
+                text-align: left;
+            }
+        }
+
+        .w-banner-slider__type-a__product__content {
+            @include breakpoint(medium) {
+                @include grid-column(5);
+                @include grid-col-pos(-6);
+                @include grid-column-offset(0);
+                text-align: right;
+            }
+        }
+    }
+
+    .w-banner-slider__content__wrapper {
+        @include breakpoint(medium) {
+            @include vertical-align(relative);
+        }
+    }
+
+
+    .w-banner-slider__type-a__product__image {
+        @include breakpoint(xxlarge) {
+            @include grid-column(6);
+        }
+    }
+
+    .w-banner-slider__type-a__product__content {
+        @include breakpoint(xxlarge) {
+            height: 425px;
+        }
+    }
+}
+
+.w-banner-slider__type-a__product {
+    min-height: 600px;
+    position: relative;
+
+    @include breakpoint(medium) {
+        min-height: 330px;
+    }
+
+    @include breakpoint(large) {
+        min-height: 375px;
+    }
+
+    @include breakpoint(xxlarge) {
+        min-height: 425px;
+    }
+
+    .w-section__container-center & {
+        @include breakpoint(large) {
+            min-height: 360px;
+        }
+    }
+}
+
+// ----------------------------------------
+// Banner Slider Type A :: Background Image
+// ----------------------------------------
+.w-banner-slider__type-a__product__background-image {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+
+    @include breakpoint(medium) {
+        z-index: 0;
+    }
+
+    img {
+        height: 600px;
+
+        @include breakpoint(medium) {
+            height: 330px;
+            width: 100%;
+        }
+
+        @include breakpoint(large) {
+            height: 375px;
+        }
+
+        @include breakpoint(xxlarge) {
+            height: 425px;
+        }
+    }
+}
+
+.w-banner-slider__type-a__product__image {
+    margin: 0;
+    min-height: 100px;
+    text-align: center;
+
+    @include breakpoint(medium) {
+        height: 330px;
+    }
+
+    @include breakpoint(large) {
+        height: 375px;
+    }
+
+    @include breakpoint(xxlarge) {
+        height: 425px;
+    }
+
+    img {
+        @include breakpoint(medium) {
+            max-width: 330px;
+        }
+
+        @include breakpoint(large) {
+            max-width: 375px;
+        }
+
+        @include breakpoint(xxlarge) {
+            max-width: 425px;
+        }
+    }
+
+    .w-section__container-center & {
+        @include breakpoint(large) {
+            height: 360px;
+        }
+    }
+}
+
+.w-banner-slider__type-a__title {
+    @include font-size(2.6);
+    font-weight: $global-weight-bold;
+
+    @include breakpoint(large) {
+        @include font-size(3);
+    }
+}
+
+.w-banner-slider__type-a__description {
+    @include font-size(1.4);
+    line-height: 1.2;
+
+    @include breakpoint(xmedium) {
+        @include font-size(1.6);
+    }
+
+    @include breakpoint(large) {
+        @include font-size(1.8);
+    }
+}
+
+.w-banner-slider__type-a__button-next,
+.w-banner-slider__type-a__button-prev {
+    @include show-for(medium);
+}
+
+.w-banner-slider__type-a__button-prev {
+    left: $global-margin;
+}
+
+.w-banner-slider__type-a__button-next {
+    right: $global-margin;
+}
+
+.w-banner-slider__type-a__product__content {
+    padding: ($global-padding * 1.5) $global-padding;
+
+    @include breakpoint(medium) {
+        padding-top: ($global-padding * 2);
+    }
+
+    @include breakpoint(large) {
+        height: 375px;
+        padding-top: 0;
+    }
+
+    .w-product__price__old {
+        @include font-size(1.8);
+
+        @include breakpoint(large) {
+            @include font-size(2.2);
+        }
+    }
+
+    .w-product__price__current {
+        @include font-size(3.2);
+
+        @include breakpoint(large) {
+            @include font-size(4.5);
+        }
+    }
+
+    .w-section__container-center & {
+        @include breakpoint(large) {
+            height: 360px;
+        }
+    }
+}
+
+.w-banner-slider__type-a__footer {
+    p {
+        @include font-size(1.2);
+    }
+
+    span {
+        @include font-size(1.2);
+        display: block;
+        line-height: 1.2;
+        font-weight: $global-weight-thin;
+    }
+
+    .w-banner-slider__type-a__button {
+        margin-bottom: 0;
+        margin-top: ($global-margin * 1.2);
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%;
+
+        @include breakpoint(medium) {
+            width: 60%;
+        }
+    }
+}
+
+// ---------------------------------
+// Banners - Inside a section-column
+// ---------------------------------
+.section-column {
+    .w-banner-slider__type-a {
+        margin-bottom: 0;
+    }
+
+    .w-banner-slider__type-a__product {
+        min-height: 200px;
+
+        @include breakpoint(landscape) {
+            height: 320px;
+        }
+    }
+
+    .w-banner-slider__type-a__product__content,
+    .w-banner-slider__type-a__product__image {
+        @include breakpoint(medium) {
+            height: 320px;
+        }
+    }
+
+    .w-banner-slider__type-a__product, 
+    .w-banner-slider__type-a__product__image img {
+        min-height: 320px;
+
+        @include breakpoint(medium) {
+            min-height: auto;
+            max-height: 320px;
+        }
+    }
+
+    .w-banner-slider__type-a__container .w-banner-slider__type-a__product__content {
+        padding-bottom: ($global-padding * 2);
+
+        img {
+            max-height: 320px;
+        }
+
+        @include breakpoint(landscape) {
+            height: 320px;
+        }
+
+        @include breakpoint(medium) {
+            height: 320px;
+            padding-bottom: 0;
+        }
+    }
+
+    .w-banner-slider__type-a__container {
+        // center image
+        &.center-image {
+            .w-banner-slider__type-a__product__image {
+                @include breakpoint(medium) {
+                    @include grid-column(5);
+                    @include grid-column-offset(2);
+                    text-align: right;
+                }
+            }
+
+            .w-banner-slider__type-a__product__content {
+                @include breakpoint(medium) {
+                    @include grid-column(5);
+                }
+            }
+        }
+
+        &.right-image {
+            .w-banner-slider__type-a__product__image {
+                @include breakpoint(medium) {
+                    @include grid-column(6);
+                    @include grid-col-pos(6);
+                    @include grid-column-offset(0);
+                }
+            }
+
+            .w-banner-slider__type-a__product__content {
+                @include breakpoint(medium) {
+                    @include grid-column(5);
+                    @include grid-col-pos(-7);
+                    @include grid-column-offset(0);
+                }
+            }
+        }
+    }
+}

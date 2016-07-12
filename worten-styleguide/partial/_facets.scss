@@ -1,0 +1,143 @@
+// ------------------------
+// Faceted Navigation Block
+// ------------------------
+body.is-active-faceted {
+    overflow: hidden;
+}
+
+.w-faceted-nav {
+    display: none;
+
+    @include breakpoint(medium) {
+        display: block;
+        padding-right: ($global-padding / 2);
+    }
+
+    .w-faceted-overlay {
+        background-color: $black;
+        display: none;
+        height: 100%;
+        left: 0;
+        opacity: .6;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: -1;
+    }
+
+    &.is-visible {
+        @include breakpoint(small only) {
+            display: block;
+            height: 100%;
+            left: 0;
+            overflow-y: scroll;
+            position: absolute;
+            top: 60px;
+            width: 80%;
+            z-index: 6;
+        }
+
+        .w-faceted-overlay {
+            display: block;
+        }
+    }
+}
+
+.w-faceted-nav__header {
+    border-bottom: 1px solid $light-gray;
+
+    span {
+        display: none;
+
+        @include breakpoint(medium) {
+            display: inline;
+        }
+    }
+
+    .w-button-close-facet {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+
+        @include breakpoint(medium) {
+            display: none;
+        }
+    }
+}
+
+.w-faceted-nav__wrapper {
+    @include w-box($white, 0, 0, 5px, rgba($shadow-color, .5));
+}
+
+.w-faceted-nav-title {
+    @include font-size(1.8);
+    padding: $global-padding;
+    margin: 0;
+    text-transform: uppercase;
+
+    @include breakpoint(medium) {
+        float: none;
+    }
+}
+
+.w-faceted-nav__facets {
+    @include accordion-container;
+    border: 0;
+
+    li {
+        margin-bottom: ($global-margin / 2);
+    }
+}
+
+.w-faceted-nav__trigger {
+    @include accordion-title;
+    @include font-size(1.5);
+    border: 0;
+    color: $black;
+    font-weight: $global-weight-bold;
+
+    &:before {
+        @include font-size(3.8);
+        color: $primary-color;
+        font-weight: $global-weight-normal;
+        top: 25%;
+    }
+
+    .is-active & {
+        &:before {
+            top: 27%;
+        }
+    }
+
+    &:hover,
+    &:focus {
+        background-color: $white;
+    }
+}
+
+.w-faceted-nav__content {
+    @include accordion-content;
+    border: 0;
+    padding-bottom: ($global-padding / 2);
+    padding-top: 0;
+
+    .w-faceted-checkbox {
+        @include font-size(1.4);
+        cursor: pointer;
+        margin-bottom: ($global-margin / 2);
+
+        i {
+            color: $medium-gray;
+            float: left;
+            margin-right: ($global-margin / 2);
+        }
+    }
+
+    .w-rating {
+        display: inline-block;
+    }
+
+    label {
+        text-transform: inherit;
+    }
+}

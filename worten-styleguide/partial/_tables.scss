@@ -1,0 +1,151 @@
+// ---------------------
+// Tables Component
+// ---------------------
+table {
+    @include font-size(1.4);
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+thead {
+    th {
+        font-weight: $global-weight-thin;
+    }
+}
+
+tr {
+    border-bottom: 1px solid $light-gray;
+}
+
+// Responsive Table
+%w-table-cell {
+    display: table-cell;
+}
+
+.table-wrapper {
+    @include table-scroll;
+}
+
+@include breakpoint(small down) {
+    .w-responsive__table {
+        @include table-scroll;
+
+        .w-table-cell-responsive {
+            display: table-cell;
+        }
+    }
+}
+
+// -------------------------
+// Tables :: White Background
+// -------------------------
+.w-table-white {
+    @include w-box($white, 0, 0, 5px, rgba($shadow-color, .5));
+}
+
+// -------------------------
+// Tables :: Compare Tables
+// -------------------------
+.w-compare-table {
+    @include w-box($white, 0, 0, 5px, rgba($shadow-color, .5));
+
+    th, td {
+        border-right: 1px solid $light-gray;
+        padding: $global-padding;
+        text-align: center;
+
+        &.is-active {
+            background-color: $info-color;
+            border-color: $white;
+            color: $white;
+            position: relative;
+        }
+    }
+
+    .w-compare__recommended {
+        @include font-size(1.3);
+        display: block;
+        line-height: 1;
+        margin-top: -10px;
+    }
+
+    th {
+        @include font-size(1.8);
+        color: $info-color;
+        font-weight: $global-weight-bold;
+    }
+
+    td {
+        &:first-child {
+            @include font-size(1.8);
+            font-weight: $global-weight-bold;
+            text-align: left;
+        }
+    }
+
+    .is-active-div {
+        background-color: $info-color;
+        left: 0;
+        height: 10px;
+        position: absolute;
+        width: 100%;
+    }
+
+    .is-active-header {
+        top: -10px;
+    }
+
+    .is-active-footer {
+        bottom: -10px;
+    }
+}
+
+// --------------------------
+// Tables :: Warranty Table
+// --------------------------
+.w-warranty-table {
+    margin: $global-margin 0 ($global-margin * 2);
+
+    th, td {
+        &.is-active {
+            background-color: $pure-light-gray;
+            @include box-shadow(2px, 2px, 5px, rgba($black, .1), "");
+            color: inherit;
+        }
+    }
+
+    td:first-child {
+        @include font-size(1.3);
+    }
+
+    .is-active-div {
+        background-color: $pure-light-gray;
+    }
+
+    .is-active-header {
+        @include box-shadow(0, -4px, 5px, rgba($black, .1), "");
+        height: 20px;
+        top: -20px;
+    }
+
+    .is-active-footer {
+        @include box-shadow(0, 4px, 5px, rgba($black, .1), "");
+    }
+}
+
+// --------------------------
+// Tables :: Chronology Table
+// --------------------------
+.w-table-chronology {
+    td {
+        padding: ($global-padding * 2);
+
+        &:first-child {
+            @include font-size(1.8);
+            border-right: 1px solid $light-gray;
+            font-weight: $global-weight-bold;
+        }
+    }
+}

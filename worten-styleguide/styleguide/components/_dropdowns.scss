@@ -1,0 +1,15 @@
+// partial/_dropdowns.scss
+// Dropdown
+//
+//
+// :hover - ホバーすると色が変わるよ.
+//
+// Markup:
+// <div class="w-dropdown">Hello World</div>
+//
+// Styleguide 1.0.1
+.w-dropdown {
+  @include dropdown-container();
+  @include w-box($secondary-color, 0, 0, 5px, rgba($medium-gray, .5));
+  color: green;
+}

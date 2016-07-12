@@ -1,0 +1,124 @@
+// ----------------------------
+// Misc Components
+// ----------------------------
+body.overflow-hidden {
+    overflow: hidden;
+}
+
+.w-common-styles {
+    color: $black;
+    font-family: $body-font-family;
+    font-weight: $global-weight-normal;
+    line-height: 1.4;
+    padding: 0;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; 
+}
+
+// ----------------------------
+// Social Menu
+// ----------------------------
+.menu {
+    .w-social-menu {
+        li {
+            display: inline-block;
+        }
+    }
+}
+
+.w-social-menu {
+    li {
+        &:before {
+            content: '';
+            margin: 0;
+        }
+
+        a {
+            @include font-size(1.3);
+            height: 80px;
+            padding-left: 0;
+            padding-right: 0;
+            text-align: center;
+            width: 70px;
+
+            &:before {
+                display: block;
+                font-family: 'worten-icons';
+                font-size: 2rem;
+                margin-bottom: ($global-margin / 2);
+            }
+        }
+
+        // Facebook
+        &.mundoworten {
+            a {
+                &:before {
+                    color: $primary-color;
+                    content: '\e902';
+                }
+            }
+        }
+
+        // Facebook
+        &.fb {
+            a {
+                &:before {
+                    color: #395197;
+                    content: '\f230';
+                }
+            }
+        }
+
+        // Twitter
+        &.twitter {
+            a {
+                &:before {
+                    color: #009CE3;
+                    content: '\f099';
+                }
+            }
+        }
+
+        // Google Plus
+        &.googleplus {
+            a {
+                &:before {
+                    color: #F13A00;
+                    content: '\f1a0';
+                    right: 2px;
+                }
+            }
+        }
+
+        // Instagram
+        &.instagram {
+            a {
+                &:before {
+                    color: #205585;
+                    content: '\f16d';
+                }
+            }
+        }
+
+        // Pinterest
+        &.pinterest {
+            a {
+                &:before {
+                    color: #C8160F;
+                    content: '\f0d2';
+                }
+            }
+        }
+
+        // Youtube
+        &.youtube {
+            a {
+                &:before {
+                    color: #E41A15;
+                    content: '\f16a';
+                }
+            }
+        }
+    }
+}

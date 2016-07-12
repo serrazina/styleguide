@@ -1,0 +1,86 @@
+// Font Size Mixin
+@mixin font-size($rem-base: 1.5) {
+  font-size: ($rem-base * 10) + px;
+  font-size: $rem-base * .625 + rem;
+}
+
+//SASS mixin for :before and :after background images
+@mixin before-after-background($font-size, $icon-color, $height, $margin-left, $margin-right, $before, $after) {
+  line-height: $height;
+  position: relative;
+  z-index: 1;
+
+  &:before, &:after {
+    color: $icon-color;
+    display: inline-block;
+    font-size: $font-size;
+    line-height: $height;
+    vertical-align: middle;
+    z-index: -1;
+  }
+
+  &:before {
+    content: $before;
+    margin-right: $margin-right;
+  }
+
+  &:after {
+    content: $after;
+    margin-left: $margin-left;
+  }
+}
+
+
+// Counting number of child elements
+@mixin with-count($n) {
+  @if $n == 1 {
+    &:first-child:nth-last-child(1) {
+      @content;
+    }
+  }
+  @else {
+    &:first-child:nth-last-child(#{$n}),
+    &:first-child:nth-last-child(#{$n}) ~ & {
+      @content;
+    }
+  }
+}
+
+// Worten Box (Background White, BoxShadow)
+@mixin w-box ($background-color, $x, $y, $blur, $shadow-color) {
+  @include box-shadow($x, $y, $blur, $shadow-color);
+  background-color: $background-color;
+}
+
+// Color Mixin
+@mixin w-color($class-color, $color) {
+  .color__#{$class-color} {
+    color: $color;
+  }
+}
+
+/**
+ * Text color based on its background.
+ * @param  {Number} $color Color.
+ * @return {Number} Color.
+ */
+@function set-button-text-color($color) {
+    @if lightness($color) > 55 {
+        @return $black;
+    }
+    @else {
+        @return $white;
+    }
+}
+
+/**
+ * Vertical align anything
+ * @param {value} $position
+ * return none
+ */
+
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  transform: translateY(-50%);
+}

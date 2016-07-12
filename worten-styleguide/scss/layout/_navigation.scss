@@ -1,0 +1,414 @@
+$menu-item-padding-medium: .83rem .75rem;
+
+// -----------------
+// Navigation Block
+// -----------------
+body.is-mobile-nav {
+    overflow: hidden;
+}
+
+.w-flyout-menu .is-drilldown {
+    overflow-y: scroll;
+}
+
+.w-navigation-block-wrapper {
+    background-color: $white;
+    @include box-shadow(1px, 1px, 3px, rgba($black ,.1), "");
+    position: relative;
+    width: 100%;
+    z-index: 6;
+
+    .no-js & {
+        display: none;
+    }
+
+    &.is-visible {
+        @include breakpoint(xmedium) {
+            @include box-shadow(0, 2px, 3px, rgba($shadow-color, .2), "");
+            position: fixed;
+            top: 52px;
+            z-index: 501;
+            width: 100%;
+        }
+
+        @include breakpoint(xlarge) {
+            top: 56px;
+        }
+    }
+}
+
+.w-navigation-block {
+    @include breakpoint(medium) {
+        @include grid-row;
+        padding: 0;
+    }
+
+    .menu {
+        font-weight: $global-weight-bold;
+        white-space: nowrap;
+
+        > li:not(.menu-text) > a {
+            @include breakpoint(medium) {
+                @include font-size(1.4);
+                padding: $menu-item-padding-medium;
+            }
+
+            @include breakpoint(large) {
+                @include font-size(1.5);
+                padding: $menu-item-padding;
+            }
+        }
+    }
+
+    .w-navigation-block__right .menu > li:not(.menu-text) > a {
+        @include breakpoint(medium) {
+            @include font-size(1.3);
+            font-weight: $global-weight-normal;
+        }
+    }
+
+    .submenu {
+        font-weight: $global-weight-normal;
+
+        // Reset position submenu items
+        .is-dropdown-submenu-parent {
+            position: initial;
+        }
+
+        > li:not(.menu-text) > a {
+            @include breakpoint(large) {
+                padding: $menu-item-padding-medium;
+            }
+        }
+    }
+
+    .w-submenu-section__title {
+        span {
+            display: block;
+            font-weight: $global-weight-bold;
+        }
+    }
+
+    // Special Category Menu
+    .w-special-category > a {
+        color: $primary-color;
+    }
+
+    // Categories With Special Characters
+    .w-icon-cat,
+    .w-new-cat {
+        margin-left: ($global-margin / 5);
+    }
+
+    .w-new-cat{
+        @include font-size(1);
+        @include border-radius(3px);
+        background-color: $primary-color;
+        color: $white;
+        display: inline-block;
+        font-weight: $global-weight-bold;
+        padding: ($global-padding / 5);
+    }
+
+    &.menu {
+        .submenu {
+            @include breakpoint(medium) {
+                border: 0;
+                @include w-box($white, 0, 2px, 3px, rgba($shadow-color, .3));
+                z-index: 2;
+            }
+        }
+
+        .is-visible {
+            .home_page & {
+                @include breakpoint(medium) {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+.is-dropdown-submenu {
+    @include breakpoint(medium) {
+        min-width: 250px;
+    }
+
+    @include breakpoint(large) {
+        min-width: 300px;
+    }
+}
+
+// ------------------
+// User Menu
+// ------------------
+.w-navigation__usermenu {
+    display: none;
+
+    @include breakpoint(medium) {
+        display: block;
+    }
+
+    .w-navigation-block__menu {
+        @include vertical-align(absolute);
+    }
+}
+
+// -------------------
+// Products Submenu
+// -------------------
+.w-navigation-block__menu .first-sub {
+    height: 330px;
+
+    @include breakpoint(large) {
+        height: 375px;
+    }
+
+    @include breakpoint(xlarge) {
+        height: 425px;
+    }
+}
+
+[aria-label="Produtos"] .first-sub {
+    @include breakpoint(medium) {
+        flex-direction: column;
+    }
+
+    > li:not(.menu-text) > a {
+        @include breakpoint(medium) {
+            padding: 0 .75rem;
+        }
+    }
+
+    &.js-dropdown-active {
+        @include breakpoint(medium) {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            height: 330px;
+        }
+
+        @include breakpoint(large) {
+            height: 375px;
+        }
+
+        @include breakpoint(xlarge) {
+            height: 425px;
+        }
+    }
+
+    &.vertical > .is-submenu-item {
+        @include breakpoint(medium) {
+            display: flex;
+            flex: 1;
+            justify-content: center;
+            flex-direction: column;
+        }
+    }
+}
+
+// ---------------------------
+// 3rd Level Submenu Container
+// ---------------------------
+.w-navigation-block__menu {
+    .w-submenu-container {
+        @include breakpoint(medium) {
+            width: 518px;
+        }
+
+        @include breakpoint(xmedium) {
+            width: 518px;
+        }
+
+        @include breakpoint(large) {
+            width: 724px;
+        }
+
+        @include breakpoint(xlarge) {
+            width: 800px;
+        }
+
+        &.js-dropdown-active {
+            @include breakpoint(medium) {
+                align-content: flex-start;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                height: 330px;
+                max-height: 330px;
+            }
+
+            @include breakpoint(large) {
+                height: 375px;
+                max-height: 375px;
+
+            }
+
+            @include breakpoint(xlarge) {
+                height: 425px;
+                max-height: 425px;
+            }
+        }
+    }
+
+    // --------
+    // Submenus
+    // --------
+    .w-submenu-section {
+        @include breakpoint(medium) {
+            @include font-size(1.2);
+            display: inline-block;
+            margin-bottom: ($global-margin / 2);
+            float: left;
+            width: 50%;
+            white-space: initial;
+        }
+
+        @include breakpoint(xmedium) {
+            width: 25%;
+        }
+
+        @include breakpoint(large) {
+            @include font-size(1.4);
+        }
+
+        @include breakpoint(xlarge) {
+            width: 33%;
+        }
+
+        ol {
+            list-style: none;
+            margin: 0;
+            margin-bottom: $global-margin;
+            padding: 0 ($global-padding / 2);
+
+            @include breakpoint(medium) {
+                margin-bottom: 0;
+            }
+        }
+
+        a {
+            display: block;
+            font-weight: $global-weight-thin;
+        }
+    }
+}
+
+
+.w-menu-cat {
+    @include breakpoint(medium) {
+        border-bottom: 3px solid transparent;
+
+        .is-active & {
+            border-color: $primary-color;
+        }
+    }
+}
+
+.w-submenu-section [role=menuitem] {
+    padding: ($global-padding / 3);
+
+    @include breakpoint(medium) {
+        padding: 0;
+    }
+}
+
+[role=menuitem]:not(:last-child) {
+    @include breakpoint(medium) {
+        position: relative;
+    }
+
+    .w-menu-cat:before {
+        @include breakpoint(medium) {
+            @include vertical-align(absolute);
+            color: $light-gray;
+            content: '|';
+            right: 0;
+        }
+    }
+}
+
+.w-navigation-block__left {
+    @include breakpoint(medium) {
+        @include grid-column(8, 0);
+    }
+
+    @include breakpoint(large) {
+        @include grid-column(9, 0);
+    }
+}
+
+.w-navigation-block__right {
+    @include breakpoint(medium) {
+        @include grid-column(4, 0);
+        @include show-for(medium);
+    }
+
+    @include breakpoint(large) {
+        @include grid-column(3, 0);
+    }
+}
+
+.is-dropdown-submenu-parent.is-active > a {
+    @include breakpoint(medium) {
+        color: $primary-color;
+    }
+}
+
+.w-submenu-container {
+    @include breakpoint(large) {
+        padding: $global-padding;
+    }
+}
+
+// ------------------------------------------
+// Navigation Block :: Dropdown Menu Override
+// ------------------------------------------
+.dropdown.menu {
+    .is-dropdown-submenu-parent > a:after {
+        @include font-size(2.4);
+        color: $primary-color;
+        content: '\e313';
+        font-family: 'worten-icons';
+        margin-top: -5px;
+        top: auto;
+    }
+
+    .has-submenu .w-menu-cat {
+        padding-right: ($global-padding * 2);
+    }
+
+    .submenu .is-dropdown-submenu-parent > a:after {
+        content: '\e315';
+        right: 5px;
+    }
+}
+
+// ---------------------------
+// Navigation Block :: Overlay
+// ---------------------------
+.w-navigation-overlay {
+    background-color: $background-opacity;
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    transition: opacity .25s linear;
+    z-index: 5;
+
+    &.is-visible {
+        @include breakpoint(medium) {
+            height: 100%;
+            opacity: 1;
+            width: 100%;
+        }
+    }
+
+    .is-mobile-nav & {
+        @include breakpoint(small only) {
+            height: 100%;
+            opacity: 1;
+            width: 100%;
+        }
+    }
+}

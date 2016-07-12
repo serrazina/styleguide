@@ -1,0 +1,43 @@
+// ---------------------
+// Swiper
+// ---------------------
+.has-swiper {
+    position: relative;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    @include show-for(large);
+}
+
+// Products & Cards Inside Swiper
+.swiper-slide {
+    .w-product,
+    .w-card {
+        margin-bottom: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    .w-full-card {
+        .w-full-card__content {
+            padding: 0;
+        }
+
+        .w-full-card__button {
+            margin-bottom: $global-margin;
+            width: 80%;
+        }
+    }
+}
+
+[data-rotator="items_container"] {
+    .swiper-slide {
+        padding: 0;
+        width: 90%;
+
+        @include breakpoint(medium) {
+            width: 100%;
+        }
+    }
+}

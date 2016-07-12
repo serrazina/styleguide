@@ -1,0 +1,41 @@
+// ----------------------
+// Bullet Lists Component
+// ----------------------
+.w-list-bullet {
+    list-style: none;
+    margin: 0;
+
+    li {
+        display: block;
+        margin-bottom: ($global-margin * 1.2);
+        overflow: hidden;
+
+        &:before {
+            color: $primary-color;
+            content: '\e3a6';
+            display: inline-block;
+            font-family: 'worten-icons';
+            float: left;
+            line-height: 1.15;
+            margin-right: ($global-margin / 2);
+        }
+    }
+
+    h4 {
+        a {
+            color: $primary-color;
+        }
+    }
+
+    .w-social-menu {
+        li {
+            display: inline-block;
+            margin: 0;
+        }
+
+        li:before {
+            content: '';
+            margin: 0;
+        }
+    }
+}

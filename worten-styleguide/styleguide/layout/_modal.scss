@@ -1,0 +1,192 @@
+// -----------
+// Modal Block
+// -----------
+.w-modal__popup {
+    text-align: center;
+
+    .loading & {
+        height: 200px;
+        padding: $global-padding;
+    }
+
+    .w-modal__notices {
+        list-style: none;
+        margin: 0;
+    }
+
+    .w-modal__notice {
+        @include font-size(1.4);
+        color: $dark-gray;
+        font-weight: $global-weight-bold;
+    }
+
+    .w-modal__button {
+        margin-bottom: 0;
+        margin-top: $global-margin;
+    }
+
+    .mfp-close {
+        @include font-size(3);
+    }
+}
+
+// ---------------------
+// Modal Block :: Icons
+// ---------------------
+.w-modal__icon {
+    @include font-size(6);
+    display: block;
+    line-height: 1;
+
+    &:before {
+        content: '\E88E';
+        font-family: 'worten-icons';
+    }
+
+    .w-modal-info > & {
+        color: $info-color;
+
+        &:before {
+            content: '\E88E';
+        }
+    }
+
+    .w-modal-success > & {
+        color: $success-color;
+
+        &:before {
+            content: '\E86C';
+        }
+    }
+
+    .w-modal-warning > & {
+        color: $warning-color;
+
+        &:before {
+            content: '\E002';
+        }
+    }
+
+    .w-modal-error > & {
+        color: $primary-color;
+
+        &:before {
+            content: '\E5C9';
+        }
+    }
+
+    // Product Compare Limit
+    .w-modal-compare-limit > & {
+        color: $warning-color;
+
+        &:before {
+            background-image: url(../img/w-compare-limit.svg);
+            background-position: center center;
+            background-size: 175px 60px;
+            display: inline-block;
+            content: '';
+            height: 60px;
+            width: 175px;
+        }
+    }
+
+    // Product Compare Limit
+    .w-modal-compare-match > & {
+        color: $warning-color;
+
+        &:before {
+            background-image: url(../img/w-compare-no-match.svg);
+            background-position: center center;
+            background-size: 128px 71px;
+            display: inline-block;
+            content: '';
+            height: 71px;
+            width: 128px;
+        }
+    }
+}
+
+// --------------
+// Magnific Popup
+// --------------
+.mfp-bg,
+.mfp-container,
+.mfp-wrap {
+    height: 100%;
+    width: 100%;
+}
+
+.mfp-s-error .mfp-content,
+.mfp-s-ready .mfp-preloader {
+    display: none;
+}
+
+.mfp-ajax-holder .mfp-content,
+.mfp-inline-holder .mfp-content {
+    cursor: auto;
+    width: 100%;
+}
+
+.mfp-content {
+    background-color: $white;
+    box-sizing: border-box;
+    box-shadow: 0 8px 20px rgba($black, .3);
+    display: inline-block;
+    max-width: 940px;
+    padding: 20px 15px;
+    position: relative;
+    text-align: left;
+    vertical-align: middle;
+    z-index: 1045;
+
+    //Tablet
+    @include breakpoint(medium) {
+        padding: 40px 30px;
+        width: 500px;
+    }
+}
+
+.mfp-preloader {
+    @include font-size(1.4);
+    color: $light-gray;
+    height: 297px;
+    left: 8px;
+    margin-top: -.8em;
+    position: absolute;
+    right: 8px;
+    text-align: center;
+    top: 225px;
+    width: auto;
+    z-index: 1046;
+}
+
+.mfp-close {
+    color: $medium-gray;
+}
+
+// -------------------------
+// Modal Block :: Animation
+// -------------------------
+.mfp-content {
+    transform: translateY(30%);
+    opacity: 0;
+    transition: all 0.35s;
+
+    .w-myaccount-block & {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mfp-ready .mfp-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+// ---------------------
+// Modal Block :: Icons
+// ---------------------
+.w-modal-share__networks button {
+    margin-bottom: 0;
+    width: 100%;
+}

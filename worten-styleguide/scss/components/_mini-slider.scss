@@ -1,0 +1,112 @@
+// ------------------------------
+// Mini Slider Styles
+// ------------------------------
+.w-mini-slider {
+    @include hide-for-only(small);
+
+    .w-section__wrapper__content {
+        position: relative;
+    }
+
+    .w-mini-slider__button-next {
+        right: -30px;
+    }
+
+    .w-mini-slider__button-prev {
+        left: -30px;
+    }
+}
+
+.w-mini-slider__title {
+    @include w-box ($dark-gray, 0, 0, 6px, rgba(178, 178, 178, .5));
+    float: left;
+    height: 90px;
+    text-align: right;
+    vertical-align: middle;
+    width: 20%;
+
+    h4 {
+        @include font-size(1.5);
+        color: $white;
+        font-weight: $global-weight-bold;
+        margin: 0;
+        padding: ($global-padding * 1.67) ($global-padding * 2);
+        text-transform: uppercase;
+
+        @include breakpoint(large) {
+            @include font-size(1.7);
+            padding: ($global-padding * 1.57) ($global-padding * 2);
+        }
+    }
+}
+
+.w-mini-slider__swiper {
+    @include w-box ($white, 0, 0, 6px, rgba(178, 178, 178, .5));
+    height: 90px;
+    width: 80%;
+
+    &.w-product-mini-addcart {
+        height: auto;
+        width: 100%;
+    }
+}
+
+.w-mini-slider__wrapper {
+    float: left;
+    padding: ($global-padding * .5) 0;
+    width: 100%;
+}
+
+.w-mini-slider__slide__image {
+    float: left;
+    padding: 0 2%;
+    margin: 0;
+    width: 24%;
+}
+
+.w-mini-slider__slide__details {
+    float: right;
+    padding-right: 4%;
+    width: 67%;
+
+    &:after {
+        border-right: 1px solid $light-gray;
+        content: '';
+        display: block;
+        height: 75%;
+        position: absolute;
+        right: -2px;
+        top: 12.5%;
+    }
+
+    .w-product-brand {
+        @include font-size(1.2);
+        color: $medium-gray;
+        height: 15px;
+        text-transform: uppercase;
+    }
+
+    .w-product-name {
+        @include font-size(1.2);
+        height: 30px;
+        margin-bottom: 0;
+    }
+
+    .w-product__price {
+        span {
+            @include font-size(1.6);
+            display: inline-block;
+            margin-right: ($global-margin / 2);
+        }
+
+        .w-product-mini-addcart & {
+            float: left;
+        }
+    }
+
+    .w-product-mini-addcart__button {
+        float: right;
+        margin-bottom: 0;
+        padding: ($global-padding / 3) ($global-padding / 2);
+    }
+}

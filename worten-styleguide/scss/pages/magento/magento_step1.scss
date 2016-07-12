@@ -1,0 +1,104 @@
+// --------------------------
+// Magento Checkout :: Step 1
+// --------------------------
+
+.saved-address-container .btn-billing-submit {
+    display: none;
+}
+// Invoice Address Box
+.mg-invoice-address__box {
+    background-color: $pure-light-gray;
+    border: 1px solid $light-gray;
+    margin-bottom: ($global-margin / 2);
+    padding: ($global-padding / 2);
+
+    //tablet
+    @include breakpoint(medium) {
+        @include grid-row;
+    }
+
+    &.new-address {
+        background: 0;
+        border: 0;
+        margin-top: $global-margin;
+
+        h3 {
+            @include font-size(1.8);
+            font-weight: $global-weight-bold;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.mg-invoice-address__box__details {
+    //tablet
+    @include breakpoint(medium) {
+        @include grid-column(8, 0);
+    }
+
+    h3 {
+        @include font-size(2);
+    }
+
+    address {
+        color: $medium-gray;
+        font-style: normal;
+        margin-bottom: $global-margin;
+
+        @include breakpoint(medium) {
+            margin-bottom: 0;
+        }
+    }
+
+    span {
+        display: block;
+    }
+}
+
+.mg-invoice-address__box__actions {
+    text-align: right;
+
+    //tablet
+    @include breakpoint(medium) {
+        @include grid-column(4);
+    }
+
+    .edit {
+        @include font-size(1.2);
+        color: $medium-gray;
+        display: block;
+        margin-bottom: ($global-margin / 2);
+        text-transform: uppercase;
+
+        &:before {
+            content: '\E3C9';
+            font-family: 'Material Icons';
+            margin-right: ($global-margin / 2);
+            vertical-align: middle;
+        }
+    }
+
+    button {
+        margin: 0;
+    }
+}
+
+#billing-saved-address-use-for-shipping {
+    display: none;
+}
+
+#billing-new-address-form {
+    @include grid-column(12);
+
+    .control label {
+        margin: 0
+    }
+
+    // Hide Fields From Create Account Form
+    label[for="billing:company_role"],
+    input[name="billing[company_role]"],
+    label[for="billing:industry"],
+    select[name="billing[industry]"] {
+        display: none;
+    }
+}

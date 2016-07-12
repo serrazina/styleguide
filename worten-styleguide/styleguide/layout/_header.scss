@@ -1,0 +1,176 @@
+// Main Header Block
+%mobile-header-icons {
+    cursor: pointer;
+    height: 32px;
+    line-height: 32px;
+    margin: 0 ($global-margin / 2);
+
+    &:before {
+        @include font-size(2.4);
+        font-family: 'worten-icons';
+        height: 20px;
+        line-height: 1;
+        vertical-align: middle;
+        width: 20px;
+    }
+}
+
+.w-main-header__container {
+    background-color: $primary-color;
+    display: block;
+    position: fixed;
+    width: 100%;
+    z-index: 500;
+
+    @media screen and #{breakpoint(medium down)} and #{breakpoint(landscape)} {
+        position: relative;
+    }
+
+    &.is-fixed {
+        @include box-shadow(0, 2px, 3px, rgba($shadow-color, .5), "");
+
+        .w-menu-fixed-bar {
+            @include breakpoint(xmedium) {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+.w-menu-fixed-bar {
+    display: none;
+    float: left;
+}
+
+// Div placeholder to resolve position Fixed Main Header
+.w-main-header__placeholder {
+    height: 51px;
+
+    @include breakpoint(xmedium) {
+        height: 52px;
+    }
+
+    @media screen and #{breakpoint(medium down)} and #{breakpoint(landscape)} {
+        display: none;
+    }
+}
+
+.w-main-header__wrapper {
+    @include grid-row(12);
+}
+
+.title-bar-left,
+.title-bar-right {
+    @include grid-column(6);
+}
+
+.title-bar-left {
+    @include breakpoint(medium) {
+        @include grid-column(9);
+    }
+}
+
+.title-bar-right {
+    @include breakpoint(medium) {
+        @include grid-column(3);
+    }
+
+    a {
+        color: $white;
+    }
+}
+
+.w-main-header__title-bar {
+    background-color: transparent;
+    color: $white;
+
+    @include breakpoint(medium) {
+        @include grid-row(12);
+    }
+}
+
+.w-menu-icon {
+    background: url(../img/w-fixed-menu.svg) no-repeat center;
+    height: 35px;
+    width: 38px;
+}
+
+.w-menu-toggle-button {
+    float: left;
+    line-height: 1;
+
+    @include breakpoint(medium) {
+        display: none;
+    }
+}
+
+.w-main-header__site-title {
+    @include breakpoint(medium) {
+        @include grid-column(4);
+    }
+
+    @include breakpoint(xmedium) {
+        margin-top: ($global-margin / 4);
+    }
+
+    @include breakpoint(large) {
+        @include grid-column(3);
+    }
+
+    a {
+        @include hide-text;
+        background-image: url(../img/w-logo-worten.svg);
+        background-size: 86px 19px;
+        display: block;
+        height: 19px;
+        width: 86px;
+
+        .is-fixed & {
+            @include breakpoint(medium) {
+                margin-left: 40px;
+            }
+        }
+
+        @include breakpoint(medium) {
+            background-size: 125px 26px;
+            height: 26px;
+            width: 125px;
+        }
+    }
+}
+
+.w-search-icon-mobile {
+    @extend %mobile-header-icons;
+
+    &:before {
+        content: '\e8b6';
+    }
+}
+
+.w-stores-icon-mobile {
+    @extend %mobile-header-icons;
+
+    &:before {
+        content: '\e569';
+    }
+
+    @include breakpoint(medium) {
+        display: none;
+    }
+}
+
+.w-shop-cart-icon-mobile {
+    @extend %mobile-header-icons;
+
+    &:before {
+        @include font-size(2.2);
+        content: '\e8cc';
+    }
+
+    span {
+        @include hide-for-only(small);
+        @include font-size(2.2);
+        margin-left: ($global-margin / 3);
+        vertical-align: middle;
+    }
+}

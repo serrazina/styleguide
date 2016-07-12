@@ -1,0 +1,729 @@
+// Cards
+//
+// This section represents cards block
+//
+// markup:
+//  <section class="w-cards-block w-section-no__box w-section">
+//    <div class="w-section__wrapper">
+//      <sg-insert>2.1</sg-insert>
+//      <sg-insert>2.1</sg-insert>
+//      <sg-insert>2.2</sg-insert>
+//    </div>
+//  </section>
+//
+// Styleguide 2.0.0
+.w-cards-block {
+    .w-section-content {
+        @include grid-row(12);
+    }
+}
+
+%w-card-hover {
+    @include box-shadow(1px, 1px, 5px, rgba($shadow-color,.5), "");
+    transition: .3s;
+    transform: translate3d(0, 0, 0);
+
+    &:hover {
+        transform: translateY(-3px);
+    }
+}
+
+// Card
+//
+// markup:
+//  <div class="w-card w-card-simple" itemscope itemtype="http://schema.org/Offer">
+//   <div class="w-card-wrapper">
+//      <figure class="w-card-product__image" itemprop="image">
+//        <a href="#">
+//           <picture>
+//             <!--[if IE 9]><video style="display: none;"><![endif]-->
+//             <source srcset="images/cards/large.jpg" media="(min-width: 1200px)">
+//             <source srcset="images/cards/medium.jpg" media="(min-width: 1024px)">
+//             <source srcset="images/cards/small.jpg" media="(min-width: 640px)">
+//             <!--[if IE 9]></video><![endif]-->
+//             <img srcset="images/cards/extra-small.jpg" alt="#">
+//           </picture>
+//        </a>
+//      </figure>
+//      <div class="w-card-product__content">
+//        <h4 class="w-card-product__title w-icon" itemprop="name"><a href="#">Simple Card</a></h4>
+//        <p class="w-card__description" itemprop="description">Sed do eiusmod tempor incididunt ut</p>
+//      </div>
+//    </div>
+//  </div>
+//
+// Styleguide 2.1.0
+.w-card {
+    @include grid-column(12, 0);
+    margin-bottom: $global-margin;
+
+    @include breakpoint(landscape) {
+        @include grid-column(6);
+    }
+
+    @include breakpoint(medium) {
+        @include grid-column(6);
+        @include grid-column-end;
+
+        &:first-child {
+            padding-left: 0;
+        }
+
+        &:last-child {
+            padding-right: 0;
+        }
+    }
+
+    @include breakpoint(large) {
+        @include grid-column(3);
+        @include grid-column-end;
+        margin-bottom: 0;
+    }
+
+    &:nth-child(2n+3) {
+        @include breakpoint(medium) {
+            clear: left;
+        }
+
+        @include breakpoint(large) {
+            clear: none;
+        }
+    }
+}
+
+.w-card-wrapper {
+    .w-section-no__box & {
+        @extend %w-card-hover;
+    }
+}
+
+.w-card-product__image {
+    background-color: $white;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+
+    @include breakpoint(large) {
+        height: 190px;
+    }
+
+    img {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.w-card-product__content {
+    background-color: $white;
+    line-height: 1;
+    padding: $global-padding / 2;
+
+    span {
+        color: $primary-color;
+
+        &.w-oldPrice {
+            @include font-size(1.7);
+            color: $medium-gray;
+            display: block;
+            text-decoration: line-through;
+        }
+
+        &.w-currentPrice {
+            display: block;
+            margin: 0;
+            margin-bottom: $global-margin / 2;
+        }
+    }
+
+    .w-icon {
+        @include before-after-background(20px, $primary-color, 1.2, ($global-margin / 5), 0, '', '\E5C8');
+    }
+}
+
+.w-card-product__title {
+    @include font-size(2);
+    font-weight: $global-weight-bold;
+    margin-bottom: 0;
+
+    @include breakpoint(large) {
+        @include font-size(1.5);
+    }
+}
+
+.w-card__description {
+    @include font-size(1.4);
+    height: 38px;
+    margin-bottom: 0;
+}
+
+.w-card__bullets {
+    @include font-size(1.3);
+    list-style-position: inside;
+    margin-bottom: 0;
+
+    @include breakpoint(medium) {
+        @include font-size(1.4);
+    }
+
+    li {
+        margin-bottom: ($global-margin / 5);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.w-card__footer {
+    span {
+        @include font-size(1.2);
+        color: $medium-gray;
+        display: block;
+        margin-bottom: ($global-margin / 4);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+// Big Card
+//
+// markup:
+//  <div class="w-card w-card-big" itemscope itemtype="http://schema.org/Offers">
+//    <div class="w-card-wrapper">
+//     <figure class="w-card-product__image">
+//           <picture>
+//             <!--[if IE 9]><video style="display: none;"><![endif]-->
+//             <source srcset="images/doublecards/large-background.jpg" media="(min-width: 1200px)">
+//             <source srcset="images/doublecards/medium-background.jpg" media="(min-width: 1024px)">
+//             <source srcset="images/doublecards/small-background.jpg" media="(min-width: 640px)">
+//             <!--[if IE 9]></video><![endif]-->
+//             <img srcset="images/doublecards/extra-small-background.jpg" alt="#">
+//           </picture>
+//      </figure>
+//      <div class="w-card-product__content">
+//          <figure class="w-card-product__thumb">
+//              <picture>
+//                  <!--[if IE 9]><video style="display: none;"><![endif]-->
+//                  <source srcset="images/doublecards/large-product.png" media="(min-width: 1200px)">
+//                  <source srcset="images/doublecards/medium-product.png" media="(min-width: 1024px)">
+//                  <source srcset="images/doublecards/small-product.png" media="(min-width: 640px)">
+//                  <!--[if IE 9]></video><![endif]-->
+//                  <img srcset="images/doublecards/extra-small-product.png" alt="#">
+//              </picture>
+//          </figure>
+//          <div class="w-card-product__details">
+//              <h4 class="w-card-product__title" itemprop="name"><a href="#" style="color:#fff;">Mundo Worten</a></h4>
+//              <p class="w-card__description" style="color:#fff;font-size:13px">Faça da tecnologia uma companheira permanente ao longo do seu dia, com os gadgets portáteis que mais o vão ajudar a cada hora! Em casa, no trabalho ou em momentos de lazer, existem equipamentos para cada ocasião que a Switch lhe apresenta num especial dedicado a melhorar a sua rotina.</p>
+//          </div>
+//      </div>
+//    </div>
+//  </div>
+//
+// Styleguide 2.2
+.w-card-big {
+    @include grid-column(12);
+    margin-bottom: $global-margin;
+    position: relative;
+
+    @include breakpoint(large) {
+        @include grid-column(6);
+    }
+
+    &.w-section-content__box {
+        @include w-box(transparent, 0, 0, 0, transparent);
+    }
+
+    &:only-child {
+        @include breakpoint(medium) {
+            margin-bottom: 0;
+        }
+    }
+
+    .w-card-product__content {
+        @include grid-row(12);
+        background: none;
+        padding: $global-padding;
+        position: absolute;
+        top: 0;
+
+        @include breakpoint(medium) {
+            background-color: transparent;
+        }
+    }
+
+    .w-card-product__details {
+        @include breakpoint(xmedium) {
+            @include grid-column(9);
+        }
+    }
+
+    .w-card-product__image {
+        @include breakpoint(medium) {
+            left: auto;
+            top: auto;
+        }
+
+        @include breakpoint(large) {
+            height: auto;
+        }
+
+        img {
+            @include breakpoint(large) {
+                max-height: 290px;
+            }
+        }
+    }
+
+    .w-card-product__thumb {
+        margin: 0;
+        text-align: center;
+
+        @include breakpoint(xmedium) {
+            @include grid-column(3);
+        }
+    }
+
+    .w-card-product__title {
+        @include font-size(2);
+        margin-bottom: $global-margin;
+
+        @include breakpoint(medium) {
+            @include font-size(2.75);
+        }
+    }
+
+    .w-card__description {
+        height: auto;
+    }
+
+    .w-card-product__pic {
+        margin-bottom: ($global-margin * 2);
+    }
+}
+
+.w-card-product-big {
+    .w-card-product__content {
+        @include breakpoint(large) {
+            @include grid-row;
+        }
+    }
+
+    .w-card-product__description {
+        @include breakpoint(large) {
+            @include grid-column(8);
+            margin-bottom: 0;
+        }
+    }
+
+    .w-card-product__action {
+        @include breakpoint(large) {
+            @include grid-column(4);
+        }
+    }
+}
+
+// ----------------------------------------
+// Cards Layout :: Card :: Side
+// ----------------------------------------
+.w-card-side {
+    @include grid-column(12);
+
+    &:last-child {
+        @include breakpoint(medium) {
+            margin-bottom: 0;
+        }
+    }
+
+    .w-card-wrapper {
+        @include breakpoint(large) {
+            @include grid-row;
+        }
+    }
+
+    .w-card-product__content {
+        padding: $global-padding;
+
+        @include breakpoint(large) {
+            @include grid-column(6);
+        }
+    }
+
+    .w-card-product__image {
+        @include breakpoint(large) {
+            @include grid-column(6, 0);
+        }
+    }
+
+    .w-card-product__title {
+        @include font-size(3);
+        margin-bottom: ($global-margin / 2);
+    }
+
+    .w-card__description {
+        @include font-size(1.4);
+    }
+
+    &.w-card-big-image {
+        .w-card-product__content {
+            padding: ($global-padding * 1.5);
+
+            @include breakpoint(large) {
+                @include grid-column(4);
+            }
+        }
+
+        .w-card-product__image {
+            @include breakpoint(large) {
+                @include grid-column(8, 0);
+            }
+        }
+
+        .w-card-product__title {
+            @include font-size(2);
+        }
+
+        .w-card__description {
+            @include font-size(1.5);
+
+            @include breakpoint(medium) {
+                @include font-size(1.8);
+            }
+        }
+    }
+}
+
+// ----------------------------------------
+// Cards Layout :: Big Card :: Side Content
+// ----------------------------------------
+.w-card-big-side {
+    @include grid-column(12);
+
+    &:last-child {
+        @include breakpoint(medium) {
+            margin-bottom: 0;
+        }
+    }
+
+    .w-card-wrapper {
+        @include breakpoint(medium) {
+            @include grid-row(12);
+        }
+    }
+
+    .w-card-product__content {
+        padding: $global-padding;
+
+        @include breakpoint(medium) {
+            @include grid-column(5);
+        }
+
+        .w-card-product__title {
+            @include font-size(1.7);
+        }
+
+        .w-card__description {
+            margin-bottom: $global-margin;
+
+            @include breakpoint(medium) {
+                @include font-size(1.8);
+            }
+        }
+    }
+
+    .w-card-product__image {
+        @include breakpoint(medium) {
+            @include grid-column(7, 0);
+        }
+    }
+}
+
+// -----------------------------------------------
+// Cards Layout :: With Icon Used in Contacts Page
+// -----------------------------------------------
+.w-cards__icon {
+    margin-bottom: $global-margin;
+
+    @include breakpoint(medium) {
+        @include grid-column(6);
+    }
+
+    &:nth-child(2n+3) {
+        clear: left;
+    }
+
+    .w-cards__icon_wrapper {
+        padding: $global-padding;
+    }
+
+    .w-cards__icon-box {
+        @include w-box($white, 0, 0, 5px, rgba($shadow-color, .5));
+    }
+
+    header {
+        margin-bottom: ($global-margin / 2);
+
+        .material-icons {
+            @include font-size(4.5);
+            color: $primary-color;
+        }
+    }
+
+    h3 {
+        @include font-size(1.7);
+        font-weight: $global-weight-bold;
+    }
+
+    h4 {
+        @include font-size(1.6);
+        color: $primary-color;
+        font-weight: $global-weight-normal;
+    }
+
+    li {
+        @include font-size(1.4);
+        color: $dark-gray;
+        font-weight: $global-weight-thin;
+    }
+
+    footer {
+        margin-top: $global-margin;
+        text-align: right;
+
+        a {
+            color: $primary-color;
+        }
+    }
+}
+
+// Full Card
+//
+// markup:
+// <div class="w-card w-full-card" itemscope itemtype="http://schema.org/Offer">
+//     <div class="w-card-wrapper">
+//         <figure class="w-full-card__image">
+//             <a href="#" class="qa-card-full__image" itemprop="url">
+//                 <picture>
+//                     <!--[if IE 9]><video style="display: none;"><![endif]-->
+//                     <source srcset="images/fullcard/large.jpg" media="(min-width: 1200px)">
+//                     <source srcset="images/fullcard/medium.jpg" media="(min-width: 1024px)">
+//                     <source srcset="images/fullcard/small.jpg" media="(min-width: 640px)">
+//                     <!--[if IE 9]></video><![endif]-->
+//                     <img srcset="images/fullcard/extra-small.jpg" alt="#">
+//                 </picture>                
+//             </a>
+//         </figure>
+//         <div class="w-full-card__content">
+//             <h3 class="w-full-card__title" itemprop="name">
+//                 <a href="#" class="qa-card-full__content" itemprop="url">Promoções Mobile</a>
+//             </h3>
+//             <button class="w-button-primary w-full-card__button qa-card-full__button" itemprop="url">Ver Descontos</button>
+//         </div>
+//     </div>
+// </div>
+//
+// Styleguide 2.3
+.w-full-card {
+    @include breakpoint(medium) {
+        margin-bottom: 0;
+    }
+
+    .w-card-wrapper {
+        position: relative;
+    }
+
+    .w-full-card__image {
+        margin: 0;
+        overflow: hidden;
+        position: relative;
+        text-align: center;
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    .w-full-card__content {
+        background-color: transparent;
+        bottom: 0;
+        left: 0;
+        padding: $global-padding;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+    }
+
+    .w-full-card__title {
+        @include font-size(2);
+        color: $white;
+
+        b {
+            @include font-size(2.5);
+            display: block;
+            font-weight: $global-weight-bold;
+        }
+    }
+
+    a {
+        color: $white;
+    }
+
+    .w-full-card__button {
+        width: 100%;
+    }
+
+    &.swiper-slide {
+        margin-bottom: 0;
+        padding: 0;
+
+        .w-full-card__content {
+            padding: 0;
+        }
+
+        .w-full-card__button {
+            margin-bottom: $global-margin;
+            width: auto;
+        }
+    }
+}
+
+// -----------------------
+// Cards Layout :: Product
+// -----------------------
+.w-card-product {
+    .w-card-product__description {
+        margin-bottom: $global-margin;
+    }
+
+    .w-button-primary {
+        margin-bottom: 0;
+        width: 100%;
+    }
+}
+
+// Card Categories
+//
+// markup:
+// <section class="w-cards-block w-section-no__box w-section">
+//     <div class="w-section__wrapper">
+//         <div class="w-card w-card-category" itemscope itemtype="http://schema.org/Offer">
+//             <div class="w-card-wrapper">
+//                 <figure class="w-card-product__image">
+//                     <a href="#" itemprop="url" class="qa-card-promotions__image">
+//                         <picture>
+//                         <!--[if IE 9]><video style="display: none;"><![endif]-->
+//                         <source srcset="images/cards/large.jpg" media="(min-width: 1200px)">
+//                         <source srcset="images/cards/medium.jpg" media="(min-width: 1024px)">
+//                         <source srcset="images/cards/small.jpg" media="(min-width: 640px)">
+//                         <!--[if IE 9]></video><![endif]-->
+//                         <img srcset="images/cards/extra-small.jpg" alt="#">
+//                         </picture>
+//                     </a>
+//                 </figure>
+//                 <div class="w-card-product__content">
+//                     <span class="w-card-product__subtitle">Até</span>
+//                     <span class="w-oldPrice" itemprop="highPrice" content="EUR">
+//                         <small>€</small>
+//                         200<sup>00</sup>
+//                     </span>
+//                     <span class="w-currentPrice" itemprop="lowPrice" content="EUR">
+//                         <small>€</small>
+//                         300<sup>00</sup>
+//                     </span>
+//                     <span class="w-card-product__title" itemprop="name">
+//                         <a class="w-link-primary qa-card-promotions__title" href="#" itemprop="url">
+//                             15%<br>Desconto Imediato
+//                         </a>
+//                     </span>
+//                     <h3 class="w-card__description" itemprop="description">Em todos os portáteis<br>e híbridos 2 em 1</h3>
+//                     <footer class="w-card__footer">
+//                         <span>Válido até às 10h dia 13 de abril.</span>
+//                         <span>Limitado ao stock existente.</span>
+//                     </footer>
+//                 </div>
+//             </div>
+//         </div>
+//     </div>
+// </section>
+//
+// Styleguide 2.4
+
+.w-card-category {
+    margin-bottom: $global-margin;
+
+    @include breakpoint(large) {
+        margin-bottom: ($global-margin / 3);
+    }
+
+    .w-card-product__content {
+        height: auto;
+        padding: ($global-padding / 2) $global-padding;
+    }
+
+    .w-card-product__subtitle {
+        @include font-size(1.2);
+        display: block;
+        height: 16px;
+    }
+
+    .w-card-product__title {
+        @include font-size(2.7);
+        color: $primary-color;
+        display: block;
+        font-weight: $global-weight-black;
+        margin-bottom: ($global-margin / 2);
+        text-transform: uppercase;
+
+        @include breakpoint(medium) {
+            @include font-size(2);
+        }
+    }
+
+    .w-card__description {
+        @include font-size(1.3);
+        height: 36px;
+        margin-bottom: ($global-margin / 2);
+    }
+
+    .w-card__footer {
+        span {
+            @include font-size(1.2);
+            color: $medium-gray;
+            display: block;
+            margin-bottom: ($global-margin / 4);
+        }
+    }
+}
+// styleguide:ignore:start
+// -----------
+// Cards Equal
+// -----------
+.w-card-equal {
+    @include with-count(1) {
+        @include breakpoint(large) {
+            @include grid-column(12);
+        }
+    }
+
+    @include with-count(2) {
+        @include breakpoint(large) {
+            @include grid-column(6);
+        }
+    }
+
+    @include with-count(3) {
+        @include breakpoint(large) {
+            @include grid-column(4);
+        }
+    }
+
+    @include with-count(4) {
+        @include breakpoint(large) {
+            @include grid-column(3);
+        }
+    }
+}
+// styleguide:ignore:end

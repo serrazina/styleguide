@@ -1,0 +1,66 @@
+// -------------------------
+// Button Styles
+// -------------------------
+%w-button {
+  border: 0;
+  font-weight: $global-weight-bold;
+  text-transform: uppercase;
+
+  i {
+    vertical-align: middle;
+  }
+}
+
+%w-button-simple {
+  i {
+    vertical-align: middle;
+  }
+}
+
+.w-button-primary {
+  @include button(false, $primary-color, $button-background-hover, $white);
+  @extend %w-button;
+  box-shadow: 0 -3px $button-background-hover inset;
+}
+
+.w-button-secondary {
+  @include button(false, $primary-color, $primary-color, $primary-color, hollow);
+  @extend %w-button;
+}
+
+.w-button-tertiary {
+  @include button(false, $medium-gray, $medium-gray, $medium-gray, hollow);
+  @extend %w-button;
+}
+
+.w-button-simple {
+  @include button(false, $medium-gray, transparent, transparent, hollow);
+  box-shadow: none;
+  @extend %w-button;
+}
+
+.w-button-facebook {
+  @include button(false, $facebook-color, $facebook-color, $white);
+  @extend %w-button-simple;
+  border-bottom: 3px solid darken($facebook-color, 10%);
+}
+
+.w-button-twitter {
+  @include button(false, $twitter-color, $twitter-color, $white);
+  @extend %w-button-simple;
+  border-bottom: 3px solid darken($twitter-color, 10%);
+}
+
+.w-button-google {
+  @include button(false, $google-color, $google-color, $white);
+  @extend %w-button-simple;
+  border-bottom: 3px solid darken($google-color, 10%);
+}
+
+.w-button-icon {
+  padding: .61rem $global-padding;
+}
+
+.w-button-nomargin {
+  margin-bottom: 0;
+}

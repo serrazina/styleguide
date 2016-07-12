@@ -1,0 +1,38 @@
+// ----------------------
+// Video Slider Component
+// ----------------------
+.w-video-slider {
+    .w-section__title {
+        margin-bottom: $global-margin;
+    }
+
+    .w-section__wrapper__content {
+        position: relative;
+    }
+
+    .w-video-slider__slide {
+        text-align: center;
+        width: 80%;
+
+        @include breakpoint(medium) {
+            width: 60%;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        @include show-for(large);
+    }
+
+    .swiper-slide {
+        opacity: 0.4;
+    }
+
+    .swiper-slide-active {
+        opacity: 1;
+    }
+}

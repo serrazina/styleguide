@@ -1,0 +1,65 @@
+// -------------------------------
+// Magento Checkout :: Components
+// -------------------------------
+.mg-pg {
+    .page-title {
+        h1 {
+            @include font-size(2.4);
+        }
+    }
+
+    .legend h2 {
+        @include font-size(2);
+        font-weight: $global-weight-bold;
+        margin-bottom: $global-margin;
+        text-transform: uppercase;
+    }
+
+    h5 {
+        @include font-size(1.5);
+        color: $medium-gray;
+        font-weight: $global-weight-normal;
+        text-transform: uppercase;
+    }
+
+    ol,
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    a {
+        color: $primary-color;
+    }
+
+    p,
+    li {
+        @include font-size(1.3);
+    }
+
+    // Buttons
+    .button {
+        @include button(false, $primary-color, $button-background-hover, $white);
+        @extend %w-button;
+        box-shadow: 0 -3px $button-background-hover inset;
+    }
+
+    // Address
+    address {
+        font-style: normal;
+    }
+
+    .a-right {
+        text-align: right;
+    }
+
+    #lt-arrow {
+        display: none;
+    }
+
+    .cvv {
+        @include font-size(1.1);
+        text-transform: default;
+    }
+}

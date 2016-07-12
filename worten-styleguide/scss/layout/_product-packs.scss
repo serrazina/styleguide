@@ -1,0 +1,307 @@
+
+// -----------------------------------
+// Product Page :: Packs Block
+// -----------------------------------
+.w-product-packs {
+    .w-section__title {
+        @include font-size(1.5);
+        font-weight: $global-weight-normal;
+    }
+
+    .w-product-packs__wrapper {
+        @include w-box($white, 0, 0, 5px, rgba($shadow-color, .5));
+        padding: 0 ($global-padding / 2);
+    }
+}
+
+.w-product__pack {
+    @include grid-row(12);
+    padding-top: ($global-padding / 2);
+
+    @include breakpoint(medium) {
+        @include grid-row(17);
+        border-bottom: 1px solid $light-gray;
+    }
+
+    &:last-child {
+        border: 0;
+    }
+}
+
+.w-product__pack-actions {
+    padding: $global-padding;
+    @include grid-column(12);
+}
+
+.w-product__pack-offers {
+    position: relative;
+}
+
+.w-product__pack-products {
+    @include grid-column(12);
+
+    @include breakpoint(medium) {
+        @include grid-column(14);
+    }
+
+    .w-dropdown {
+        display: none;
+
+        @include breakpoint(medium) {
+            display: block;
+        }
+    }
+
+    ul {
+        @include grid-row(15);
+        border-bottom: 1px solid $light-gray;
+        list-style: none;
+        margin: 0;
+
+        @include breakpoint(medium) {
+            border: 0;
+        }
+    }
+
+    li {
+        @include grid-column(4);
+        @include grid-column-end;
+
+        &.w-product__pack-plus {
+            @include grid-column(1, 0)
+        }
+    }
+
+    .w-product__pack__brand,
+    .w-product__pack__title,
+    .w-product__pack__more {
+        @include show-for(medium);
+    }
+
+    .w-product__pack__title {
+        @include breakpoint(medium) {
+            @include font-size(1.35);
+        }
+    }
+}
+
+.w-product__pack__wrapper {
+    @include breakpoint(large) {
+        @include grid-row(12);
+    }
+}
+
+.w-product__pack__image {
+    margin: 0;
+    text-align: center;
+
+    @include breakpoint(large) {
+        @include grid-column(5, 0);
+    }
+}
+
+.w-product__pack__details {
+    @include breakpoint(large) {
+        @include grid-column(7);
+    }
+}
+
+.w-product__pack__brand {
+    display: block;
+    font-weight: $global-weight-thin;
+    height: 18px;
+}
+
+.w-product__pack__title {
+    @include font-size(1.6);
+    font-weight: $global-weight-normal;
+}
+
+.w-product__pack__more {
+    @include font-size(1.2);
+    color: $primary-color;
+
+    &:after {
+        @include font-size(1.6);
+        content: '\e5c5';
+        font-family: 'worten-icons';
+        vertical-align: middle;
+    }
+}
+
+.w-product__pack-plus {
+    height: 60px;
+    text-align: center;
+
+    @include breakpoint(medium) {
+        height: 100px;
+    }
+
+    i {
+        @include font-size(2);
+        color: $primary-color;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+
+        @include breakpoint(medium) {
+            color: $medium-gray;
+        }
+    }
+}
+
+.w-product__pack-actions {
+    @include breakpoint(medium) {
+        padding: 0;
+        @include grid-column(3);
+    }
+
+    .w-product__pack__articles {
+        @include hide-for(medium);
+    }
+
+    .w-product__pack__articles,
+    .w-product__pack__currentPrice {
+        @include font-size(2.2);
+    }
+
+    .w-product__pack__articles {
+        font-weight: $global-weight-thin;
+    }
+
+    .w-product__pack__currentPrice {
+        color: $primary-color;
+        margin-left: ($global-margin / 2);
+
+        @include breakpoint(medium) {
+            @include font-size(2.5);
+            display: block;
+            margin-left: 0;
+        }
+
+        span {
+            @include breakpoint(medium) {
+                @include font-size(2.4);
+            }
+        }
+    }
+
+    .w-product__pack__buttons {
+        @include show-for(medium);
+
+        .w-button-primary {
+            margin-bottom: 0;
+            width: 100%;
+        }
+    }
+}
+
+.w-product__pack-trigger {
+    @include hide-for(medium);
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    &:before {
+        @include font-size(3);
+        content: '\e5cf';
+        font-family: 'worten-icons';
+        line-height: 1;
+        vertical-align: middle;
+    }
+}
+
+.is-active {
+    .w-product__pack-trigger:before {
+        content: '\e5ce';
+    }
+}
+
+// ---------------------------------------
+// Product Page :: Packs Block - Dropdown
+// ---------------------------------------
+.w-product__pack__add {
+    @include grid-row(15);
+    background-color: lighten($light-gray, 10%);
+    list-style: none;
+    margin: 0;
+
+    li {
+        @include grid-column(15);
+        @include font-size(1.2);
+        border-bottom: 1px solid $light-gray;
+        padding: ($global-padding / 2);
+
+        &:last-child {
+            border: 0;
+        }
+    }
+
+    a {
+        @include grid-row(12);
+    }
+
+    figure {
+        margin: 0;
+        @include grid-column(3);
+    }
+
+    .w-product__pack__add-details {
+        @include grid-column(7);
+
+        .w-product__price__current {
+            color: $primary-color;
+            display: block;
+        }
+    }
+
+    .w-product__pack__add-status {
+        @include grid-column(2);
+
+        i {
+            color: $medium-gray;
+        }
+    }
+
+    .is-active {
+        background-color: $white;
+
+        .w-product__pack__add-status {
+            i {
+                color: $primary-color;
+            }
+        }
+    }
+}
+
+// ------------------------------
+// Product Page :: Mobile Packs
+// ------------------------------
+.w-product__pack-mobile {
+    @include hide-for(medium);
+    display: none;
+    margin-top: $global-margin;
+
+    .w-product__pack__details {
+        border-bottom: 1px solid $light-gray;
+        margin-bottom: ($global-margin / 2);
+    }
+
+    .w-button-primary {
+        margin: 0;
+        width: 100%;
+    }
+
+    .w-product__pack__more:after {
+        content: '\e145';
+        margin-left: ($global-margin / 2);
+    }
+
+    .w-product__pack__details {
+        .is-active {
+            .w-product__pack__more:after {
+                content: '\e15B';
+            }
+        }
+    }
+}

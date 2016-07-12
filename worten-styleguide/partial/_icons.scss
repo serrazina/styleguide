@@ -1,0 +1,37 @@
+// -------------------------------
+// Worten Icons :: Material Design
+// -------------------------------
+.w-icon {
+    vertical-align: middle;
+    &:after,
+    &:before {
+        @include font-size(2);
+        font-family: "worten-icons";
+        line-height: 1;
+    }
+
+    .w-icon-after {
+        margin-left: ($global-margin / 2);
+    }
+
+    .w-icon-before {
+        margin-right: ($global-margin / 2);
+    }
+}
+
+.w-icon-14 { font-size: 14px; }
+.w-icon-18 { font-size: 18px; }
+.w-icon-24 { font-size: 24px; }
+.w-icon-36 { font-size: 36px; }
+.w-icon-48 { font-size: 48px; }
+
+// Rules for sizing the icon.
+.material-icons.md-14 { font-size: 14px; }
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+.icon-v_align {
+    vertical-align: middle;
+}

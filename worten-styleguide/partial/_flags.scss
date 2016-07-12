@@ -1,0 +1,241 @@
+// -----
+// Flags
+// -----
+.w-flag {
+  position: absolute;
+  text-align: right;
+  z-index: 2;
+
+  &.bottom {
+    bottom: 5px;
+  }
+
+  &.left {
+    left: 0;
+  }
+
+  &.right {
+    right: 0;
+  }
+
+  &.top {
+    top: 5px;
+  }
+}
+
+.w-flag__tag {
+  @include font-size(1.4);
+  background: $flag-color;
+  clear: both;
+  color: $black;
+  display: inline-block;
+  float: right;
+  font-weight: $global-weight-bold;
+  line-height: 1.25;
+  margin-bottom: ($global-margin / 2);
+  padding: ($global-padding / 3);
+  text-align: left;
+
+  a {
+    color: $black;
+    text-decoration: underline;
+  }
+}
+
+// --------------------------------------------
+// Flags :: Simple Arrow Left Yellow Background
+// --------------------------------------------
+.w-flag__arrow-left {
+  height: 28px;
+  line-height: 28px;
+  padding-bottom: 0;
+  padding-top: 0;
+  position: relative;
+
+  &:before {
+    border-color: transparent $flag-color transparent transparent;
+    border-style: solid;
+    border-width: 14px 14px 14px 0;
+    content: "";
+    left: -14px;
+    position: absolute;
+  }
+}
+
+// ------------------------
+// Flags ::  Discount Value
+// ------------------------
+
+.w-flag__discount-value {
+  @include font-size(3);
+}
+
+// -------------------
+// Flags ::  Two Lines
+// -------------------
+.w-flag__twolines {
+  @include font-size(1.2);
+  font-weight: $global-weight-thin;
+  text-align: right;
+
+  .w-flag__tag-value {
+    @include font-size(1.8);
+    display: block;
+    font-weight: $global-weight-bold;
+  }
+}
+
+// ---------------------------
+// Flags ::  Percentage + Text
+// ---------------------------
+.w-flag__discount-value-text {
+  text-align: right;
+
+  .w-flag__tag-value {
+    @include font-size(2.5);
+    float: left;
+    margin-right: ($global-margin / 2);
+  }
+
+  .w-flag__tag-text {
+    @include font-size(1.2);
+    display: inline-block;
+    font-weight: $global-weight-thin;
+    text-align: left;
+  }
+}
+
+
+// ---------------------------
+// Flags ::  Energy Efficience
+// ---------------------------
+$a-color-plus: #249023;
+$a-color-2plus: #35BF33;
+$a-color-3plus: #7ED321;
+$b-color: #97F037;
+$c-color: #D6FE39;
+$d-color: #FEEF5C;
+$e-color: #FCD500;
+$f-color: #FC7D04;
+$g-color: #E00503;
+
+@mixin w-flag-energy($color) {
+  @include font-size(1.5);
+  background: $color;
+  color: set-button-text-color($color);
+  text-align: center;
+  width: 45px;
+
+  &:before {
+    border-color: transparent $color transparent transparent;
+  }
+}
+
+.w-flag__energy-aplus {
+  @include w-flag-energy($a-color-plus);
+}
+
+.w-flag__energy-a2plus {
+  @include w-flag-energy($a-color-2plus);
+}
+
+.w-flag__energy-a3plus {
+  @include w-flag-energy($a-color-3plus);
+}
+
+.w-flag__energy-b {
+  @include w-flag-energy($b-color);
+}
+
+.w-flag__energy-c {
+  @include w-flag-energy($c-color);
+}
+
+.w-flag__energy-d {
+  @include w-flag-energy($d-color);
+}
+
+.w-flag__energy-e {
+  @include w-flag-energy($e-color);
+}
+
+.w-flag__energy-f {
+  @include w-flag-energy($f-color);
+}
+
+.w-flag__energy-g {
+  @include w-flag-energy($g-color);
+}
+
+// ----------------
+// Flags ::  Custom
+// ----------------
+.w-flag__custom {
+  margin-bottom: ($global-margin / 2);
+  padding: 0;
+}
+
+// --------------------
+// Flags ::  Utilities
+// --------------------
+.w-flag__utilities {
+  @include font-size(1.2);
+  background: $dark-gray;
+  color: $white;
+  margin-bottom: ($global-margin / 2);
+  padding: ($global-padding / 3);
+
+  &:before {
+    @include font-size(2.5);
+    font-family: 'worten-icons';
+    line-height: 1;
+    margin-right: ($global-margin / 3);
+    vertical-align: middle;
+  }
+
+  span {
+    display: inline-block;
+  }
+}
+
+.w-flag__card:before {
+  content: '\e903';
+}
+
+.w-flag__delivery:before {
+  content: '\e904';
+}
+
+.w-flag__insurance:before {
+  content: '\e905';
+}
+
+.w-flag__photo:before {
+  content: '\e906';
+}
+
+.w-flag__pieces:before {
+  content: '\e907';
+}
+
+.w-flag__repairs:before {
+  content: '\e908';
+}
+
+.w-flag__tools:before {
+  content: '\e909';
+}
+
+.w-flag__plus:before {
+  content: '\e145';
+}
+
+
+// --------------------------------
+// Flags :: Tablet
+// --------------------------------
+@include breakpoint(medium) {
+  .w-flag__tag {
+    @include font-size(1.2);
+  }
+}

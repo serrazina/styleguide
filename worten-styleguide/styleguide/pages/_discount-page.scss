@@ -1,0 +1,28 @@
+// ---------------------
+// Mega Discount Page
+// ---------------------
+.w-discounts-block {
+    .swiper-slide {
+        width: 75%;
+
+        @include breakpoint(medium) {
+            width: 40%;
+        }
+    }
+
+    .w-card-product__image {
+        @include breakpoint(medium) {
+            height: 400px;
+        }
+    }
+}
+
+.w-discounts-block__wrapper {
+    margin-bottom: $global-margin;
+    position: relative;
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        @include show-for(large);
+    }
+}

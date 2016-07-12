@@ -1,0 +1,97 @@
+// --------------------------
+// Magento Checkout :: Step 5
+// --------------------------
+#opc-review {
+    .opc-block-progress {
+        @include grid-column(12, 0);
+    }
+}
+
+.w-order-complete {
+    @include breakpoint(large) {
+        @include grid-column(10);
+        @include grid-col-off(1);
+    }
+}
+
+.w-order-complete__header,
+.w-order-complete__footer {
+    text-align: center;
+}
+
+.w-order-complete__header {
+    h4 {
+        &:before {
+            @include font-size(8);
+            content: '\e86c';
+            display: block;
+            font-family: 'worten-icons';
+        }
+        @include font-size(3);
+    }
+
+    p {
+        @include font-size(1.7);
+    }
+}
+
+.w-order-complete__mb,
+.w-order-complete__sms {
+    margin-bottom: ($global-margin * 2);
+    text-align: left;
+}
+
+.w-order-complete__mb-details {
+    ul {
+        text-align: center;
+
+        @include breakpoint(medium) {
+            text-align: left;
+        }
+
+        &:before {
+            background-image: url(../img/mb-logo.svg);
+            background-repeat: no-repeat;
+            background-size: 100% 88px;
+            content: '';
+            display: block;
+            height: 88px;
+            margin-right: $global-margin;
+
+            @include breakpoint(medium) {
+                background-size: 200px 73px;
+                float: left;
+                height: 73px;
+                width: 200px;
+            }
+        }
+    }
+
+    li {
+        @include font-size(1.6);
+    }
+}
+
+.w-order-complete__sms {
+    .input-group-button {
+        width: 135px;
+    }
+
+    .w-button-primary span {
+        height: 40px;
+    }
+}
+
+
+// Table Review Products
+#checkout-review-table {
+    @include table-scroll;
+
+    img {
+        display: none;
+
+        @include breakpoint(medium) {
+            display: block;
+        }
+    }
+}
